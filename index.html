@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tibetan School Portal</title>
+    <style>
+        :root {
+            --primary: #8B0000; /* Tibetan Red */
+            --accent: #FFD700;  /* Gold */
+            --bg: #F9F8F6;
+            --card-bg: #FFFFFF;
+            --text: #333333;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-sizing: border-box;
+        }
+        h1, h2 {
+            color: var(--primary);
+            text-align: center;
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        button {
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: #600000;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .resource-card, .game-card {
+            background: #fdfbf7;
+            border-left: 5px solid var(--accent);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        .badge {
+            background: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .logout-btn {
+            background-color: #666;
+            margin-top: 20px;
+        }
+        .logout-btn:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- LOGIN SCREEN -->
+        <div id="login-screen">
+            <h1>Tibetan School Portal</h1>
+            <p style="text-align: center; color: #666; margin-bottom: 25px;">Enter your unique Student ID to access your class materials.</p>
+            <div class="form-group">
+                <label for="student-id">Student ID (e.g., NOR-01)</label>
+                <input type="text" id="student-id" placeholder="Enter ID..." autocomplete="off">
+            </div>
+            <button onclick="handleLogin()">Log In</button>
+            <p id="login-error" style="color: red; text-align: center; margin-top: 15px;" class="hidden"></p>
+        </div>
+
+        <!-- STUDENT DASHBOARD SCREEN -->
+        <div id="student-dashboard" class="hidden">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <div>
+                    <h2 id="welcome-msg" style="text-align: left; margin: 0;"></h2>
+                    <span id="class-badge" class="badge"></span>
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+            <h3>📚 Study Materials</h3>
+            <div id="materials-list">
+                <!-- Dynamically populated based on class -->
+            </div>
+
+            <h3 style="margin-top: 30px;">🎮 Interactive Class Games</h3>
+            <div id="games-list">
+                <!-- Dynamically populated based on class -->
+            </div>
+
+            <button class="logout-btn" onclick="handleLogout()">Log Out</button>
+        </div>
+    </div>
+
+    <script>
+        // REPLACE WITH YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzOaJ7WPixYLBvz9GkAZ2YW90QkYHgRrw7bt9TTAD08XEUeTFE40SnJh79nqq1pFEjhRQ/exec';
+
+        let currentStudent = null;
+
+        // Class-specific content database
+        const classContent = {
+            norbulinga: {
+                materials: [
+                    { title: "Week 1 Vocabulary Sheet", type: "PDF", link: "#" },
+                    { title: "Spoken Audio Drill: Greetings", type: "Audio", link: "#" }
+                ],
+                games: [
+                    { title: "Norbulinga Sentence Scrambler", id: "nor_scramble" }
+                ]
+            },
+            yumlha: {
+                materials: [
+                    { title: "Week 1 Family Terms PDF", type: "PDF", link: "#" },
+                    { title: "Spoken Audio Drill: Numbers", type: "Audio", link: "#" }
+                ],
+                games: [
+                    { title: "YumLha Matching Game", id: "yum_match" }
+                ]
+            },
+            potala: {
+                materials: [
+                    { title: "Advanced Proverbs PDF", type: "PDF", link: "#" },
+                    { title: "Conversation Dialogues Audio", type: "Audio", link: "#" }
+                ],
+                games: [
+                    { title: "Potala Cloze Fill-in", id: "pot_cloze" }
+                ]
+            }
+        };
+
+        async function handleLogin() {
+            const inputId = document.getElementById('student-id').value.trim().toUpperCase();
+            const errorEl = document.getElementById('login-error');
+            
+            if (!inputId) {
+                errorEl.innerText = "Please enter a Student ID.";
+                errorEl.classList.remove('hidden');
+                return;
+            }
+
+            errorEl.innerText = "Checking records...";
+            errorEl.classList.remove('hidden');
+
+            try {
+                let response = await fetch(`${SCRIPT_URL}?action=getStudents`);
+                let students = await response.json();
+                
+                let student = students.find(s => s.studentId.toUpperCase() === inputId);
+
+                if (student) {
+                    currentStudent = student;
+                    localStorage.setItem('tibetan_student', JSON.stringify(student));
+                    showDashboard();
+                } else {
+                    errorEl.innerText = "Student ID not found. Please check with your teacher.";
+                }
+            } catch (err) {
+                errorEl.innerText = "Connection error. Please try again.";
+                console.error(err);
+            }
+        }
+
+        function showDashboard() {
+            document.getElementById('login-screen').classList.add('hidden');
+            document.getElementById('student-dashboard').classList.remove('hidden');
+
+            document.getElementById('welcome-msg').innerText = `Tashi Delek, ${currentStudent.name}!`;
+            document.getElementById('class-badge').innerText = `Class: ${currentStudent.classGroup}`;
+
+            loadClassContent(currentStudent.classGroup.toLowerCase());
+        }
+
+        function loadClassContent(groupName) {
+            const content = classContent[groupName] || { materials: [], games: [] };
+            
+            // Render Materials
+            const matContainer = document.getElementById('materials-list');
+            matContainer.innerHTML = content.materials.length ? '' : '<p>No materials posted yet.</p>';
+            content.materials.forEach(mat => {
+                matContainer.innerHTML += `
+                    <div class="resource-card">
+                        <strong>${mat.title}</strong> (${mat.type})<br>
+                        <a href="${mat.link}" target="_blank" style="color: #8B0000; font-weight: bold; text-decoration: none;">Download / Open &rarr;</a>
+                    </div>
+                `;
+            });
+
+            // Render Games
+            const gameContainer = document.getElementById('games-list');
+            gameContainer.innerHTML = content.games.length ? '' : '<p>No games posted yet.</p>';
+            content.games.forEach(game => {
+                gameContainer.innerHTML += `
+                    <div class="game-card">
+                        <strong>${game.title}</strong><br>
+                        <button style="margin-top: 10px; padding: 8px; font-size: 14px;" onclick="completeGame('${game.title}')">Play & Submit Score</button>
+                    </div>
+                `;
+            });
+        }
+
+        async function completeGame(gameTitle) {
+            alert(`Simulating completion for: ${gameTitle}. Sending score to teacher dashboard...`);
+            
+            // Log score back to Google Sheets
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        studentId: currentStudent.studentId,
+                        name: currentStudent.name,
+                        classGroup: currentStudent.classGroup,
+                        activity: gameTitle,
+                        score: "Completed (100%)"
+                    })
+                });
+                alert("Progress successfully saved!");
+            } catch (err) {
+                console.error("Failed to save progress", err);
+            }
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('tibetan_student');
+            location.reload();
+        }
+
+        // Auto-login check if already logged in during session
+        window.onload = function() {
+            const saved = localStorage.getItem('tibetan_student');
+            if (saved) {
+                currentStudent = JSON.parse(saved);
+                showDashboard();
+            }
+        }
+    </script>
+</body>
+</html>
