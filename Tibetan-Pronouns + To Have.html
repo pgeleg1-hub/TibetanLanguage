@@ -1,0 +1,3369 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tibetan Pronoun To Have + Yod vs Med, Dug vs Mi-dug</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif+Tibetan:wght@400;700&amp;display=swap" rel="stylesheet">
+    <style>
+        .tibetan-font {
+            font-family: 'Noto Serif Tibetan', serif;
+            line-height: 1.75;
+        }
+        /* Extra leading for large Tibetan flashcard text so stacked glyphs don't overlap on wrap */
+        #fc-tibetan {
+            line-height: 1.85;
+            word-break: keep-all;
+            overflow-wrap: anywhere;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .drag-over {
+            border-color: #f59e0b !important;
+            background-color: #fef3c7 !important;
+        }
+        .row-drag-over {
+            border-top: 2px solid #f59e0b !important;
+        }
+        .drag-handle {
+            cursor: grab;
+        }
+        .drag-handle:active {
+            cursor: grabbing;
+        }
+        /* Custom Tooltip Styling */
+        .tooltip-container {
+            position: relative;
+            display: inline-flex;
+        }
+        .tooltip-container .tooltip-text {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 6px;
+            white-space: nowrap;
+            z-index: 50;
+            pointer-events: none;
+        }
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.right-0{right:0px}.top-0{top:0px}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mx-1{margin-left:0.25rem;margin-right:0.25rem}.-mr-10{margin-right:-2.5rem}.-mt-10{margin-top:-2.5rem}.-mt-3{margin-top:-0.75rem}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.-mt-1{margin-top:-0.25rem}.ml-2{margin-left:0.5rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-32{height:8rem}.h-full{height:100%}.h-14{height:3.5rem}.max-h-72{max-height:18rem}.max-h-96{max-height:24rem}.min-h-64{min-height:16rem}.min-h-\[100px\]{min-height:100px}.min-h-\[60px\]{min-height:60px}.min-h-full{min-height:100%}.w-32{width:8rem}.w-full{width:100%}.w-24{width:6rem}.w-28{width:7rem}.w-36{width:9rem}.min-w-0{min-width:0px}.min-w-\[100px\]{min-width:100px}.min-w-\[50px\]{min-width:50px}.min-w-\[80px\]{min-width:80px}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.cursor-not-allowed{cursor:not-allowed}.cursor-grab{cursor:grab}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-y-1{row-gap:0.25rem}.space-x-1 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.25rem * var(--tw-space-x-reverse));margin-left:calc(0.25rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.375rem * var(--tw-space-x-reverse));margin-left:calc(0.375rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.self-center{align-self:center}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-t{border-top-left-radius:0.25rem;border-top-right-radius:0.25rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-b-2{border-bottom-width:2px}.border-dashed{border-style:dashed}.border-amber-100{--tw-border-opacity:1;border-color:rgb(254 243 199 / var(--tw-border-opacity, 1))}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138 / var(--tw-border-opacity, 1))}.border-amber-200\/60{border-color:rgb(253 230 138 / 0.6)}.border-orange-100{--tw-border-opacity:1;border-color:rgb(255 237 213 / var(--tw-border-opacity, 1))}.border-orange-200{--tw-border-opacity:1;border-color:rgb(254 215 170 / var(--tw-border-opacity, 1))}.border-orange-200\/60{border-color:rgb(254 215 170 / 0.6)}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225 / var(--tw-border-opacity, 1))}.border-white\/30{border-color:rgb(255 255 255 / 0.3)}.border-amber-300{--tw-border-opacity:1;border-color:rgb(252 211 77 / var(--tw-border-opacity, 1))}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-rose-200{--tw-border-opacity:1;border-color:rgb(254 205 211 / var(--tw-border-opacity, 1))}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208 / var(--tw-border-opacity, 1))}.border-emerald-500{--tw-border-opacity:1;border-color:rgb(16 185 129 / var(--tw-border-opacity, 1))}.border-rose-500{--tw-border-opacity:1;border-color:rgb(244 63 94 / var(--tw-border-opacity, 1))}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.border-amber-600{--tw-border-opacity:1;border-color:rgb(217 119 6 / var(--tw-border-opacity, 1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.bg-amber-100\/50{background-color:rgb(254 243 199 / 0.5)}.bg-amber-100\/80{background-color:rgb(254 243 199 / 0.8)}.bg-amber-200{--tw-bg-opacity:1;background-color:rgb(253 230 138 / var(--tw-bg-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-amber-50\/50{background-color:rgb(255 251 235 / 0.5)}.bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.bg-amber-600{--tw-bg-opacity:1;background-color:rgb(217 119 6 / var(--tw-bg-opacity, 1))}.bg-amber-800\/40{background-color:rgb(146 64 14 / 0.4)}.bg-black\/20{background-color:rgb(0 0 0 / 0.2)}.bg-emerald-100\/80{background-color:rgb(209 250 229 / 0.8)}.bg-emerald-700{--tw-bg-opacity:1;background-color:rgb(4 120 87 / var(--tw-bg-opacity, 1))}.bg-orange-50{--tw-bg-opacity:1;background-color:rgb(255 247 237 / var(--tw-bg-opacity, 1))}.bg-orange-50\/50{background-color:rgb(255 247 237 / 0.5)}.bg-orange-50\/60{background-color:rgb(255 247 237 / 0.6)}.bg-orange-600{--tw-bg-opacity:1;background-color:rgb(234 88 12 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-100\/70{background-color:rgb(241 245 249 / 0.7)}.bg-slate-100\/80{background-color:rgb(241 245 249 / 0.8)}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/50{background-color:rgb(255 255 255 / 0.5)}.bg-white\/85{background-color:rgb(255 255 255 / 0.85)}.bg-amber-50\/30{background-color:rgb(255 251 235 / 0.3)}.bg-amber-50\/70{background-color:rgb(255 251 235 / 0.7)}.bg-blue-50\/70{background-color:rgb(239 246 255 / 0.7)}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-orange-50\/70{background-color:rgb(255 247 237 / 0.7)}.bg-orange-500{--tw-bg-opacity:1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.bg-rose-50\/70{background-color:rgb(255 241 242 / 0.7)}.bg-rose-500{--tw-bg-opacity:1;background-color:rgb(244 63 94 / var(--tw-bg-opacity, 1))}.bg-rose-100{--tw-bg-opacity:1;background-color:rgb(255 228 230 / var(--tw-bg-opacity, 1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-rose-50{--tw-bg-opacity:1;background-color:rgb(255 241 242 / var(--tw-bg-opacity, 1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-amber-50{--tw-gradient-from:#fffbeb var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 251 235 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-amber-500{--tw-gradient-from:#f59e0b var(--tw-gradient-from-position);--tw-gradient-to:rgb(245 158 11 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-orange-50{--tw-gradient-to:rgb(255 247 237 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #fff7ed var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-orange-600{--tw-gradient-to:#ea580c var(--tw-gradient-to-position)}.to-red-50{--tw-gradient-to:#fef2f2 var(--tw-gradient-to-position)}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-1{padding:0.25rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-4{padding-bottom:1rem}.pr-1{padding-right:0.25rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.pr-2{padding-right:0.5rem}.pt-0\.5{padding-top:0.125rem}.pb-2{padding-bottom:0.5rem}.text-left{text-align:left}.text-center{text-align:center}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.font-normal{font-weight:400}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-wider{letter-spacing:0.05em}.text-amber-100{--tw-text-opacity:1;color:rgb(254 243 199 / var(--tw-text-opacity, 1))}.text-amber-200\/80{color:rgb(253 230 138 / 0.8)}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-amber-900{--tw-text-opacity:1;color:rgb(120 53 15 / var(--tw-text-opacity, 1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-emerald-900{--tw-text-opacity:1;color:rgb(6 78 59 / var(--tw-text-opacity, 1))}.text-orange-600{--tw-text-opacity:1;color:rgb(234 88 12 / var(--tw-text-opacity, 1))}.text-orange-800{--tw-text-opacity:1;color:rgb(154 52 18 / var(--tw-text-opacity, 1))}.text-orange-900{--tw-text-opacity:1;color:rgb(124 45 18 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-blue-900{--tw-text-opacity:1;color:rgb(30 58 138 / var(--tw-text-opacity, 1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.text-rose-900{--tw-text-opacity:1;color:rgb(136 19 55 / var(--tw-text-opacity, 1))}.text-rose-700{--tw-text-opacity:1;color:rgb(190 18 60 / var(--tw-text-opacity, 1))}.accent-amber-600{accent-color:#d97706}.accent-orange-600{accent-color:#ea580c}.opacity-80{opacity:0.8}.opacity-75{opacity:0.75}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.blur-2xl{--tw-blur:blur(40px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.duration-300{transition-duration:300ms}.hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-amber-400:hover{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.hover\:border-orange-400:hover{--tw-border-opacity:1;border-color:rgb(251 146 60 / var(--tw-border-opacity, 1))}.hover\:bg-amber-300:hover{--tw-bg-opacity:1;background-color:rgb(252 211 77 / var(--tw-bg-opacity, 1))}.hover\:bg-amber-50:hover{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.hover\:bg-amber-600:hover{--tw-bg-opacity:1;background-color:rgb(217 119 6 / var(--tw-bg-opacity, 1))}.hover\:bg-amber-700:hover{--tw-bg-opacity:1;background-color:rgb(180 83 9 / var(--tw-bg-opacity, 1))}.hover\:bg-amber-800\/60:hover{background-color:rgb(146 64 14 / 0.6)}.hover\:bg-emerald-800:hover{--tw-bg-opacity:1;background-color:rgb(6 95 70 / var(--tw-bg-opacity, 1))}.hover\:bg-orange-700:hover{--tw-bg-opacity:1;background-color:rgb(194 65 12 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-300:hover{--tw-bg-opacity:1;background-color:rgb(203 213 225 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-50:hover{--tw-bg-opacity:1;background-color:rgb(255 241 242 / var(--tw-bg-opacity, 1))}.hover\:bg-amber-100:hover{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.hover\:bg-amber-200:hover{--tw-bg-opacity:1;background-color:rgb(253 230 138 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-100:hover{--tw-bg-opacity:1;background-color:rgb(255 228 230 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-200:hover{--tw-bg-opacity:1;background-color:rgb(254 205 211 / var(--tw-bg-opacity, 1))}.hover\:bg-amber-50\/50:hover{background-color:rgb(255 251 235 / 0.5)}.hover\:bg-orange-50\/50:hover{background-color:rgb(255 247 237 / 0.5)}.hover\:text-amber-900:hover{--tw-text-opacity:1;color:rgb(120 53 15 / var(--tw-text-opacity, 1))}.hover\:text-rose-900:hover{--tw-text-opacity:1;color:rgb(136 19 55 / var(--tw-text-opacity, 1))}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-amber-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(245 158 11 / var(--tw-ring-opacity, 1))}.focus\:ring-orange-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(249 115 22 / var(--tw-ring-opacity, 1))}.active\:cursor-grabbing:active{cursor:grabbing}@media (min-width: 640px){.sm\:mt-0{margin-top:0px}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:p-5{padding:1.25rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 768px){.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:p-8{padding:2rem}}</style></head>
+<body class="bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 text-slate-800 min-h-full flex flex-col justify-between">
+
+    <header class="bg-white/85 backdrop-blur-md shadow-sm border-b border-orange-100 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-3">
+                <div class="bg-amber-600 text-white p-2 rounded-xl shadow-md text-xl tibetan-font font-bold">བོད་སྐད</div>
+                <div>
+                    <h1 class="text-lg font-bold text-slate-900 leading-tight">Tibetan Pronoun + To Have</h1>
+                    <p class="text-xs text-slate-500">ཡོད། (Yoe), མེད། (Med), འདུག (Dug) &amp; མི་འདུག (Mi-dug)</p>
+                </div>
+            </div>
+            
+            <!-- Global Display Controls -->
+            <div class="flex items-center space-x-2 bg-slate-100/80 p-1.5 rounded-2xl border border-slate-200">
+                <label class="flex items-center space-x-1.5 text-xs font-semibold text-slate-700 cursor-pointer bg-white px-2.5 py-1 rounded-xl shadow-sm hover:bg-slate-50">
+                    <input type="checkbox" id="toggle-wylie" checked="" onchange="toggleWylieVisibility()" class="rounded text-amber-600 focus:ring-amber-500 accent-amber-600">
+                    <span>🔤 Wylie</span>
+                </label>
+                <label class="flex items-center space-x-1.5 text-xs font-semibold text-slate-700 cursor-pointer bg-white px-2.5 py-1 rounded-xl shadow-sm hover:bg-slate-50">
+                    <input type="checkbox" id="toggle-english" checked="" onchange="toggleEnglishVisibility()" class="rounded text-amber-600 focus:ring-amber-500 accent-amber-600">
+                    <span>🌐 English</span>
+                </label>
+            </div>
+
+            <div class="flex items-center space-x-3 mt-2 sm:mt-0">
+                <div class="bg-amber-100/80 text-amber-900 px-3 py-1 rounded-full text-xs font-semibold flex items-center shadow-inner">
+                    <span class="mr-1">⭐ Score:</span> <span id="header-score" class="font-bold">0</span>
+                </div>
+                <div class="bg-emerald-100/80 text-emerald-900 px-3 py-1 rounded-full text-xs font-semibold flex items-center shadow-inner">
+                    <span class="mr-1">🔥 Streak:</span> <span id="header-streak" class="font-bold">0</span>
+                </div>
+                <button onclick="resetScoreAndStreak()" title="Reset Score and Streak" class="bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1 rounded-full text-xs font-semibold transition shadow-sm">
+                    ↻ Reset
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-6 flex-grow w-full">
+        
+        <div class="flex justify-center mb-6 overflow-x-auto py-1">
+            <div class="bg-white p-1.5 rounded-2xl shadow-sm border border-orange-100 flex space-x-1">
+                <button onclick="switchTab('learn')" id="btn-learn" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 bg-amber-600 text-white shadow-sm">📚 Learn</button>
+                <button onclick="switchTab('flashcards')" id="btn-flashcards" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-slate-600 hover:bg-slate-100">📇 Flashcards</button>
+                <button onclick="switchTab('quiz')" id="btn-quiz" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-slate-600 hover:bg-slate-100">❓ Quiz</button>
+                <button onclick="switchTab('scenarios')" id="btn-scenarios" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-slate-600 hover:bg-slate-100">🧩 Scenarios</button>
+                <button onclick="switchTab('practice')" id="btn-practice" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-slate-600 hover:bg-slate-100">✏️ Practice</button>
+                
+            </div>
+        </div>
+
+        <div id="tab-content-learn" class="tab-content space-y-6">
+            <div class="bg-white rounded-3xl shadow-xl border border-orange-100 p-6 md:p-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-amber-100/50 rounded-full blur-2xl -mr-10 -mt-10"></div>
+                <h2 id="front-title" class="text-2xl font-bold text-slate-900 mb-2">Understanding Tibetan Possessives</h2>
+                <p id="front-intro" class="text-slate-600 text-sm mb-6">In Tibetan, how you say you have something depends on whether it's always yours, something you just noticed right now, or something you don't have at all!</p>
+                
+                <div id="front-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"><div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-5 flex flex-col justify-between hover:shadow-md transition-all">
+                    <div>
+                        <div class="inline-block bg-amber-500 text-white text-xs font-bold px-2.5 py-1 rounded-full mb-3">General Possession</div>
+                        <h3 class="text-2xl font-bold tibetan-font text-amber-900 mb-1">ང་ ལ་ དེབ་ ཡོད།</h3>
+                        <p class="text-xs font-medium text-amber-900 opacity-80 mb-3 learn-wylie-text hidden">"Nga la deb yod"</p>
+                        <p class="text-sm text-slate-700 font-medium mb-2 learn-english-text">I have a book (general fact).</p>
+                        <p class="text-xs text-slate-500 learn-english-text">Use ཡོད། (Yod) when you normally have it all the time.</p>
+                    </div>
+                </div><div class="bg-orange-50/70 border border-orange-200 rounded-2xl p-5 flex flex-col justify-between hover:shadow-md transition-all">
+                    <div>
+                        <div class="inline-block bg-orange-500 text-white text-xs font-bold px-2.5 py-1 rounded-full mb-3">Non-Possession</div>
+                        <h3 class="text-2xl font-bold tibetan-font text-orange-900 mb-1">ང་ ལ་ དེབ་ མེད།</h3>
+                        <p class="text-xs font-medium text-orange-900 opacity-80 mb-3 learn-wylie-text hidden">"Nga la deb med"</p>
+                        <p class="text-sm text-slate-700 font-medium mb-2 learn-english-text">I don't have a book.</p>
+                        <p class="text-xs text-slate-500 learn-english-text">Use མེད། (Med) when you don't have it at all.</p>
+                    </div>
+                </div><div class="bg-rose-50/70 border border-rose-200 rounded-2xl p-5 flex flex-col justify-between hover:shadow-md transition-all">
+                    <div>
+                        <div class="inline-block bg-rose-500 text-white text-xs font-bold px-2.5 py-1 rounded-full mb-3">Realised / Noticed</div>
+                        <h3 class="text-2xl font-bold tibetan-font text-rose-900 mb-1">ང་ ལ་ དེབ་ འདུག</h3>
+                        <p class="text-xs font-medium text-rose-900 opacity-80 mb-3 learn-wylie-text hidden">"Nga la deb dug"</p>
+                        <p class="text-sm text-slate-700 font-medium mb-2 learn-english-text">I have a book (realised/noticed).</p>
+                        <p class="text-xs text-slate-500 learn-english-text">Use འདུག (Dug) when you just found it, realised it or noticed it right now.</p>
+                    </div>
+                </div><div class="bg-blue-50/70 border border-blue-200 rounded-2xl p-5 flex flex-col justify-between hover:shadow-md transition-all">
+                    <div>
+                        <div class="inline-block bg-blue-500 text-white text-xs font-bold px-2.5 py-1 rounded-full mb-3">Realised / Noticed Non-Possession</div>
+                        <h3 class="text-2xl font-bold tibetan-font text-blue-900 mb-1">ང་ ལ་ དེབ་ མི་འདུག</h3>
+                        <p class="text-xs font-medium text-blue-900 opacity-80 mb-3 learn-wylie-text hidden">"nga la deb mi-dug"</p>
+                        <p class="text-sm text-slate-700 font-medium mb-2 learn-english-text">I don't have a book (realised/noticed).</p>
+                        <p class="text-xs text-slate-500 learn-english-text">Use མི་འདུག (mi-dug) when you just realised/noticed you don't have it.</p>
+                    </div>
+                </div></div>
+
+                <div class="bg-amber-50/50 border border-amber-200/60 rounded-2xl p-5">
+                    <h4 id="front-formula-title" class="font-bold text-slate-800 text-sm mb-2 flex items-center"><span class="text-lg mr-2">💡</span> Grammar Breakdown Formula</h4>
+                    <p id="front-formula" class="text-xs sm:text-sm text-slate-600 leading-relaxed">ང་ལ་ (Nga la) [To me / In my possession] + [Object] + ཡོད / འདུག / མེད</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-content-flashcards" class="tab-content space-y-6 hidden">
+            <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-xl border border-orange-100 p-6 md:p-8 text-center flex flex-col items-center">
+                <div class="w-full flex justify-between items-center mb-6 text-xs text-slate-400 font-semibold uppercase tracking-wider">
+                    <span>Card <span id="fc-current">4</span> of <span id="fc-total">26</span></span>
+                    <span id="fc-category" class="bg-amber-100 text-amber-800 px-2.5 py-1 rounded-full">Non-possession "Notice"</span>
+                </div>
+
+                <!-- Flashcard Box -->
+                <div onclick="flipFlashcard()" class="w-full min-h-64 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl shadow-lg cursor-pointer flex flex-col justify-center items-center p-6 text-white relative transition-transform duration-300 transform hover:scale-[1.01]">
+                    <div id="fc-front" class="space-y-3 hidden">
+                        <div class="text-2xl font-bold text-amber-100 fc-english-text" id="fc-english">I don't have a book</div>
+                        <p class="text-xs text-amber-200/80 mt-4">(Click card to reveal Tibetan)</p>
+                    </div>
+                    <div id="fc-back" class="space-y-3">
+                        <div class="text-3xl sm:text-4xl font-bold tibetan-font" id="fc-tibetan">ང་ ལ་ དེབ་ མི་འདུག</div>
+                        <div class="text-amber-100 text-sm font-medium fc-wylie-text hidden" id="fc-phonetic">"nga la deb mi-dug"</div>
+                        <div class="text-xs bg-black/20 px-3 py-1.5 rounded-xl inline-block mt-2" id="fc-usage">Non-possession "Notice"</div>
+                        <p class="text-xs text-amber-200/80 mt-4">(Click card to flip back)</p>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="flex items-center justify-between w-full mt-6">
+                    <button onclick="prevFlashcard()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-xl text-sm transition flex items-center space-x-1">
+                        <span>← Previous</span>
+                    </button>
+                    <button onclick="nextFlashcard()" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition flex items-center space-x-1">
+                        <span>Next →</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-content-quiz" class="tab-content space-y-6 hidden">
+            <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-xl border border-orange-100 p-6 md:p-8">
+                <div id="quiz-container" class="">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider bg-amber-50 px-3 py-1 rounded-full">Question <span id="quiz-q-num">1</span> of <span id="quiz-total-num">5</span></span>
+                        <span class="text-xs font-semibold text-slate-500">Score: <span id="quiz-current-score" class="text-amber-600 font-bold">0</span></span>
+                    </div>
+
+                    <div class="text-center mb-8">
+                        <div class="text-3xl sm:text-4xl font-bold tibetan-font text-slate-900 mb-2" id="quiz-prompt">ང་ལ་དེབ་ཡོད།</div>
+                        <p class="text-sm text-slate-500 quiz-english-text" id="quiz-hint">What is the primary nuance of this phrase?</p>
+                    </div>
+
+                    <div id="quiz-options" class="space-y-3 mb-6"></div>
+                    <div id="quiz-feedback" class="p-4 rounded-2xl mb-6 text-sm font-medium bg-emerald-50 text-emerald-900 border border-emerald-200 hidden">✅ Correct! Excellent understanding.</div>
+
+                    <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-xl transition shadow-md hidden">
+                        Next Question →
+                    </button>
+                </div>
+
+                <div id="quiz-complete" class="text-center py-8 space-y-4 hidden">
+                    <div class="text-5xl">🎉</div>
+                    <h3 class="text-2xl font-bold text-slate-900">Quiz Completed!</h3>
+                    <p class="text-slate-600 text-sm">You scored <span id="final-quiz-score" class="font-bold text-amber-600 text-lg">70 points</span>!</p>
+                    <button onclick="startQuiz()" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-6 py-3 rounded-xl transition shadow-md text-sm">
+                        Play Again 🔄
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-content-scenarios" class="tab-content space-y-6 hidden">
+            <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-xl border border-orange-100 p-6 md:p-8">
+                <div id="sc-container" class="">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-xs font-bold text-orange-600 uppercase tracking-wider bg-orange-50 px-3 py-1 rounded-full">Scenario Challenge <span id="sc-num">4</span>/<span id="sc-total">4</span></span>
+                        <span class="text-xs font-semibold text-slate-500">Streak: <span id="sc-streak" class="text-emerald-600 font-bold">1</span></span>
+                    </div>
+
+                    <div class="bg-orange-50/60 border border-orange-200/60 rounded-2xl p-5 mb-6">
+                        <h4 class="text-xs font-bold text-orange-800 uppercase tracking-wider mb-1">Scenario Situation:</h4>
+                        <p id="sc-desc" class="text-slate-800 text-sm font-medium leading-relaxed">You are talking to a tour guide about what items you typically carry with you as standard travel gear.</p>
+                    </div>
+
+                    <p class="text-xs font-semibold text-slate-500 mb-3 uppercase tracking-wider">Which phrase should you use?</p>
+
+                    <div id="sc-options" class="space-y-3 mb-6"></div>
+                    <div id="sc-feedback" class="p-4 rounded-2xl mb-6 text-sm font-medium bg-emerald-50 text-emerald-900 border border-emerald-200 hidden">✅ <strong>Correct!</strong> Correct! Standard inventory facts use ཡོད།.</div>
+
+                    <button id="sc-next-btn" onclick="nextScenario()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-xl transition shadow-md hidden">
+                        Next Scenario →
+                    </button>
+                </div>
+
+                <div id="sc-complete" class="text-center py-8 space-y-4 hidden">
+                    <div class="text-5xl">🎉</div>
+                    <h3 class="text-2xl font-bold text-slate-900">Scenarios Completed!</h3>
+                    <p class="text-slate-600 text-sm">You got <span id="final-sc-correct" class="font-bold text-orange-600 text-lg">3</span> of <span id="final-sc-total" class="font-bold text-slate-800">4</span> correct, with a best streak of <span id="final-sc-best-streak" class="font-bold text-emerald-600">2</span>.</p>
+                    <button onclick="startScenario()" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-xl transition shadow-md text-sm">
+                        Play Again 🔄
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRACTICE TAB -->
+        <div id="tab-content-practice" class="tab-content space-y-6 hidden">
+            <div class="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl border border-orange-100 p-6 md:p-8">
+                <div id="practice-container">
+                    <div class="flex justify-between items-center mb-6">
+                        <span id="pr-type-tag" class="text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-100 px-3 py-1 rounded-full">Fill in the Blank</span>
+                        <span class="text-xs font-semibold text-slate-500">Exercise <span id="pr-num">3</span> of <span id="pr-total">12</span></span>
+                    </div>
+
+                    <h2 id="pr-title" class="text-2xl font-bold text-slate-900 mb-6">Fill in the blank</h2>
+
+                    <!-- Sentence/Target Area -->
+                    <div id="pr-sentence-area" class="min-h-[100px] flex flex-wrap items-center gap-2 mb-2 p-4 bg-slate-50 rounded-2xl border border-slate-200"></div>
+
+                    <!-- Revealed Translation Display Area -->
+                    <div id="pr-translation-reveal" class="mb-8 px-4 py-2 bg-amber-50 border border-amber-200 rounded-xl text-amber-900 font-medium text-sm sm:text-base flex items-center space-x-2 transition-all hidden">
+                        <span id="pr-translation-text" class="italic">I don't have money. (fact)</span>
+                    </div>
+
+                    <!-- Word Bank Choices -->
+                    <div class="mb-8 mt-6">
+                        <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Word Bank (Hover for meaning, Drag or Click to select)</p>
+                        <div id="pr-word-bank" class="flex flex-wrap gap-3 justify-center min-h-[60px] p-4 bg-slate-100/70 rounded-2xl border border-dashed border-slate-300"></div>
+                    </div>
+
+                    <div id="pr-feedback" class="p-4 rounded-2xl mb-6 text-sm font-medium bg-emerald-50 text-emerald-900 border border-emerald-200 hidden">✅ Excellent! Your answer is correct.</div>
+
+                    <div class="flex gap-3">
+                        <button id="pr-check-btn" onclick="checkPracticeAnswer()" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-xl transition shadow-md">
+                            Check Answer ✓
+                        </button>
+                        <button id="pr-retry-btn" onclick="retryPracticeAnswer()" class="hidden w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 rounded-xl transition shadow-md">
+                            Try Again 🔄
+                        </button>
+                        <button id="pr-next-btn" onclick="nextPracticeExercise()" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-xl transition shadow-md hidden">
+                            Next Exercise →
+                        </button>
+                    </div>
+                </div>
+
+                <div id="pr-complete" class="hidden text-center py-8 space-y-4">
+                    <div class="text-5xl">🎓</div>
+                    <h3 class="text-2xl font-bold text-slate-900">Practice Session Completed!</h3>
+                    <p class="text-slate-600 text-sm">Great job practicing Tibetan sentences!</p>
+                    <button onclick="startPractice()" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-6 py-3 rounded-xl transition shadow-md text-sm">
+                        Practice Again 🔄
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </main>
+
+    <footer class="text-center py-6 text-xs text-slate-400 border-t border-slate-100 bg-white/50">
+        <p>Tibetan Pronoun + To Have Interactive Learning Game • Student Version</p>
+    </footer>
+
+    <script>
+        // Global Toggles State
+        let showWylie = true;
+        let showEnglish = true;
+
+        function toggleWylieVisibility() {
+            showWylie = document.getElementById('toggle-wylie').checked;
+            applyVisibilitySettings();
+        }
+
+        function toggleEnglishVisibility() {
+            showEnglish = document.getElementById('toggle-english').checked;
+            applyVisibilitySettings();
+        }
+
+        function applyVisibilitySettings() {
+            // Wylie visibility
+            document.querySelectorAll('.fc-wylie-text, .learn-wylie-text, .pr-wylie-text').forEach(el => {
+                if (showWylie) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+
+            // English visibility (excluding Learn page text, Quiz hint .quiz-english-text, flashcard prompt .fc-english-text, practice prompt .pr-english-text, and practice inline note .pr-english-comment)
+            document.querySelectorAll('.tooltip-text').forEach(el => {
+                if (showEnglish) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+        }
+
+        // Editable front-page content (shown in the Learn tab)
+        const defaultFrontPage = {
+        "title": "Understanding Tibetan Possessives",
+        "intro": "In Tibetan, how you say you have something depends on whether it's always yours, something you just noticed right now, or something you don't have at all!",
+        "columns": 2,
+        "cards": [
+                {
+                        "label": "General Possession",
+                        "tibetan": "ང་ ལ་ དེབ་ ཡོད།",
+                        "phonetic": "Nga la deb yod",
+                        "english": "I have a book (general fact).",
+                        "description": "Use ཡོད། (Yod) when you normally have it all the time."
+                },
+                {
+                        "label": "Non-Possession",
+                        "tibetan": "ང་ ལ་ དེབ་ མེད།",
+                        "phonetic": "Nga la deb med",
+                        "english": "I don't have a book.",
+                        "description": "Use མེད། (Med) when you don't have it at all."
+                },
+                {
+                        "label": "Realised / Noticed",
+                        "tibetan": "ང་ ལ་ དེབ་ འདུག",
+                        "phonetic": "Nga la deb dug",
+                        "english": "I have a book (realised/noticed).",
+                        "description": "Use འདུག (Dug) when you just found it, realised it or noticed it right now."
+                },
+                {
+                        "label": "Realised / Noticed Non-Possession",
+                        "tibetan": "ང་ ལ་ དེབ་ མི་འདུག",
+                        "phonetic": "nga la deb mi-dug",
+                        "english": "I don't have a book (realised/noticed).",
+                        "description": "Use མི་འདུག (mi-dug) when you just realised/noticed you don't have it."
+                }
+        ],
+        "formulaTitle": "Grammar Breakdown Formula",
+        "formula": "ང་ལ་ (Nga la) [To me / In my possession] + [Object] + ཡོད / འདུག / མེད"
+};
+
+        // Initial Data Sets
+        const defaultFlashcards = [
+        {
+                "tibetan": "ང་ ལ་ དེབ་ ཡོད།",
+                "phonetic": "nga la deb yoe",
+                "english": "I have a book",
+                "category": "Possession \"Fact\""
+        },
+        {
+                "tibetan": "ང་ ལ་ དེབ་ མེད།",
+                "phonetic": "nga la deb med",
+                "english": "I don't have a book",
+                "category": "Non-possession \"Fact\""
+        },
+        {
+                "tibetan": "ང་ ལ་ དེབ་ འདུག",
+                "phonetic": "nga la deb dug",
+                "english": "I have a book",
+                "category": "Possession \"Notice\""
+        },
+        {
+                "tibetan": "ང་ ལ་ དེབ་ མི་འདུག",
+                "phonetic": "nga la deb mi-dug",
+                "english": "I don't have a book",
+                "category": "Non-possession \"Notice\""
+        },
+        {
+                "tibetan": "ཁྱེད་རང་ ལ་ ཁ་པར་ ཡོད།",
+                "phonetic": "khye-rang la kha-par yoe",
+                "english": "You have a phone",
+                "category": "Possession \"Fact\""
+        },
+        {
+                "tibetan": "ཁྱེད་རང་ ལ་ ཁ་པར་ མེད།",
+                "phonetic": "khye-rang la kha-par med",
+                "english": "You don't have a phone",
+                "category": "Non-possession \"Fact\""
+        },
+        {
+                "tibetan": "ཁྱེད་རང་ ལ་ ཁ་པར་ འདུག",
+                "phonetic": "khye-rang la kha-par dug",
+                "english": "You have a phone",
+                "category": "Possession \"Notice\""
+        },
+        {
+                "tibetan": "ཁྱེད་རང་ ལ་ ཁ་པར་ མི་འདུག",
+                "phonetic": "khye-rang la kha-par mi-dug",
+                "english": "You don't have a phone",
+                "category": "Non-possession \"Notice\""
+        },
+        {
+                "tibetan": "ཁོ་ ལ་ སྟོད་ཐུང་ ཡོད།",
+                "phonetic": "kho la toed-thung yoe",
+                "english": "He has a shirt",
+                "category": "Possession \"Fact\""
+        },
+        {
+                "tibetan": "ཁོ་ ལ་ སྟོད་ཐུང་ མེད།",
+                "phonetic": "kho la toed-thung med",
+                "english": "He doesn't have a shirt",
+                "category": "Non-possession \"Fact\""
+        },
+        {
+                "tibetan": "མོ་ ལ་ ཀློག་དེབ་ ཡོད།",
+                "phonetic": "mo la lok-deb yoe",
+                "english": "She has a reading book",
+                "category": "Possession \"Fact\""
+        },
+        {
+                "tibetan": "མོ་ ལ་ ཀློག་དེབ་ མེད།",
+                "phonetic": "mo la lok-deb med",
+                "english": "She doesn't have a reading book",
+                "category": "Non-possession \"Fact\""
+        },
+        {
+                "tibetan": "མོ་ ལ་ ཀློག་དེབ་ འདུག",
+                "phonetic": "mo la lok-deb dug",
+                "english": "She has a reading book",
+                "category": "Possession \"notice\""
+        },
+        {
+                "tibetan": "མོ་ ལ་ ཀློག་དེབ་ མི་འདུག",
+                "phonetic": "mo la lok-deb mi-dug",
+                "english": "She doesn't have a reading book",
+                "category": "Non-possession \"Notice\""
+        },
+        {
+                "tibetan": "ང་ཚོ་ ལ་ སོ་འཁྲུད་ ཡོད།",
+                "phonetic": "nga-tso la so-tru yoe",
+                "english": "We have a toothbrush",
+                "category": "Possession \"Fact\""
+        },
+        {
+                "tibetan": "ང་ཚོ་ ལ་ སོ་འཁྲུད་ མེད།",
+                "phonetic": "nga-tso la so-tru med",
+                "english": "We don't have a toothbrush",
+                "category": "Non-possession \"Fact\""
+        },
+        {
+                "tibetan": "ང་ཚོ་ ལ་ སོ་འཁྲུད་ འདུག",
+                "phonetic": "nga-tso la so-tru dug",
+                "english": "We have a toothbrush",
+                "category": "Possession \"Notice\""
+        },
+        {
+                "tibetan": "ང་ཚོ་ ལ་ སོ་འཁྲུད་ མི་འདུག",
+                "phonetic": "nga-tso la so-tru mi-dug",
+                "english": "We don't have a toothbrush",
+                "category": "Non-possession \"notice\""
+        },
+        {
+                "tibetan": "ཁྱེད་རང་ཚོ་ ལ་ སོ་སྨན་ ཡོད།",
+                "phonetic": "khye-rang-tso la so-meh yoe",
+                "english": "You (p) have toothpaste",
+                "category": "Possession \"Fact\""
+        },
+        {
+                "tibetan": "ཁྱེད་རང་ཚོ་ ལ་ སོ་སྨན་ མེད།",
+                "phonetic": "khye-rang-tso la so-meh med",
+                "english": "You (p) don't have toothpaste",
+                "category": "Non-possession \"Fact\""
+        },
+        {
+                "tibetan": "ཁྱེད་རང་ཚོ་ ལ་ སོ་སྨན་ འདུག",
+                "phonetic": "khye-rang-tso la so-meh dug",
+                "english": "You (p) have toothpaste",
+                "category": "Possession \"notice\""
+        },
+        {
+                "tibetan": "ཁྱེད་རང་ཚོ་ ལ་ སོ་སྨན་ མི་འདུག",
+                "phonetic": "khye-rang-tso la so-meh mi-dug",
+                "english": "You (p) don't have toothpaste",
+                "category": "Non-possession \"Notice\""
+        },
+        {
+                "tibetan": "ཁོང་ཚོ་ ལ་ སྒྲུང་དེབ་ ཡོད།",
+                "phonetic": "khong-tso la drung-deb yoe",
+                "english": "They have a storybook",
+                "category": "Possession \"Fact\""
+        },
+        {
+                "tibetan": "ཁོང་ཚོ་ ལ་ སྒྲུང་དེབ་ མེད།",
+                "phonetic": "khong-tso la drung-deb med",
+                "english": "They don't have a storybook",
+                "category": "Non-possession \"Fact\""
+        },
+        {
+                "tibetan": "ཁོང་ཚོ་ ལ་ སྒྲུང་དེབ་ འདུག",
+                "phonetic": "khong-tso la drung-deb dug",
+                "english": "They have a storybook",
+                "category": "Possession \"Notice\""
+        },
+        {
+                "tibetan": "ཁོང་ཚོ་ ལ་ སྒྲུང་དེབ་ མི་འདུག",
+                "phonetic": "khong-tso la drung-deb mi-dug",
+                "english": "They don't have a storybook",
+                "category": "Non-possession \"Notice\""
+        }
+];
+
+        const defaultQuizQuestions = [
+        {
+                "prompt": "ང་ལ་དེབ་ཡོད།",
+                "hint": "What is the primary nuance of this phrase?",
+                "options": [
+                        "I don't have a book at all.",
+                        "I have a book as a general fact or statement.",
+                        "I just noticed I have a book in my bag.",
+                        "Someone else has a book."
+                ],
+                "answer": 1
+        },
+        {
+                "prompt": "ང་ལ་དེབ་འདུག",
+                "hint": "When is འདུག (dug) used instead of ཡོད (yoe)?",
+                "options": [
+                        "For permanent facts known since childhood.",
+                        "When expressing direct realization, discovery, or noticing something.",
+                        "When you completely lack an item.",
+                        "When talking about someone else's book."
+                ],
+                "answer": 1
+        },
+        {
+                "prompt": "ང་ལ་དེབ་མེད།",
+                "hint": "What does this sentence mean?",
+                "options": [
+                        "I have a book.",
+                        "I lost my book yesterday.",
+                        "I don't have a book.",
+                        "Where is the book?"
+                ],
+                "answer": 2
+        },
+        {
+                "prompt": "Which suffix indicates non-possession or absence?",
+                "hint": "The direct negative of yod and duk.",
+                "options": [
+                        "ཡོད། (Yoe)",
+                        "འདུག (Dug)",
+                        "མེད། (Med)",
+                        "ལ། (La)"
+                ],
+                "answer": 2
+        },
+        {
+                "prompt": "You check your backpack and realize with surprise, 'Ah, my phone is right here!' Which phrase fits best?",
+                "hint": "Realised / Noticed",
+                "options": [
+                        "ང་ལ་ཁ་པར་མེད།",
+                        "ང་ལ་ཁ་པར་ཡོད།",
+                        "ང་ལ་ཁ་པར་འདུག",
+                        "ཁ་པར་འདུག"
+                ],
+                "answer": 2
+        }
+];
+
+        const scenarios = [
+        {
+                "desc": "You are filling out a formal library registry form, stating as a matter of general fact that you possess a Tibetan grammar book.",
+                "options": [
+                        {
+                                "text": "ང་ལ་དེབ་ཡོད། (nga la deb yoe)",
+                                "correct": true,
+                                "explanation": "Correct! Permanent or general facts use ཡོད།."
+                        },
+                        {
+                                "text": "ང་ལ་དེབ་འདུག (nga la deb dug)",
+                                "correct": false,
+                                "explanation": "Incorrect. འདུག is used for sudden realisation or direct experience."
+                        },
+                        {
+                                "text": "ང་ལ་དེབ་མེད། (nga la deb med)",
+                                "correct": false,
+                                "explanation": "Incorrect. That means you don't have a book."
+                        }
+                ]
+        },
+        {
+                "desc": "You searched everywhere for your textbook last night, but when you opened your desk drawer just now, you suddenly spotted it!",
+                "options": [
+                        {
+                                "text": "ང་ལ་དེབ་ཡོད། (nga la deb yoe)",
+                                "correct": false,
+                                "explanation": "Incorrect. General statement doesn't capture the sudden discovery nuance."
+                        },
+                        {
+                                "text": "ང་ལ་དེབ་འདུག (nga la deb dug)",
+                                "correct": true,
+                                "explanation": "Correct! When you notice or realise something right in front of you through experience, use འདུག."
+                        },
+                        {
+                                "text": "ང་ལ་དེབ་མེད། (nga la deb med)",
+                                "correct": false,
+                                "explanation": "Incorrect. You found it, so you have it!"
+                        }
+                ]
+        },
+        {
+                "desc": "A friend asks to borrow your dictionary, but you check your shelf and realise you completely lack it and don't own one.",
+                "options": [
+                        {
+                                "text": "ང་ལ་དེབ་ཡོད། (nga la deb yoe)",
+                                "correct": false,
+                                "explanation": "Incorrect."
+                        },
+                        {
+                                "text": "ང་ལ་དེབ་འདུག (nga la deb dug)",
+                                "correct": false,
+                                "explanation": "Incorrect."
+                        },
+                        {
+                                "text": "ང་ལ་དེབ་མེད། (nga la deb med)",
+                                "correct": true,
+                                "explanation": "Correct! མེད། is used for absence or non-possession."
+                        }
+                ]
+        },
+        {
+                "desc": "You are talking to a tour guide about what items you typically carry with you as standard travel gear.",
+                "options": [
+                        {
+                                "text": "ང་ལ་དེབ་ཡོད། (nga la deb yoe)",
+                                "correct": true,
+                                "explanation": "Correct! Standard inventory facts use ཡོད།."
+                        },
+                        {
+                                "text": "ང་ལ་དེབ་འདུག (nga la deb dug)",
+                                "correct": false,
+                                "explanation": "Incorrect."
+                        },
+                        {
+                                "text": "ང་ལ་དེབ་མེད། (nga la deb med)",
+                                "correct": false,
+                                "explanation": "Incorrect."
+                        }
+                ]
+        }
+];
+
+        const defaultPracticeExercises = [
+        {
+                "type": "fill_blank",
+                "translation": "I have a book.",
+                "comment": "(fact)",
+                "segments": [
+                        {
+                                "text": "ང་",
+                                "wylie": "nga",
+                                "english": "me / I",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "དེབ",
+                                "wylie": "deb",
+                                "english": "book",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "have (fact)",
+                                "isBlank": true,
+                                "answer": "ཡོད།"
+                        }
+                ],
+                "options": [
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "have"
+                        },
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "have"
+                        },
+                        {
+                                "text": "མེད།",
+                                "wylie": "med",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have"
+                        }
+                ]
+        },
+        {
+                "type": "write_tibetan",
+                "english": "I don't have money. (fact)",
+                "answer": "ང་ལ་དངུལམེད།",
+                "targetWords": [
+                        {
+                                "text": "ང་",
+                                "wylie": "nga",
+                                "english": "me / I"
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at"
+                        },
+                        {
+                                "text": "དངུལ",
+                                "wylie": "ngul",
+                                "english": "money"
+                        },
+                        {
+                                "text": "མེད།",
+                                "wylie": "med",
+                                "english": "don't have"
+                        }
+                ],
+                "words": [
+                        {
+                                "text": "དངུལ",
+                                "wylie": "ngul",
+                                "english": "money"
+                        },
+                        {
+                                "text": "མེད།",
+                                "wylie": "med",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "ང་",
+                                "wylie": "nga",
+                                "english": "me / I"
+                        },
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yod",
+                                "english": "have"
+                        },
+                        {
+                                "text": "འདུག",
+                                "wylie": "duk",
+                                "english": "have"
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at"
+                        },
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have"
+                        }
+                ]
+        },
+        {
+                "type": "fill_blank",
+                "translation": "I have a phone.",
+                "comment": "(noticed)",
+                "segments": [
+                        {
+                                "text": "ང་",
+                                "wylie": "nga",
+                                "english": "me / I",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at",
+                                "isBlank": false,
+                                "answer": "ལ་"
+                        },
+                        {
+                                "text": "ཁ་པར་",
+                                "wylie": "kha-par",
+                                "english": "phone",
+                                "isBlank": false,
+                                "answer": "ཁ་པར་"
+                        },
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "have (noticed)",
+                                "isBlank": true,
+                                "answer": "འདུག"
+                        }
+                ],
+                "options": [
+                        {
+                                "text": "ཡོད",
+                                "wylie": "yod",
+                                "english": "have"
+                        },
+                        {
+                                "text": "མེད",
+                                "wylie": "med",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "have"
+                        },
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have"
+                        }
+                ]
+        },
+        {
+                "type": "fill_blank",
+                "translation": "I don't have a pen.",
+                "comment": "(non-possession \"fact\")",
+                "segments": [
+                        {
+                                "text": "ང་",
+                                "wylie": "nga",
+                                "english": "I / me",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "སྨྱུ་གུ་",
+                                "wylie": "nyu-gu",
+                                "english": "pen",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "མེད།",
+                                "wylie": "med",
+                                "english": "don't have",
+                                "isBlank": true,
+                                "answer": "མེད།"
+                        }
+                ],
+                "options": [
+                        {
+                                "text": "མེད།",
+                                "wylie": "med",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "have"
+                        },
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "have"
+                        },
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have"
+                        }
+                ]
+        },
+        {
+                "type": "fill_blank",
+                "translation": "You (s) have a notebook.",
+                "comment": "(possession \"fact\")",
+                "segments": [
+                        {
+                                "text": "ཁྱེད་རང་",
+                                "wylie": "khye-rang",
+                                "english": "you (s)",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "འབྲི་དེབ་",
+                                "wylie": "dri-deb",
+                                "english": "notebook",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "have",
+                                "isBlank": true,
+                                "answer": "ཡོད།"
+                        }
+                ],
+                "options": [
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "have"
+                        },
+                        {
+                                "text": "མེད།",
+                                "wylie": "me",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "have"
+                        },
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have"
+                        }
+                ]
+        },
+        {
+                "type": "fill_blank",
+                "translation": "He doesn't have an eraser.",
+                "comment": "(non-possession \"fact\")",
+                "segments": [
+                        {
+                                "text": "ཁོ་",
+                                "wylie": "kho",
+                                "english": "he",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "སུབ་བྱེད་ / འགྱིག་སུབ་",
+                                "wylie": "sub-je / gyig-sub",
+                                "english": "eraser",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "མེད།",
+                                "wylie": "me",
+                                "english": "don't have",
+                                "isBlank": true,
+                                "answer": "མེད།"
+                        }
+                ],
+                "options": [
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "have"
+                        },
+                        {
+                                "text": "མེད།",
+                                "wylie": "med",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "have"
+                        }
+                ]
+        },
+        {
+                "type": "fill_blank",
+                "translation": "She has a ruler.",
+                "comment": "(possession \"notice\")",
+                "segments": [
+                        {
+                                "text": "མོ་",
+                                "wylie": "mo",
+                                "english": "she",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ཐིག་ཤིང་",
+                                "wylie": "thig-shing",
+                                "english": "ruler",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "has",
+                                "isBlank": true,
+                                "answer": "འདུག"
+                        }
+                ],
+                "options": [
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "has"
+                        },
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "have"
+                        },
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "མེད།",
+                                "wylie": "med",
+                                "english": "don't have"
+                        }
+                ]
+        },
+        {
+                "type": "fill_blank",
+                "translation": "We don't have a dictionary.",
+                "comment": "(non-possession \"notice\")",
+                "segments": [
+                        {
+                                "text": "ང་ཚོ་",
+                                "wylie": "nga-tso",
+                                "english": "we",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ཚིག་མཛོད་",
+                                "wylie": "tsig-dzoe",
+                                "english": "dictionary",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have",
+                                "isBlank": true,
+                                "answer": "མི་འདུག"
+                        }
+                ],
+                "options": [
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "མེད།",
+                                "wylie": "med",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "yoe"
+                        },
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "dug"
+                        }
+                ]
+        },
+        {
+                "type": "fill_blank",
+                "translation": "You (p) have a plate.",
+                "comment": "(possession \"notice\")",
+                "segments": [
+                        {
+                                "text": "ཁྱེད་རང་ཚོ་",
+                                "wylie": "khye-rang-tso",
+                                "english": "you (p)",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "སྡེར་མ་",
+                                "wylie": "der-ma",
+                                "english": "plate",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "have",
+                                "isBlank": true,
+                                "answer": "འདུག"
+                        }
+                ],
+                "options": [
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "have"
+                        },
+                        {
+                                "text": "མེད།",
+                                "wylie": "med",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "have"
+                        },
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have"
+                        }
+                ]
+        },
+        {
+                "type": "fill_blank",
+                "translation": "They have a living room.",
+                "comment": "(possession \"fact\")",
+                "segments": [
+                        {
+                                "text": "ཁོང་ཚོ་",
+                                "wylie": "khong-tso",
+                                "english": "they",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "སྡོད་ཁང་",
+                                "wylie": "doe-khang",
+                                "english": "living-room",
+                                "isBlank": false,
+                                "answer": ""
+                        },
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "have",
+                                "isBlank": true,
+                                "answer": "ཡོད།"
+                        }
+                ],
+                "options": [
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "have"
+                        },
+                        {
+                                "text": "མེད།",
+                                "wylie": "med",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "have"
+                        },
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have"
+                        }
+                ]
+        },
+        {
+                "type": "write_tibetan",
+                "english": "They don't have a Yak. (notice)",
+                "answer": "ཁོང་ཚོ་ལ་གཡག་མི་འདུག",
+                "targetWords": [
+                        {
+                                "text": "ཁོང་ཚོ་",
+                                "wylie": "khong-tso",
+                                "english": "they"
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at"
+                        },
+                        {
+                                "text": "གཡག་",
+                                "wylie": "Yak",
+                                "english": "Yak"
+                        },
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have"
+                        }
+                ],
+                "words": [
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at"
+                        },
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "have"
+                        },
+                        {
+                                "text": "ཁྱེད་རང་ཚོ་",
+                                "wylie": "khye-rang-tso",
+                                "english": "you (p)"
+                        },
+                        {
+                                "text": "གཡག་",
+                                "wylie": "Yak",
+                                "english": "Yak"
+                        },
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "ང་ཚོ་",
+                                "wylie": "nga-tso",
+                                "english": "we"
+                        },
+                        {
+                                "text": "མེད།",
+                                "wylie": "med",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "have"
+                        },
+                        {
+                                "text": "ཁོང་ཚོ་",
+                                "wylie": "khong-tso",
+                                "english": "they"
+                        }
+                ]
+        },
+        {
+                "type": "write_tibetan",
+                "english": "You (p) have a toy. (fact)",
+                "answer": "ཁྱེད་རང་ཚོ་ལ་རྩེད་ཆས་ཡོད།",
+                "targetWords": [
+                        {
+                                "text": "ཁྱེད་རང་ཚོ་",
+                                "wylie": "khye-rang-tso",
+                                "english": "you (p)"
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at"
+                        },
+                        {
+                                "text": "རྩེད་ཆས་",
+                                "wylie": "tse-che",
+                                "english": "toy"
+                        },
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "have"
+                        }
+                ],
+                "words": [
+                        {
+                                "text": "མི་འདུག",
+                                "wylie": "mi-dug",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "ལ་",
+                                "wylie": "la",
+                                "english": "to / at"
+                        },
+                        {
+                                "text": "ཡོད།",
+                                "wylie": "yoe",
+                                "english": "have"
+                        },
+                        {
+                                "text": "ཁྱེད་རང་ཚོ་",
+                                "wylie": "khye-rang-tso",
+                                "english": "you (p)"
+                        },
+                        {
+                                "text": "མེད།",
+                                "wylie": "med",
+                                "english": "don't have"
+                        },
+                        {
+                                "text": "ང་ཚོ་",
+                                "wylie": "nga-tso",
+                                "english": "we"
+                        },
+                        {
+                                "text": "འདུག",
+                                "wylie": "dug",
+                                "english": "have"
+                        },
+                        {
+                                "text": "རྩེད་ཆས་",
+                                "wylie": "tse-che",
+                                "english": "toy"
+                        },
+                        {
+                                "text": "ཁོང་ཚོ་",
+                                "wylie": "khong-tso",
+                                "english": "they"
+                        }
+                ]
+        }
+];
+
+        // Active State variables
+        let frontPage = JSON.parse(JSON.stringify(defaultFrontPage));
+        let flashcards = [...defaultFlashcards];
+        let quizQuestions = [...defaultQuizQuestions];
+        let scenariosData = JSON.parse(JSON.stringify(scenarios));
+        let practiceExercises = JSON.parse(JSON.stringify(defaultPracticeExercises));
+        let score = 0;
+        let streak = 0;
+
+        function updateHeaderStats() {
+            const hScore = document.getElementById('header-score');
+            if (hScore) hScore.textContent = score;
+            const hStreak = document.getElementById('header-streak');
+            if (hStreak) hStreak.textContent = streak;
+
+            // Safe checks: these elements only exist if the editor tab has not been deleted
+            const countFc = document.getElementById('count-fc');
+            if (countFc) countFc.textContent = flashcards.length;
+            const countQz = document.getElementById('count-qz');
+            if (countQz) countQz.textContent = quizQuestions.length;
+            const countSc = document.getElementById('count-sc');
+            if (countSc) countSc.textContent = scenariosData.length;
+            const countPr = document.getElementById('count-pr');
+            if (countPr) countPr.textContent = practiceExercises.length;
+        }
+
+        function resetScoreAndStreak() {
+            if (!confirm('Reset your Score and Streak to 0?')) return;
+            score = 0;
+            streak = 0;
+            updateHeaderStats();
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('bg-amber-600', 'text-white', 'shadow-sm');
+                el.classList.add('text-slate-600', 'hover:bg-slate-100');
+            });
+
+            const content = document.getElementById(`tab-content-${tabId}`);
+            if (content) content.classList.remove('hidden');
+
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-slate-600', 'hover:bg-slate-100');
+                activeBtn.classList.add('bg-amber-600', 'text-white', 'shadow-sm');
+            }
+
+            if (tabId === 'quiz') startQuiz();
+            if (tabId === 'scenarios') startScenario();
+            if (tabId === 'practice') startPractice();
+            if (tabId === 'flashcards') { fcIndex = 0; updateFlashcardUI(); }
+            if (tabId === 'editor') { renderEditorLists(); setEditorSubTab('frontpage'); }
+        }
+
+        // Flashcards Logic
+        let fcIndex = 0;
+        let isFlipped = false;
+
+        function updateFlashcardUI() {
+            if (flashcards.length === 0) {
+                document.getElementById('fc-english').textContent = "No flashcards available!";
+                document.getElementById('fc-tibetan').textContent = "Empty";
+                document.getElementById('fc-phonetic').textContent = "Add some in the Editor tab";
+                document.getElementById('fc-usage').textContent = "None";
+                document.getElementById('fc-current').textContent = 0;
+                document.getElementById('fc-total').textContent = 0;
+                return;
+            }
+            if (fcIndex >= flashcards.length) fcIndex = 0;
+            const card = flashcards[fcIndex];
+            document.getElementById('fc-current').textContent = fcIndex + 1;
+            document.getElementById('fc-total').textContent = flashcards.length;
+            document.getElementById('fc-category').textContent = card.category;
+            document.getElementById('fc-english').textContent = card.english;
+            document.getElementById('fc-tibetan').textContent = card.tibetan;
+            document.getElementById('fc-phonetic').textContent = `"${card.phonetic}"`;
+            document.getElementById('fc-usage').textContent = card.category;
+
+            isFlipped = false;
+            document.getElementById('fc-front').classList.remove('hidden');
+            document.getElementById('fc-back').classList.add('hidden');
+            applyVisibilitySettings();
+        }
+
+        function flipFlashcard() {
+            if (flashcards.length === 0) return;
+            isFlipped = !isFlipped;
+            if (isFlipped) {
+                document.getElementById('fc-front').classList.add('hidden');
+                document.getElementById('fc-back').classList.remove('hidden');
+            } else {
+                document.getElementById('fc-front').classList.remove('hidden');
+                document.getElementById('fc-back').classList.add('hidden');
+            }
+            applyVisibilitySettings();
+        }
+
+        function nextFlashcard() {
+            if (flashcards.length === 0) return;
+            fcIndex = (fcIndex + 1) % flashcards.length;
+            updateFlashcardUI();
+        }
+
+        function prevFlashcard() {
+            if (flashcards.length === 0) return;
+            fcIndex = (fcIndex - 1 + flashcards.length) % flashcards.length;
+            updateFlashcardUI();
+        }
+
+        // Quiz Logic
+        let quizIndex = 0;
+        let quizScore = 0;
+
+        function startQuiz() {
+            quizIndex = 0;
+            quizScore = 0;
+            document.getElementById('quiz-container').classList.remove('hidden');
+            document.getElementById('quiz-complete').classList.add('hidden');
+            loadQuizQuestion();
+        }
+
+        function loadQuizQuestion() {
+            if (quizQuestions.length === 0) {
+                document.getElementById('quiz-prompt').textContent = "No quiz questions available!";
+                document.getElementById('quiz-hint').textContent = "Please add some in the Editor tab.";
+                document.getElementById('quiz-options').innerHTML = '';
+                return;
+            }
+            if (quizIndex >= quizQuestions.length) quizIndex = 0;
+            const q = quizQuestions[quizIndex];
+            document.getElementById('quiz-q-num').textContent = quizIndex + 1;
+            document.getElementById('quiz-total-num').textContent = quizQuestions.length;
+            document.getElementById('quiz-current-score').textContent = quizScore;
+            
+            const promptEl = document.getElementById('quiz-prompt');
+            promptEl.textContent = q.prompt;
+            if (/[\u0F00-\u0FFF]/.test(q.prompt)) {
+                promptEl.className = "text-3xl sm:text-4xl font-bold tibetan-font text-slate-900 mb-2";
+            } else {
+                promptEl.className = "text-lg sm:text-xl font-bold text-slate-900 mb-2";
+            }
+
+            document.getElementById('quiz-hint').textContent = q.hint;
+
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-2xl border border-slate-200 hover:border-amber-400 hover:bg-amber-50/50 transition font-medium text-slate-700 text-sm flex items-center justify-between";
+                
+                let formattedOpt = opt;
+                if (/[\u0F00-\u0FFF]/.test(opt)) {
+                    formattedOpt = opt.replace(/([\u0F00-\u0FFF\s-–—]+)/g, '<span class="tibetan-font text-2xl sm:text-3xl font-bold">$1</span>');
+                }
+
+                btn.innerHTML = `<span>${formattedOpt}</span> <span class="text-xs text-slate-400 font-bold">#${idx+1}</span>`;
+                btn.onclick = () => selectQuizOption(idx);
+                optionsContainer.appendChild(btn);
+            });
+
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-next-btn').classList.add('hidden');
+            applyVisibilitySettings();
+        }
+
+        function selectQuizOption(selectedIdx) {
+            const q = quizQuestions[quizIndex];
+            const options = document.getElementById('quiz-options').children;
+            const feedback = document.getElementById('quiz-feedback');
+
+            for (let btn of options) {
+                btn.disabled = true;
+                btn.classList.add('opacity-75', 'cursor-not-allowed');
+            }
+
+            if (selectedIdx === Number(q.answer)) {
+                options[selectedIdx].classList.remove('border-slate-200', 'hover:bg-amber-50/50');
+                options[selectedIdx].classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+                feedback.className = "p-4 rounded-2xl mb-6 text-sm font-medium bg-emerald-50 text-emerald-900 border border-emerald-200";
+                feedback.innerHTML = "✅ Correct! Excellent understanding.";
+                quizScore += 20;
+                score += 10;
+                streak += 1;
+            } else {
+                options[selectedIdx].classList.remove('border-slate-200', 'hover:bg-amber-50/50');
+                options[selectedIdx].classList.add('border-rose-500', 'bg-rose-50', 'text-rose-900');
+                if (options[Number(q.answer)]) {
+                    options[Number(q.answer)].classList.remove('border-slate-200');
+                    options[Number(q.answer)].classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+                }
+                feedback.className = "p-4 rounded-2xl mb-6 text-sm font-medium bg-rose-50 text-rose-900 border border-rose-200";
+                feedback.innerHTML = `❌ Incorrect. The correct answer was: <strong>${q.options[q.answer] || ''}</strong>`;
+                quizScore = Math.max(0, quizScore - 10);
+                score = Math.max(0, score - 5);
+                streak = 0;
+            }
+
+            updateHeaderStats();
+            document.getElementById('quiz-current-score').textContent = quizScore;
+            feedback.classList.remove('hidden');
+            document.getElementById('quiz-next-btn').classList.remove('hidden');
+        }
+
+        function nextQuizQuestion() {
+            quizIndex++;
+            if (quizIndex < quizQuestions.length) {
+                loadQuizQuestion();
+            } else {
+                document.getElementById('quiz-container').classList.add('hidden');
+                document.getElementById('quiz-complete').classList.remove('hidden');
+                document.getElementById('final-quiz-score').textContent = `${quizScore} points`;
+            }
+        }
+
+        // Scenario Logic
+        let scIndex = 0;
+        let scStreak = 0;
+        let scBestStreak = 0;
+        let scCorrectCount = 0;
+
+        function startScenario() {
+            scIndex = 0;
+            scStreak = 0;
+            scBestStreak = 0;
+            scCorrectCount = 0;
+            document.getElementById('sc-container').classList.remove('hidden');
+            document.getElementById('sc-complete').classList.add('hidden');
+            loadScenario();
+        }
+
+        function loadScenario() {
+            if (scenariosData.length === 0) return;
+            if (scIndex >= scenariosData.length) scIndex = 0;
+            const sc = scenariosData[scIndex];
+            document.getElementById('sc-num').textContent = scIndex + 1;
+            document.getElementById('sc-total').textContent = scenariosData.length;
+            document.getElementById('sc-streak').textContent = scStreak;
+            document.getElementById('sc-desc').textContent = sc.desc;
+
+            const opts = document.getElementById('sc-options');
+            opts.innerHTML = '';
+
+            sc.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-2xl border border-slate-200 hover:border-orange-400 hover:bg-orange-50/50 transition font-medium text-slate-700 text-sm";
+                const m = opt.text.match(/^(.*?)\s*\(([^)]*)\)\s*$/);
+                if (m) {
+                    btn.innerHTML = `<span class="tibetan-font text-2xl sm:text-3xl block mb-1">${m[1]}</span><span class="text-xs text-slate-500 fc-wylie-text">(${m[2]})</span>`;
+                } else {
+                    btn.textContent = opt.text;
+                }
+                btn.onclick = () => selectScenarioOption(idx);
+                opts.appendChild(btn);
+            });
+
+            document.getElementById('sc-feedback').classList.add('hidden');
+            document.getElementById('sc-next-btn').classList.add('hidden');
+            applyVisibilitySettings();
+        }
+
+        function selectScenarioOption(idx) {
+            const sc = scenariosData[scIndex];
+            const opts = document.getElementById('sc-options').children;
+            const feedback = document.getElementById('sc-feedback');
+
+            for (let btn of opts) {
+                btn.disabled = true;
+                btn.classList.add('opacity-75', 'cursor-not-allowed');
+            }
+
+            const chosen = sc.options[idx];
+            if (chosen.correct) {
+                opts[idx].classList.remove('border-slate-200');
+                opts[idx].classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+                feedback.className = "p-4 rounded-2xl mb-6 text-sm font-medium bg-emerald-50 text-emerald-900 border border-emerald-200";
+                feedback.innerHTML = `✅ <strong>Correct!</strong> ${chosen.explanation}`;
+                score += 15;
+                scStreak++;
+                streak++;
+                scCorrectCount++;
+                if (scStreak > scBestStreak) scBestStreak = scStreak;
+            } else {
+                opts[idx].classList.remove('border-slate-200');
+                opts[idx].classList.add('border-rose-500', 'bg-rose-50', 'text-rose-900');
+                sc.options.forEach((o, i) => {
+                    if (o.correct) {
+                        opts[i].classList.remove('border-slate-200');
+                        opts[i].classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+                    }
+                });
+                feedback.className = "p-4 rounded-2xl mb-6 text-sm font-medium bg-rose-50 text-rose-900 border border-rose-200";
+                feedback.innerHTML = `❌ <strong>Not quite.</strong> ${chosen.explanation}`;
+                score = Math.max(0, score - 10);
+                scStreak = 0;
+                streak = 0;
+            }
+
+            updateHeaderStats();
+            document.getElementById('sc-streak').textContent = scStreak;
+            feedback.classList.remove('hidden');
+            document.getElementById('sc-next-btn').classList.remove('hidden');
+        }
+
+        function nextScenario() {
+            scIndex++;
+            if (scIndex < scenariosData.length) {
+                loadScenario();
+            } else {
+                document.getElementById('sc-container').classList.add('hidden');
+                document.getElementById('sc-complete').classList.remove('hidden');
+                document.getElementById('final-sc-correct').textContent = scCorrectCount;
+                document.getElementById('final-sc-total').textContent = scenariosData.length;
+                document.getElementById('final-sc-best-streak').textContent = scBestStreak;
+            }
+        }
+
+        // PRACTICE TAB LOGIC
+        let practiceIndex = 0;
+        let selectedWordTile = null;
+        let practiceAttemptsLeft = 2;
+
+        function startPractice() {
+            practiceIndex = 0;
+            document.getElementById('practice-container').classList.remove('hidden');
+            document.getElementById('pr-complete').classList.add('hidden');
+            loadPracticeExercise();
+        }
+
+        function loadPracticeExercise() {
+            if (practiceExercises.length === 0) {
+                document.getElementById('pr-title').textContent = "No practice exercises available!";
+                document.getElementById('pr-sentence-area').innerHTML = '<p class="text-sm text-slate-400">Add exercises in Editor & Export tab.</p>';
+                document.getElementById('pr-word-bank').innerHTML = '';
+                document.getElementById('pr-translation-reveal').classList.add('hidden');
+                return;
+            }
+
+            if (practiceIndex >= practiceExercises.length) practiceIndex = 0;
+
+            practiceAttemptsLeft = 2;
+            const ex = practiceExercises[practiceIndex];
+            document.getElementById('pr-num').textContent = practiceIndex + 1;
+            document.getElementById('pr-total').textContent = practiceExercises.length;
+            document.getElementById('pr-feedback').classList.add('hidden');
+            document.getElementById('pr-translation-reveal').classList.add('hidden');
+            document.getElementById('pr-check-btn').classList.remove('hidden');
+            document.getElementById('pr-retry-btn').classList.add('hidden');
+            document.getElementById('pr-next-btn').classList.add('hidden');
+
+            const sentenceArea = document.getElementById('pr-sentence-area');
+            const wordBank = document.getElementById('pr-word-bank');
+            sentenceArea.innerHTML = '';
+            wordBank.innerHTML = '';
+
+            if (ex.type === 'fill_blank') {
+                document.getElementById('pr-type-tag').textContent = "Fill in the Blank";
+                document.getElementById('pr-title').textContent = "Fill in the blank";
+
+                ex.segments.forEach((seg, i) => {
+                    if (seg.isBlank) {
+                        const dropTarget = document.createElement('div');
+                        dropTarget.className = "inline-flex items-center justify-center min-w-[100px] h-14 border-b-2 border-slate-700 mx-1 px-2 text-2xl font-bold tibetan-font bg-white rounded-t cursor-pointer border border-dashed border-slate-300";
+                        dropTarget.dataset.targetIdx = i;
+                        dropTarget.dataset.expected = seg.answer || seg.text;
+
+                        dropTarget.ondragover = (e) => { e.preventDefault(); dropTarget.classList.add('drag-over'); };
+                        dropTarget.ondragleave = () => { dropTarget.classList.remove('drag-over'); };
+                        dropTarget.ondrop = (e) => handleDropToTarget(e, dropTarget);
+                        dropTarget.onclick = () => handleTargetClick(dropTarget);
+
+                        sentenceArea.appendChild(dropTarget);
+                    } else {
+                        const wordWrapper = document.createElement('div');
+                        wordWrapper.className = "tooltip-container mx-1";
+
+                        const wordBox = document.createElement('div');
+                        wordBox.className = "inline-flex flex-col items-center justify-center";
+                        
+                        let html = `<span class="tibetan-font text-2xl sm:text-3xl font-bold text-slate-900">${seg.text}</span>`;
+                        if (seg.wylie) {
+                            html += `<span class="text-xs text-slate-400 font-sans -mt-1 pr-wylie-text">${seg.wylie}</span>`;
+                        }
+                        wordBox.innerHTML = html;
+                        wordWrapper.appendChild(wordBox);
+
+                        if (seg.english && seg.english.trim() !== '') {
+                            const tooltip = document.createElement('span');
+                            tooltip.className = "tooltip-text bg-slate-800 text-white text-xs px-2 py-1 rounded shadow-lg font-sans font-medium";
+                            tooltip.textContent = seg.english;
+                            wordWrapper.appendChild(tooltip);
+                        }
+
+                        sentenceArea.appendChild(wordWrapper);
+                    }
+                });
+
+                if (ex.comment && ex.comment.trim() !== "") {
+                    const commentBox = document.createElement('span');
+                    commentBox.className = "text-slate-600 font-sans text-sm sm:text-base font-medium ml-2 self-center pr-english-comment";
+                    commentBox.textContent = ex.comment.trim();
+                    sentenceArea.appendChild(commentBox);
+                }
+
+                ex.options.forEach((optObj, idx) => {
+                    const obj = typeof optObj === 'string' ? { text: optObj, wylie: '', english: '' } : optObj;
+                    createWordTile(obj.text, obj.wylie, obj.english, idx, wordBank);
+                });
+
+            } else if (ex.type === 'write_tibetan') {
+                document.getElementById('pr-type-tag').textContent = "Write in Tibetan";
+                document.getElementById('pr-title').textContent = "Write this in Tibetan";
+
+                const englishWrapper = document.createElement('div');
+                englishWrapper.className = "w-full mb-4 pr-english-text";
+                englishWrapper.innerHTML = `<p class="text-xl font-bold text-slate-900">${ex.english}</p>`;
+                sentenceArea.appendChild(englishWrapper);
+
+                const lineArea = document.createElement('div');
+                lineArea.className = "w-full flex flex-wrap gap-2 min-h-[60px] border-b-2 border-slate-300 pb-2";
+                lineArea.id = "wt-line-area";
+
+                let targetList = ex.targetWords;
+                if (!targetList || targetList.length === 0) {
+                    if (ex.answer) {
+                        targetList = ex.answer.split(' ').map(w => ({ text: w, wylie: '', english: '' }));
+                    } else {
+                        targetList = [];
+                    }
+                }
+
+                targetList.forEach((tObj, idx) => {
+                    const targetBox = document.createElement('div');
+                    targetBox.className = "inline-flex items-center justify-center min-w-[80px] h-14 border-b-2 border-amber-600 bg-white rounded-t cursor-pointer border border-dashed border-amber-300 p-1";
+                    targetBox.dataset.targetIdx = idx;
+                    targetBox.dataset.expected = (typeof tObj === 'string' ? tObj : tObj.text).trim();
+
+                    targetBox.ondragover = (e) => { e.preventDefault(); targetBox.classList.add('drag-over'); };
+                    targetBox.ondragleave = () => { targetBox.classList.remove('drag-over'); };
+                    targetBox.ondrop = (e) => handleDropToTarget(e, targetBox);
+                    targetBox.onclick = () => handleTargetClick(targetBox);
+
+                    lineArea.appendChild(targetBox);
+                });
+
+                sentenceArea.appendChild(lineArea);
+
+                ex.words.forEach((wObj, idx) => {
+                    const obj = typeof wObj === 'string' ? { text: wObj, wylie: '', english: '' } : wObj;
+                    createWordTile(obj.text, obj.wylie, obj.english, idx, wordBank);
+                });
+            }
+            applyVisibilitySettings();
+        }
+
+        function createWordTile(text, wylie, english, id, container) {
+            const wrapper = document.createElement('div');
+            wrapper.className = "tooltip-container";
+
+            const tile = document.createElement('div');
+            tile.className = "px-4 py-2 bg-white rounded-xl border border-slate-200 shadow-sm font-bold flex flex-col items-center justify-center cursor-grab active:cursor-grabbing hover:border-amber-400 transition select-none min-w-[50px]";
+            tile.draggable = true;
+            tile.dataset.text = text;
+            tile.dataset.wylie = wylie || '';
+            tile.dataset.english = english || '';
+
+            let html = `<span class="tibetan-font text-2xl sm:text-3xl text-slate-900">${text}</span>`;
+            if (wylie) {
+                html += `<span class="text-xs font-normal text-slate-400 -mt-1 font-sans pr-wylie-text">${wylie}</span>`;
+            }
+            tile.innerHTML = html;
+
+            tile.ondragstart = (e) => {
+                e.dataTransfer.setData('text/plain', text);
+                window.currentDraggedTile = wrapper;
+            };
+
+            tile.onclick = () => handleTileClick(wrapper);
+
+            wrapper.appendChild(tile);
+
+            if (english && english.trim() !== '') {
+                const tooltip = document.createElement('span');
+                tooltip.className = "tooltip-text bg-slate-800 text-white text-xs px-2 py-1 rounded shadow-lg font-sans font-medium";
+                tooltip.textContent = english;
+                wrapper.appendChild(tooltip);
+            }
+
+            container.appendChild(wrapper);
+            applyVisibilitySettings();
+        }
+
+        function handleTileClick(wrapper) {
+            const emptyTarget = Array.from(document.querySelectorAll('#pr-sentence-area [data-target-idx]')).find(t => t.children.length === 0);
+            if (emptyTarget) {
+                emptyTarget.appendChild(wrapper);
+            } else if (wrapper.parentElement.id !== 'pr-word-bank') {
+                document.getElementById('pr-word-bank').appendChild(wrapper);
+            }
+            applyVisibilitySettings();
+        }
+
+        function handleDropToTarget(e, dropTarget) {
+            e.preventDefault();
+            dropTarget.classList.remove('drag-over');
+            if (window.currentDraggedTile) {
+                dropTarget.appendChild(window.currentDraggedTile);
+                window.currentDraggedTile = null;
+            }
+            applyVisibilitySettings();
+        }
+
+        function handleTargetClick(dropTarget) {
+            if (dropTarget.firstElementChild) {
+                document.getElementById('pr-word-bank').appendChild(dropTarget.firstElementChild);
+            }
+            applyVisibilitySettings();
+        }
+
+        function checkPracticeAnswer() {
+            const ex = practiceExercises[practiceIndex];
+            const feedback = document.getElementById('pr-feedback');
+            const translationBox = document.getElementById('pr-translation-reveal');
+            const translationText = document.getElementById('pr-translation-text');
+            let isCorrect = false;
+
+            const targets = document.querySelectorAll('#pr-sentence-area [data-target-idx]');
+            let allCorrect = true;
+            targets.forEach(t => {
+                const placedWrapper = t.firstElementChild;
+                const placedTile = placedWrapper ? placedWrapper.querySelector('[data-text]') : null;
+                if (!placedTile || placedTile.dataset.text.trim() !== t.dataset.expected.trim()) {
+                    allCorrect = false;
+                }
+            });
+            isCorrect = allCorrect && targets.length > 0;
+
+            feedback.classList.remove('hidden');
+
+            if (isCorrect) {
+                feedback.className = "p-4 rounded-2xl mb-6 text-sm font-medium bg-emerald-50 text-emerald-900 border border-emerald-200";
+                feedback.innerHTML = "✅ Excellent! Your answer is correct.";
+
+                let fullTrans = ex.translation || ex.english || "";
+                if (fullTrans) {
+                    translationText.textContent = fullTrans;
+                    translationBox.classList.remove('hidden');
+                }
+
+                score += 15;
+                streak += 1;
+                updateHeaderStats();
+                document.getElementById('pr-check-btn').classList.add('hidden');
+                document.getElementById('pr-retry-btn').classList.add('hidden');
+                document.getElementById('pr-next-btn').classList.remove('hidden');
+            } else {
+                practiceAttemptsLeft--;
+                if (practiceAttemptsLeft > 0) {
+                    feedback.className = "p-4 rounded-2xl mb-6 text-sm font-medium bg-amber-50 text-amber-900 border border-amber-200";
+                    feedback.innerHTML = "❌ Not quite right. Try again! (1 attempt remaining)";
+                    document.getElementById('pr-check-btn').classList.add('hidden');
+                    document.getElementById('pr-retry-btn').classList.remove('hidden');
+                } else {
+                    feedback.className = "p-4 rounded-2xl mb-6 text-sm font-medium bg-rose-50 text-rose-900 border border-rose-200";
+                    let correctDisplay = "";
+                    if (ex.type === 'write_tibetan') {
+                        correctDisplay = (ex.targetWords || []).map(w => w.text || w).join('');
+                    } else {
+                        correctDisplay = ex.segments.map(s => s.isBlank ? (s.answer || s.text) : s.text).join('');
+                    }
+                    feedback.innerHTML = `❌ Incorrect. The correct answer was: <strong class="tibetan-font text-lg font-bold ml-1">${correctDisplay}</strong>`;
+                    score = Math.max(0, score - 5);
+                    streak = 0;
+                    updateHeaderStats();
+                    document.getElementById('pr-check-btn').classList.add('hidden');
+                    document.getElementById('pr-retry-btn').classList.add('hidden');
+                    document.getElementById('pr-next-btn').classList.remove('hidden');
+                }
+            }
+            applyVisibilitySettings();
+        }
+
+        function retryPracticeAnswer() {
+            document.getElementById('pr-feedback').classList.add('hidden');
+            document.getElementById('pr-translation-reveal').classList.add('hidden');
+            document.getElementById('pr-retry-btn').classList.add('hidden');
+            document.getElementById('pr-check-btn').classList.remove('hidden');
+        }
+
+        function nextPracticeExercise() {
+            practiceIndex++;
+            if (practiceIndex < practiceExercises.length) {
+                loadPracticeExercise();
+            } else {
+                document.getElementById('practice-container').classList.add('hidden');
+                document.getElementById('pr-complete').classList.remove('hidden');
+            }
+        }
+
+        // Editor Sub-tabs & Management
+        function setEditorSubTab(sub) {
+            const frontSec = document.getElementById('editor-section-front');
+            const fcSec = document.getElementById('editor-section-fc');
+            const qzSec = document.getElementById('editor-section-qz');
+            const scSec = document.getElementById('editor-section-sc');
+            const prSec = document.getElementById('editor-section-pr');
+
+            const frontBtn = document.getElementById('ed-btn-front');
+            const fcBtn = document.getElementById('ed-btn-fc');
+            const qzBtn = document.getElementById('ed-btn-qz');
+            const scBtn = document.getElementById('ed-btn-sc');
+            const prBtn = document.getElementById('ed-btn-pr');
+
+            const active = "px-3 py-1.5 rounded-xl text-xs font-semibold bg-amber-600 text-white shadow-sm";
+            const inactive = "px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600";
+
+            if (frontSec) frontSec.classList.add('hidden');
+            if (fcSec) fcSec.classList.add('hidden');
+            if (qzSec) qzSec.classList.add('hidden');
+            if (scSec) scSec.classList.add('hidden');
+            if (prSec) prSec.classList.add('hidden');
+
+            if (frontBtn) frontBtn.className = inactive;
+            if (fcBtn) fcBtn.className = inactive;
+            if (qzBtn) qzBtn.className = inactive;
+            if (scBtn) scBtn.className = inactive;
+            if (prBtn) prBtn.className = inactive;
+
+            if (sub === 'frontpage') {
+                if (frontSec) frontSec.classList.remove('hidden');
+                if (frontBtn) frontBtn.className = active;
+                loadFrontPageForm();
+            } else if (sub === 'flashcards') {
+                if (fcSec) fcSec.classList.remove('hidden');
+                if (fcBtn) fcBtn.className = active;
+            } else if (sub === 'quiz') {
+                if (qzSec) qzSec.classList.remove('hidden');
+                if (qzBtn) qzBtn.className = active;
+            } else if (sub === 'scenarios') {
+                if (scSec) scSec.classList.remove('hidden');
+                if (scBtn) scBtn.className = active;
+                resetScenarioForm();
+            } else if (sub === 'practice') {
+                if (prSec) prSec.classList.remove('hidden');
+                if (prBtn) prBtn.className = active;
+                resetPracticeForm();
+            }
+        }
+
+        function loadFrontPageForm() {
+            const f = frontPage;
+            const inputTitle = document.getElementById('input-front-title');
+            if (!inputTitle) return; // Safeguard if Editor is removed
+            
+            inputTitle.value = f.title;
+            document.getElementById('input-front-intro').value = f.intro;
+            document.getElementById('input-front-columns').value = f.columns || 3;
+            document.getElementById('input-front-formula-title').value = f.formulaTitle;
+            document.getElementById('input-front-formula').value = f.formula;
+            renderEditorFrontCards();
+        }
+
+        function renderEditorFrontCards() {
+            const container = document.getElementById('editor-front-cards-container');
+            if (!container) return;
+            container.innerHTML = '';
+            frontPage.cards.forEach((c, i) => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'bg-white rounded-xl border border-amber-100 p-4 relative shadow-sm front-card-row';
+                cardDiv.innerHTML = `
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center space-x-2">
+                            <span class="drag-handle text-slate-400 font-bold px-1 select-none" title="Drag to reorder card">⋮⋮</span>
+                            <h4 class="text-xs font-bold text-amber-900">Card #${i+1}</h4>
+                        </div>
+                        <button onclick="removeFrontPageCard(${i})" class="text-xs text-rose-600 hover:bg-rose-50 px-2 py-1 rounded font-bold">✕ Remove Card</button>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-2 mb-2">
+                        <input id="input-front-card-label-${i}" placeholder="Label" value="${c.label || ''}" class="px-3 py-2 rounded-lg border border-amber-200 text-xs">
+                        <input id="input-front-card-tibetan-${i}" placeholder="Tibetan" value="${c.tibetan || ''}" class="px-3 py-2 rounded-lg border border-amber-200 text-sm tibetan-font">
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-2 mb-2">
+                        <input id="input-front-card-phonetic-${i}" placeholder="Phonetic" value="${c.phonetic || ''}" class="px-3 py-2 rounded-lg border border-amber-200 text-xs">
+                        <input id="input-front-card-english-${i}" placeholder="English meaning" value="${c.english || ''}" class="px-3 py-2 rounded-lg border border-amber-200 text-xs">
+                    </div>
+                    <textarea id="input-front-card-desc-${i}" rows="2" placeholder="Description" class="w-full px-3 py-2 rounded-lg border border-amber-200 text-xs">${c.description || ''}</textarea>
+                `;
+                makeRowDraggable(cardDiv);
+                container.appendChild(cardDiv);
+            });
+        }
+
+        function addFrontPageCard() {
+            frontPage.cards.push({
+                label: "New Card",
+                tibetan: "ང་ལ།",
+                phonetic: "nga la",
+                english: "New meaning",
+                description: "Description of the card."
+            });
+            renderEditorFrontCards();
+        }
+
+        function removeFrontPageCard(index) {
+            if (frontPage.cards.length <= 1) {
+                alert("You must keep at least 1 card.");
+                return;
+            }
+            frontPage.cards.splice(index, 1);
+            renderEditorFrontCards();
+        }
+
+        function saveFrontPage() {
+            const cardRows = document.querySelectorAll('#editor-front-cards-container .front-card-row');
+            const newCards = [];
+            cardRows.forEach((row, i) => {
+                const label = row.querySelector(`[id^="input-front-card-label-"]`).value.trim();
+                const tibetan = row.querySelector(`[id^="input-front-card-tibetan-"]`).value.trim();
+                const phonetic = row.querySelector(`[id^="input-front-card-phonetic-"]`).value.trim();
+                const english = row.querySelector(`[id^="input-front-card-english-"]`).value.trim();
+                const description = row.querySelector(`[id^="input-front-card-desc-"]`).value.trim();
+                newCards.push({ label, tibetan, phonetic, english, description });
+            });
+
+            frontPage = {
+                title: document.getElementById('input-front-title').value.trim(),
+                intro: document.getElementById('input-front-intro').value.trim(),
+                columns: Number(document.getElementById('input-front-columns').value) || 3,
+                cards: newCards,
+                formulaTitle: document.getElementById('input-front-formula-title').value.trim(),
+                formula: document.getElementById('input-front-formula').value.trim()
+            };
+            updateFrontPageUI();
+            alert("Front page updated successfully!");
+        }
+
+        function resetFrontPage() {
+            frontPage = JSON.parse(JSON.stringify(defaultFrontPage));
+            loadFrontPageForm();
+            updateFrontPageUI();
+        }
+
+        function updateFrontPageUI() {
+            const f = frontPage;
+            document.getElementById('front-title').textContent = f.title;
+            document.getElementById('front-intro').textContent = f.intro;
+
+            const grid = document.getElementById('front-cards-grid');
+            const cols = f.columns || 3;
+            grid.className = `grid grid-cols-1 md:grid-cols-${cols} gap-4 mb-8`;
+            grid.innerHTML = '';
+
+            const borderColors = ['border-amber-200', 'border-orange-200', 'border-rose-200', 'border-blue-200', 'border-purple-200', 'border-emerald-200'];
+            const bgColors = ['bg-amber-50/70', 'bg-orange-50/70', 'bg-rose-50/70', 'bg-blue-50/70', 'bg-purple-50/70', 'bg-emerald-50/70'];
+            const badgeColors = ['bg-amber-500 text-white', 'bg-orange-500 text-white', 'bg-rose-500 text-white', 'bg-blue-500 text-white', 'bg-purple-500 text-white', 'bg-emerald-500 text-white'];
+            const textColors = ['text-amber-900', 'text-orange-900', 'text-rose-900', 'text-blue-900', 'text-purple-900', 'text-emerald-900'];
+
+            f.cards.forEach((c, i) => {
+                const bCol = borderColors[i % borderColors.length];
+                const bgCol = bgColors[i % bgColors.length];
+                const badgeCol = badgeColors[i % badgeColors.length];
+                const txtCol = textColors[i % textColors.length];
+
+                const cardEl = document.createElement('div');
+                cardEl.className = `${bgCol} border ${bCol} rounded-2xl p-5 flex flex-col justify-between hover:shadow-md transition-all`;
+                cardEl.innerHTML = `
+                    <div>
+                        <div class="inline-block ${badgeCol} text-xs font-bold px-2.5 py-1 rounded-full mb-3">${c.label}</div>
+                        <h3 class="text-2xl font-bold tibetan-font ${txtCol} mb-1">${c.tibetan}</h3>
+                        <p class="text-xs font-medium ${txtCol} opacity-80 mb-3 learn-wylie-text">"${c.phonetic}"</p>
+                        <p class="text-sm text-slate-700 font-medium mb-2 learn-english-text">${c.english}</p>
+                        <p class="text-xs text-slate-500 learn-english-text">${c.description}</p>
+                    </div>
+                `;
+                grid.appendChild(cardEl);
+            });
+
+            document.getElementById('front-formula-title').innerHTML =
+                '<span class="text-lg mr-2">💡</span> ' + f.formulaTitle;
+
+            document.getElementById('front-formula').textContent = f.formula;
+            applyVisibilitySettings();
+        }
+
+        function renderEditorLists() {
+            updateHeaderStats();
+
+            // Render Flashcards list
+            const fcList = document.getElementById('editor-list-fc');
+            if (!fcList) return; // Safeguard if Editor is removed
+
+            fcList.innerHTML = '';
+            if (flashcards.length === 0) {
+                fcList.innerHTML = `<p class="text-xs text-slate-400 text-center py-4">No flashcards found. Add your first one above!</p>`;
+            } else {
+                flashcards.forEach((card, idx) => {
+                    const item = document.createElement('div');
+                    item.className = "flex items-center justify-between p-3 rounded-2xl border border-slate-200 bg-white shadow-sm fc-editor-row";
+                    item.dataset.index = idx;
+                    item.innerHTML = `
+                        <div class="flex items-center space-x-3 overflow-hidden pr-2">
+                            <span class="drag-handle text-slate-400 font-bold px-1 select-none" title="Drag to reorder flashcard">⋮⋮</span>
+                            <span class="text-xs font-bold bg-amber-100 text-amber-900 px-2 py-1 rounded-lg">#${idx+1}</span>
+                            <div class="truncate">
+                                <p class="text-sm font-bold tibetan-font text-slate-900">${card.tibetan}</p>
+                                <p class="text-xs text-slate-500">${card.english} (${card.phonetic})</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-1 flex-shrink-0">
+                            <button onclick="editFlashcardItem(${idx})" class="p-1.5 bg-slate-100 hover:bg-amber-100 text-slate-700 hover:text-amber-900 rounded-xl text-xs transition">✏️</button>
+                            <button onclick="deleteFlashcardItem(${idx})" class="p-1.5 bg-slate-100 hover:bg-rose-100 text-slate-700 hover:text-rose-900 rounded-xl text-xs transition">🗑️</button>
+                        </div>
+                    `;
+                    makeListRowDraggable(item, 'flashcards');
+                    fcList.appendChild(item);
+                });
+            }
+
+            // Render Quiz list
+            const qzList = document.getElementById('editor-list-qz');
+            qzList.innerHTML = '';
+            if (quizQuestions.length === 0) {
+                qzList.innerHTML = `<p class="text-xs text-slate-400 text-center py-4">No quiz questions found. Add your first one above!</p>`;
+            } else {
+                quizQuestions.forEach((q, idx) => {
+                    const item = document.createElement('div');
+                    item.className = "flex items-center justify-between p-3 rounded-2xl border border-slate-200 bg-white shadow-sm qz-editor-row";
+                    item.dataset.index = idx;
+                    item.innerHTML = `
+                        <div class="flex items-center space-x-3 overflow-hidden pr-2">
+                            <span class="drag-handle text-slate-400 font-bold px-1 select-none" title="Drag to reorder question">⋮⋮</span>
+                            <span class="text-xs font-bold bg-amber-100 text-amber-900 px-2 py-1 rounded-lg">#${idx+1}</span>
+                            <div class="truncate">
+                                <p class="text-sm font-bold tibetan-font text-slate-900">${q.prompt}</p>
+                                <p class="text-xs text-slate-500">Correct choice: #${Number(q.answer)+1}</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-1 flex-shrink-0">
+                            <button onclick="editQuizItem(${idx})" class="p-1.5 bg-slate-100 hover:bg-amber-100 text-slate-700 hover:text-amber-900 rounded-xl text-xs transition">✏</button>
+                            <button onclick="deleteQuizItem(${idx})" class="p-1.5 bg-slate-100 hover:bg-rose-100 text-slate-700 hover:text-rose-900 rounded-xl text-xs transition">🗑</button>
+                        </div>
+                    `;
+                    makeListRowDraggable(item, 'quiz');
+                    qzList.appendChild(item);
+                });
+            }
+
+            renderScenarioEditorList();
+            renderPracticeEditorList();
+        }
+
+        // Universal drag and drop reordering handler for saved sentence/item lists
+        let draggedListRow = null;
+
+        function makeListRowDraggable(row, listType) {
+            row.draggable = true;
+            row.ondragstart = (e) => {
+                draggedListRow = { row, listType };
+                e.dataTransfer.effectAllowed = 'move';
+                row.classList.add('opacity-50');
+            };
+            row.ondragend = () => {
+                row.classList.remove('opacity-50');
+                draggedListRow = null;
+                document.querySelectorAll('.row-drag-over').forEach(el => el.classList.remove('row-drag-over'));
+            };
+            row.ondragover = (e) => {
+                e.preventDefault();
+                if (draggedListRow && draggedListRow.listType === listType && draggedListRow.row !== row) {
+                    row.classList.add('row-drag-over');
+                }
+            };
+            row.ondragleave = () => {
+                row.classList.remove('row-drag-over');
+            };
+            row.ondrop = (e) => {
+                e.preventDefault();
+                row.classList.remove('row-drag-over');
+                if (draggedListRow && draggedListRow.listType === listType && draggedListRow.row !== row) {
+                    const container = row.parentElement;
+                    const rows = Array.from(container.children);
+                    const draggedIdx = rows.indexOf(draggedListRow.row);
+                    const targetIdx = rows.indexOf(row);
+
+                    // Reorder the corresponding data array
+                    if (listType === 'flashcards') {
+                        const moved = flashcards.splice(draggedIdx, 1)[0];
+                        flashcards.splice(targetIdx, 0, moved);
+                        renderEditorLists();
+                    } else if (listType === 'quiz') {
+                        const moved = quizQuestions.splice(draggedIdx, 1)[0];
+                        quizQuestions.splice(targetIdx, 0, moved);
+                        renderEditorLists();
+                    } else if (listType === 'scenarios') {
+                        const moved = scenariosData.splice(draggedIdx, 1)[0];
+                        scenariosData.splice(targetIdx, 0, moved);
+                        renderEditorLists();
+                    } else if (listType === 'practice') {
+                        const moved = practiceExercises.splice(draggedIdx, 1)[0];
+                        practiceExercises.splice(targetIdx, 0, moved);
+                        renderEditorLists();
+                    }
+                }
+            };
+        }
+
+        // Flashcard CRUD
+        function saveFlashcardItem() {
+            const index = Number(document.getElementById('edit-fc-index').value);
+            const tibetan = document.getElementById('input-fc-tibetan').value.trim();
+            const phonetic = document.getElementById('input-fc-phonetic').value.trim();
+            const english = document.getElementById('input-fc-english').value.trim();
+            const category = document.getElementById('input-fc-category').value.trim();
+
+            if (!tibetan || !english) return;
+
+            const newCard = {
+                tibetan,
+                phonetic: phonetic || tibetan,
+                english,
+                category: category || "General"
+            };
+
+            if (index === -1) {
+                flashcards.push(newCard);
+            } else {
+                flashcards[index] = newCard;
+            }
+
+            resetFlashcardForm();
+            renderEditorLists();
+        }
+
+        function editFlashcardItem(idx) {
+            const card = flashcards[idx];
+            document.getElementById('edit-fc-index').value = idx;
+            document.getElementById('input-fc-tibetan').value = card.tibetan;
+            document.getElementById('input-fc-phonetic').value = card.phonetic;
+            document.getElementById('input-fc-english').value = card.english;
+            document.getElementById('input-fc-category').value = card.category;
+            document.getElementById('fc-form-title').textContent = `✏️ Edit Flashcard #${idx+1}`;
+            document.getElementById('fc-cancel-btn').classList.remove('hidden');
+        }
+
+        function resetFlashcardForm() {
+            const el = document.getElementById('edit-fc-index');
+            if (!el) return;
+            el.value = -1;
+            document.getElementById('input-fc-tibetan').value = '';
+            document.getElementById('input-fc-phonetic').value = '';
+            document.getElementById('input-fc-english').value = '';
+            document.getElementById('input-fc-category').value = '';
+            document.getElementById('fc-form-title').textContent = "➕ Add New Flashcard";
+            document.getElementById('fc-cancel-btn').classList.add('hidden');
+        }
+
+        function deleteFlashcardItem(idx) {
+            flashcards.splice(idx, 1);
+            resetFlashcardForm();
+            renderEditorLists();
+        }
+
+        // Quiz CRUD
+        function saveQuizItem() {
+            const index = Number(document.getElementById('edit-qz-index').value);
+            const prompt = document.getElementById('input-qz-prompt').value.trim();
+            const hint = document.getElementById('input-qz-hint').value.trim();
+            const opt0 = document.getElementById('input-qz-opt0').value.trim();
+            const opt1 = document.getElementById('input-qz-opt1').value.trim();
+            const opt2 = document.getElementById('input-qz-opt2').value.trim();
+            const opt3 = document.getElementById('input-qz-opt3').value.trim();
+            const answer = Number(document.getElementById('input-qz-answer').value);
+
+            if (!prompt || !opt0 || !opt1) return;
+
+            const options = [opt0, opt1, opt2, opt3].filter(o => o.length > 0);
+
+            const newQ = {
+                prompt,
+                hint: hint || "Choose the correct answer",
+                options,
+                answer: answer < options.length ? answer : 0
+            };
+
+            if (index === -1) {
+                quizQuestions.push(newQ);
+            } else {
+                quizQuestions[index] = newQ;
+            }
+
+            resetQuizForm();
+            renderEditorLists();
+        }
+
+        function editQuizItem(idx) {
+            const q = quizQuestions[idx];
+            document.getElementById('edit-qz-index').value = idx;
+            document.getElementById('input-qz-prompt').value = q.prompt;
+            document.getElementById('input-qz-hint').value = q.hint;
+            document.getElementById('input-qz-opt0').value = q.options[0] || '';
+            document.getElementById('input-qz-opt1').value = q.options[1] || '';
+            document.getElementById('input-qz-opt2').value = q.options[2] || '';
+            document.getElementById('input-qz-opt3').value = q.options[3] || '';
+            document.getElementById('input-qz-answer').value = q.answer;
+            document.getElementById('qz-form-title').textContent = `✏️ Edit Quiz Question #${idx+1}`;
+            document.getElementById('qz-cancel-btn').classList.remove('hidden');
+        }
+
+        function resetQuizForm() {
+            const el = document.getElementById('edit-qz-index');
+            if (!el) return;
+            el.value = -1;
+            document.getElementById('input-qz-prompt').value = '';
+            document.getElementById('input-qz-hint').value = '';
+            document.getElementById('input-qz-opt0').value = '';
+            document.getElementById('input-qz-opt1').value = '';
+            document.getElementById('input-qz-opt2').value = '';
+            document.getElementById('input-qz-opt3').value = '';
+            document.getElementById('input-qz-answer').value = '0';
+            document.getElementById('qz-form-title').textContent = "➕ Add New Quiz Question";
+            document.getElementById('qz-cancel-btn').classList.add('hidden');
+        }
+
+        function deleteQuizItem(idx) {
+            quizQuestions.splice(idx, 1);
+            resetQuizForm();
+            renderEditorLists();
+        }
+
+        // Scenario Editor Logic
+        function renderScenarioEditorList() {
+            const list = document.getElementById('editor-list-sc');
+            if (!list) return;
+            list.innerHTML = '';
+
+            if (scenariosData.length === 0) {
+                const empty = document.createElement('div');
+                empty.className = 'p-4 rounded-xl border border-dashed border-orange-200 bg-orange-50/40 text-sm text-slate-500';
+                empty.textContent = 'No scenarios yet. Add your first scenario above.';
+                list.appendChild(empty);
+                return;
+            }
+
+            scenariosData.forEach((sc, index) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white border border-orange-100 rounded-xl p-3 shadow-sm sc-editor-row';
+                card.dataset.index = index;
+
+                const top = document.createElement('div');
+                top.className = 'flex items-start justify-between gap-3';
+
+                const info = document.createElement('div');
+                info.className = 'min-w-0 flex-1 flex items-start space-x-2';
+
+                const handle = document.createElement('span');
+                handle.className = 'drag-handle text-slate-400 font-bold px-1 select-none pt-0.5';
+                handle.title = 'Drag to reorder scenario';
+                handle.textContent = '⋮⋮';
+
+                const details = document.createElement('div');
+                details.className = 'min-w-0 flex-1';
+
+                const title = document.createElement('div');
+                title.className = 'text-xs font-bold text-orange-900 mb-1';
+                title.textContent = `Scenario ${index + 1}`;
+
+                const desc = document.createElement('div');
+                desc.className = 'text-sm text-slate-700 font-medium mb-2';
+                desc.textContent = sc.desc;
+
+                const meta = document.createElement('div');
+                meta.className = 'text-xs text-slate-400';
+                meta.textContent = `${sc.options.length} answer choices • Correct answer: Choice ${sc.options.findIndex(o => o.correct) + 1}`;
+
+                details.appendChild(title);
+                details.appendChild(desc);
+                details.appendChild(meta);
+                info.appendChild(handle);
+                info.appendChild(details);
+
+                const actions = document.createElement('div');
+                actions.className = 'flex gap-2 shrink-0';
+
+                const edit = document.createElement('button');
+                edit.className = 'px-3 py-1.5 rounded-lg bg-amber-100 text-amber-800 text-xs font-semibold hover:bg-amber-200';
+                edit.textContent = 'Edit';
+                edit.onclick = () => editScenario(index);
+
+                const del = document.createElement('button');
+                del.className = 'px-3 py-1.5 rounded-lg bg-rose-100 text-rose-700 text-xs font-semibold hover:bg-rose-200';
+                del.textContent = 'Delete';
+                del.onclick = () => deleteScenario(index);
+
+                actions.appendChild(edit);
+                actions.appendChild(del);
+                top.appendChild(info);
+                top.appendChild(actions);
+                card.appendChild(top);
+                makeListRowDraggable(card, 'scenarios');
+                list.appendChild(card);
+            });
+        }
+
+        function resetScenarioForm() {
+            const el = document.getElementById('edit-sc-index');
+            if (!el) return;
+            el.value = -1;
+            document.getElementById('sc-form-title').textContent = '➕ Add New Scenario';
+            document.getElementById('input-sc-desc').value = '';
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(`input-sc-opt${i}`).value = '';
+                document.getElementById(`input-sc-exp${i}`).value = '';
+                document.getElementById(`input-sc-correct${i}`).checked = false;
+            }
+            document.getElementById('input-sc-correct0').checked = true;
+            document.getElementById('sc-cancel-btn').classList.add('hidden');
+        }
+
+        function editScenario(index) {
+            const sc = scenariosData[index];
+            document.getElementById('edit-sc-index').value = index;
+            document.getElementById('sc-form-title').textContent = `✏️ Edit Scenario ${index + 1}`;
+            document.getElementById('input-sc-desc').value = sc.desc || '';
+
+            for (let i = 0; i < 4; i++) {
+                const opt = sc.options[i] || { text: '', correct: false, explanation: '' };
+                document.getElementById(`input-sc-opt${i}`).value = opt.text || '';
+                document.getElementById(`input-sc-exp${i}`).value = opt.explanation || '';
+                document.getElementById(`input-sc-correct${i}`).checked = !!opt.correct;
+            }
+            document.getElementById('sc-cancel-btn').classList.remove('hidden');
+            document.getElementById('input-sc-desc').focus();
+        }
+
+        function saveScenario() {
+            const desc = document.getElementById('input-sc-desc').value.trim();
+            const options = [];
+
+            for (let i = 0; i < 4; i++) {
+                const textValue = document.getElementById(`input-sc-opt${i}`).value.trim();
+                const explanation = document.getElementById(`input-sc-exp${i}`).value.trim();
+                if (textValue) {
+                    options.push({
+                        text: textValue,
+                        correct: document.getElementById(`input-sc-correct${i}`).checked,
+                        explanation: explanation
+                    });
+                }
+            }
+
+            if (!desc) {
+                alert('Please enter a scenario situation.');
+                return;
+            }
+            if (options.length < 2) {
+                alert('Please enter at least 2 answer choices.');
+                return;
+            }
+            if (!options.some(o => o.correct)) {
+                alert('Please mark one answer choice as correct.');
+                return;
+            }
+
+            const editIndex = Number(document.getElementById('edit-sc-index').value);
+            if (editIndex >= 0 && editIndex < scenariosData.length) {
+                scenariosData[editIndex] = { desc, options };
+            } else {
+                scenariosData.push({ desc, options });
+            }
+
+            updateHeaderStats();
+            renderScenarioEditorList();
+            resetScenarioForm();
+        }
+
+        function deleteScenario(index) {
+            if (!confirm(`Delete Scenario ${index + 1}?`)) return;
+            scenariosData.splice(index, 1);
+            if (scIndex >= scenariosData.length) scIndex = 0;
+            updateHeaderStats();
+            renderScenarioEditorList();
+            if (document.getElementById('tab-content-scenarios').classList.contains('hidden') === false) {
+                startScenario();
+            }
+        }
+
+        // PRACTICE EDITOR LOGIC
+        let draggedEditorRow = null;
+
+        function makeRowDraggable(row) {
+            row.draggable = true;
+            row.ondragstart = (e) => {
+                draggedEditorRow = row;
+                e.dataTransfer.effectAllowed = 'move';
+                row.classList.add('opacity-50');
+            };
+            row.ondragend = () => {
+                row.classList.remove('opacity-50');
+                draggedEditorRow = null;
+                document.querySelectorAll('.row-drag-over').forEach(el => el.classList.remove('row-drag-over'));
+            };
+            row.ondragover = (e) => {
+                e.preventDefault();
+                if (draggedEditorRow && draggedEditorRow !== row && draggedEditorRow.parentElement === row.parentElement) {
+                    row.classList.add('row-drag-over');
+                }
+            };
+            row.ondragleave = () => {
+                row.classList.remove('row-drag-over');
+            };
+            row.ondrop = (e) => {
+                e.preventDefault();
+                row.classList.remove('row-drag-over');
+                if (draggedEditorRow && draggedEditorRow !== row && draggedEditorRow.parentElement === row.parentElement) {
+                    const container = row.parentElement;
+                    const children = Array.from(container.children);
+                    const draggedIdx = children.indexOf(draggedEditorRow);
+                    const targetIdx = children.indexOf(row);
+                    if (draggedIdx < targetIdx) {
+                        container.insertBefore(draggedEditorRow, row.nextSibling);
+                    } else {
+                        container.insertBefore(draggedEditorRow, row);
+                    }
+                }
+            };
+        }
+
+        function togglePracticeTypeForm() {
+            const typeSelect = document.getElementById('input-pr-type');
+            if (!typeSelect) return;
+            const type = typeSelect.value;
+            const fillSec = document.getElementById('pr-form-fill-blank');
+            const writeSec = document.getElementById('pr-form-write-tibetan');
+
+            if (type === 'fill_blank') {
+                fillSec.classList.remove('hidden');
+                writeSec.classList.add('hidden');
+            } else {
+                fillSec.classList.add('hidden');
+                writeSec.classList.remove('hidden');
+            }
+        }
+
+        function addFillSegmentRow(text = '', wylie = '', english = '', isBlank = false, answer = '', autoSync = false) {
+            const container = document.getElementById('pr-fill-segments-container');
+            if (!container) return;
+            const segRowId = 'fill-seg-row-' + Date.now() + '-' + Math.random().toString(36).substring(2, 5);
+            const row = document.createElement('div');
+            row.dataset.segRowId = segRowId;
+            row.className = "flex flex-wrap items-center gap-2 bg-white p-2 rounded-xl border border-amber-100 fill-seg-row";
+            
+            row.innerHTML = `
+                <span class="drag-handle text-slate-400 font-bold px-1 select-none" title="Drag to reorder row">⋮⋮</span>
+                <input type="text" placeholder="Tibetan text segment" value="${text}" oninput="syncFillSegmentInputs('${segRowId}')" class="pr-seg-text flex-grow px-3 py-1.5 rounded-lg border border-slate-200 text-xs tibetan-font">
+                <input type="text" placeholder="Wylie (under word)" value="${wylie}" oninput="syncFillSegmentInputs('${segRowId}')" class="pr-seg-wylie w-28 px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-sans">
+                <input type="text" placeholder="English hover popup" value="${english}" oninput="syncFillSegmentInputs('${segRowId}')" class="pr-seg-english w-32 px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-sans bg-amber-50/30">
+                <label class="flex items-center text-xs font-semibold text-amber-900 gap-1 cursor-pointer">
+                    <input type="checkbox" ${isBlank ? 'checked' : ''} onchange="toggleBlankInput(this, '${segRowId}')" class="pr-seg-blank accent-amber-600"> Blank
+                </label>
+                <div class="pr-seg-ans-group ${isBlank ? 'flex' : 'hidden'} items-center gap-1">
+                    <input type="text" placeholder="Answer" value="${isBlank ? (answer || text) : answer}" class="pr-seg-ans w-24 px-2 py-1.5 rounded-lg border border-amber-300 text-xs tibetan-font bg-amber-50">
+                </div>
+                <button onclick="removeFillSegmentRow(this, '${segRowId}')" class="text-xs text-rose-600 font-bold px-2 py-1 hover:bg-rose-50 rounded">✕</button>
+            `;
+            makeRowDraggable(row);
+            container.appendChild(row);
+
+            if (isBlank && autoSync) {
+                addFillOptionRow(answer || text, wylie, english, segRowId);
+            }
+        }
+
+        function removeFillSegmentRow(buttonEl, segRowId) {
+            buttonEl.parentElement.remove();
+            if (segRowId) {
+                const syncedOptRow = document.querySelector(`#pr-fill-options-container .fill-opt-row[data-synced-from="${segRowId}"]`);
+                if (syncedOptRow) {
+                    syncedOptRow.remove();
+                }
+            }
+        }
+
+        function toggleBlankInput(checkbox, segRowId) {
+            const row = checkbox.closest('.fill-seg-row');
+            const group = row.querySelector('.pr-seg-ans-group');
+            const ansInput = row.querySelector('.pr-seg-ans');
+            const textVal = row.querySelector('.pr-seg-text').value;
+            const wylieVal = row.querySelector('.pr-seg-wylie').value;
+            const engVal = row.querySelector('.pr-seg-english').value;
+
+            if (checkbox.checked) {
+                group.classList.remove('hidden');
+                group.classList.add('flex');
+                if (!ansInput.value.trim()) {
+                    ansInput.value = textVal;
+                }
+                let syncedOptRow = document.querySelector(`#pr-fill-options-container .fill-opt-row[data-synced-from="${segRowId}"]`);
+                if (!syncedOptRow) {
+                    addFillOptionRow(ansInput.value || textVal, wylieVal, engVal, segRowId);
+                }
+            } else {
+                group.classList.add('hidden');
+                group.classList.remove('flex');
+                let syncedOptRow = document.querySelector(`#pr-fill-options-container .fill-opt-row[data-synced-from="${segRowId}"]`);
+                if (syncedOptRow) {
+                    syncedOptRow.remove();
+                }
+            }
+        }
+
+        function syncFillSegmentInputs(segRowId) {
+            const row = document.querySelector(`#pr-fill-segments-container .fill-seg-row[data-seg-row-id="${segRowId}"]`);
+            if (!row) return;
+
+            const isBlank = row.querySelector('.pr-seg-blank').checked;
+            const textVal = row.querySelector('.pr-seg-text').value;
+            const wylieVal = row.querySelector('.pr-seg-wylie').value;
+            const engVal = row.querySelector('.pr-seg-english').value;
+            const ansInput = row.querySelector('.pr-seg-ans');
+
+            if (isBlank) {
+                ansInput.value = textVal;
+
+                let syncedOptRow = document.querySelector(`#pr-fill-options-container .fill-opt-row[data-synced-from="${segRowId}"]`);
+                if (!syncedOptRow) {
+                    addFillOptionRow(textVal, wylieVal, engVal, segRowId);
+                } else {
+                    syncedOptRow.querySelector('.pr-opt-val').value = textVal;
+                    syncedOptRow.querySelector('.pr-opt-wylie').value = wylieVal;
+                    syncedOptRow.querySelector('.pr-opt-english').value = engVal;
+                }
+            }
+        }
+
+        function addFillOptionRow(val = '', wylie = '', english = '', syncedFromId = null) {
+            const container = document.getElementById('pr-fill-options-container');
+            if (!container) return;
+            const row = document.createElement('div');
+            row.className = "flex items-center gap-2 fill-opt-row bg-white p-1 rounded-xl border border-amber-100";
+            if (syncedFromId) {
+                row.dataset.syncedFrom = syncedFromId;
+            }
+            row.innerHTML = `
+                <span class="drag-handle text-slate-400 font-bold px-1 select-none" title="Drag to reorder choice">⋮⋮</span>
+                <input type="text" placeholder="Tibetan choice box" value="${val}" class="pr-opt-val flex-grow px-3 py-1.5 rounded-xl border border-amber-200 text-sm tibetan-font bg-white">
+                <input type="text" placeholder="Wylie" value="${wylie}" class="pr-opt-wylie w-28 px-3 py-1.5 rounded-xl border border-slate-200 text-xs bg-slate-50">
+                <input type="text" placeholder="English hover popup" value="${english}" class="pr-opt-english w-36 px-3 py-1.5 rounded-xl border border-slate-200 text-xs bg-amber-50/30">
+                <button onclick="this.parentElement.remove()" class="text-xs text-rose-600 font-bold px-2 py-1 hover:bg-rose-50 rounded shrink-0">✕ Remove Box</button>
+            `;
+            makeRowDraggable(row);
+            container.appendChild(row);
+        }
+
+        function addTargetWordRow(val = '', wylie = '', english = '', autoSync = true) {
+            const container = document.getElementById('pr-target-words-container');
+            if (!container) return;
+            const rowId = 'target-row-' + Date.now() + '-' + Math.random().toString(36).substring(2, 5);
+            const row = document.createElement('div');
+            row.dataset.rowId = rowId;
+            row.className = "flex items-center gap-2 target-word-row bg-white p-1 rounded-xl border border-amber-100";
+            row.innerHTML = `
+                <span class="drag-handle text-slate-400 font-bold px-1 select-none" title="Drag to reorder target word">⋮⋮</span>
+                <input type="text" placeholder="Target Tibetan Word" value="${val}" oninput="syncTargetToWordBank('${rowId}')" class="pr-target-val flex-grow px-3 py-1.5 rounded-xl border border-amber-200 text-sm tibetan-font bg-white">
+                <input type="text" placeholder="Wylie" value="${wylie}" oninput="syncTargetToWordBank('${rowId}')" class="pr-target-wylie w-28 px-3 py-1.5 rounded-xl border border-slate-200 text-xs bg-slate-50">
+                <input type="text" placeholder="English hover popup" value="${english}" oninput="syncTargetToWordBank('${rowId}')" class="pr-target-english w-36 px-3 py-1.5 rounded-xl border border-slate-200 text-xs bg-amber-50/30">
+                <button onclick="removeTargetWordRow(this, '${rowId}')" class="text-xs text-rose-600 font-bold px-2 py-1 hover:bg-rose-50 rounded shrink-0">✕ Remove Box</button>
+            `;
+            makeRowDraggable(row);
+            container.appendChild(row);
+
+            if (autoSync) {
+                addWriteWordRow(val, wylie, english, rowId);
+            }
+        }
+
+        function removeTargetWordRow(buttonEl, rowId) {
+            buttonEl.parentElement.remove();
+            if (rowId) {
+                const syncedWordRow = document.querySelector(`#pr-write-words-container .write-word-row[data-synced-from="${rowId}"]`);
+                if (syncedWordRow) {
+                    syncedWordRow.remove();
+                }
+            }
+        }
+
+        function syncTargetToWordBank(rowId) {
+            const targetRow = document.querySelector(`#pr-target-words-container .target-word-row[data-row-id="${rowId}"]`);
+            if (!targetRow) return;
+
+            const val = targetRow.querySelector('.pr-target-val').value;
+            const wylie = targetRow.querySelector('.pr-target-wylie').value;
+            const english = targetRow.querySelector('.pr-target-english').value;
+
+            let wordRow = document.querySelector(`#pr-write-words-container .write-word-row[data-synced-from="${rowId}"]`);
+            if (!wordRow) {
+                addWriteWordRow(val, wylie, english, rowId);
+            } else {
+                wordRow.querySelector('.pr-word-val').value = val;
+                wordRow.querySelector('.pr-word-wylie').value = wylie;
+                wordRow.querySelector('.pr-word-english').value = english;
+            }
+        }
+
+        function addWriteWordRow(val = '', wylie = '', english = '', syncedFromId = null) {
+            const container = document.getElementById('pr-write-words-container');
+            if (!container) return;
+            const row = document.createElement('div');
+            row.className = "flex items-center gap-2 write-word-row bg-white p-1 rounded-xl border border-amber-100";
+            if (syncedFromId) {
+                row.dataset.syncedFrom = syncedFromId;
+            }
+            row.innerHTML = `
+                <span class="drag-handle text-slate-400 font-bold px-1 select-none" title="Drag to reorder word">⋮⋮</span>
+                <input type="text" placeholder="Tibetan word box" value="${val}" class="pr-word-val flex-grow px-3 py-1.5 rounded-xl border border-amber-200 text-sm tibetan-font bg-white">
+                <input type="text" placeholder="Wylie" value="${wylie}" class="pr-word-wylie w-28 px-3 py-1.5 rounded-xl border border-slate-200 text-xs bg-slate-50">
+                <input type="text" placeholder="English hover popup" value="${english}" class="pr-word-english w-36 px-3 py-1.5 rounded-xl border border-slate-200 text-xs bg-amber-50/30">
+                <button onclick="this.parentElement.remove()" class="text-xs text-rose-600 font-bold px-2 py-1 hover:bg-rose-50 rounded shrink-0">✕ Remove Box</button>
+            `;
+            makeRowDraggable(row);
+            container.appendChild(row);
+        }
+
+        function resetPracticeForm() {
+            const editIndex = document.getElementById('edit-pr-index');
+            if (!editIndex) return; // Safeguard if Editor tab has been removed
+            
+            editIndex.value = -1;
+            document.getElementById('input-pr-type').value = 'fill_blank';
+            togglePracticeTypeForm();
+
+            document.getElementById('input-pr-full-translation').value = '';
+            document.getElementById('input-pr-english-comment').value = '';
+            document.getElementById('pr-fill-segments-container').innerHTML = '';
+            document.getElementById('pr-fill-options-container').innerHTML = '';
+            document.getElementById('pr-target-words-container').innerHTML = '';
+            document.getElementById('pr-write-words-container').innerHTML = '';
+
+            addFillSegmentRow('ང་ལ', 'nga la', 'To me / I', false, '', false);
+            addFillSegmentRow('དེབ', 'deb', 'book', false, '', false);
+            addFillSegmentRow('ཡོད།', 'yod', 'have (fact)', true, 'ཡོད།', true);
+
+            addFillOptionRow('འདུག', 'duk', 'have (noticed)');
+            addFillOptionRow('ཡིན།', 'yin', 'am / is');
+            addFillOptionRow('རེད།', 're', 'is / are');
+            addFillOptionRow('མེད།', 'med', 'don\'t have');
+
+            document.getElementById('input-pr-wt-english').value = '';
+            
+            // Default write_tibetan targets with autoSync = true
+            addTargetWordRow('ང་ལ', 'nga la', 'To me / I', true);
+            addTargetWordRow('དངུལ', 'ngul', 'money', true);
+            addTargetWordRow('མེད།', 'med', 'don\'t have', true);
+
+            // Additional distractor words for Word Bank
+            addWriteWordRow('ཡོད།', 'yod', 'have (fact)');
+            addWriteWordRow('འདུག', 'duk', 'have (noticed)');
+
+            document.getElementById('pr-form-title').textContent = "➕ Add New Practice Exercise";
+            document.getElementById('pr-cancel-btn').classList.add('hidden');
+        }
+
+        function savePracticeItem() {
+            const index = Number(document.getElementById('edit-pr-index').value);
+            const type = document.getElementById('input-pr-type').value;
+            let newItem = null;
+
+            if (type === 'fill_blank') {
+                const translation = document.getElementById('input-pr-full-translation').value.trim();
+                const comment = document.getElementById('input-pr-english-comment').value.trim();
+                const segRows = document.querySelectorAll('#pr-fill-segments-container .fill-seg-row');
+                const segments = [];
+                segRows.forEach(r => {
+                    const txt = r.querySelector('.pr-seg-text').value;
+                    const wylie = r.querySelector('.pr-seg-wylie').value;
+                    const english = r.querySelector('.pr-seg-english').value;
+                    const isBlank = r.querySelector('.pr-seg-blank').checked;
+                    const ans = r.querySelector('.pr-seg-ans').value;
+                    if (txt || isBlank) {
+                        segments.push({ text: txt, wylie, english, isBlank, answer: ans });
+                    }
+                });
+
+                const optRows = document.querySelectorAll('#pr-fill-options-container .fill-opt-row');
+                const options = [];
+                optRows.forEach(r => {
+                    const val = r.querySelector('.pr-opt-val').value.trim();
+                    const wylie = r.querySelector('.pr-opt-wylie').value.trim();
+                    const english = r.querySelector('.pr-opt-english').value.trim();
+                    if (val) options.push({ text: val, wylie, english });
+                });
+
+                if (segments.length === 0 || options.length === 0) {
+                    alert('Please add at least one sentence segment and word option.');
+                    return;
+                }
+
+                newItem = { type: 'fill_blank', translation, comment, segments, options };
+
+            } else if (type === 'write_tibetan') {
+                const english = document.getElementById('input-pr-wt-english').value.trim();
+                
+                const targetRows = document.querySelectorAll('#pr-target-words-container .target-word-row');
+                const targetWords = [];
+                targetRows.forEach(r => {
+                    const val = r.querySelector('.pr-target-val').value.trim();
+                    const wylie = r.querySelector('.pr-target-wylie').value.trim();
+                    const eng = r.querySelector('.pr-target-english').value.trim();
+                    if (val) targetWords.push({ text: val, wylie, english: eng });
+                });
+
+                const wordRows = document.querySelectorAll('#pr-write-words-container .write-word-row');
+                const words = [];
+                wordRows.forEach(r => {
+                    const val = r.querySelector('.pr-word-val').value.trim();
+                    const wylie = r.querySelector('.pr-word-wylie').value.trim();
+                    const eng = r.querySelector('.pr-word-english').value.trim();
+                    if (val) words.push({ text: val, wylie, english: eng });
+                });
+
+                if (!english || targetWords.length === 0 || words.length === 0) {
+                    alert('Please complete the English sentence prompt, target answer boxes, and word choices.');
+                    return;
+                }
+
+                const answer = targetWords.map(t => t.text).join('');
+
+                newItem = { type: 'write_tibetan', english, answer, targetWords, words };
+            }
+
+            if (index === -1) {
+                practiceExercises.push(newItem);
+            } else {
+                practiceExercises[index] = newItem;
+            }
+
+            resetPracticeForm();
+            renderEditorLists();
+        }
+
+        function editPracticeItem(idx) {
+            const ex = practiceExercises[idx];
+            document.getElementById('edit-pr-index').value = idx;
+            document.getElementById('input-pr-type').value = ex.type;
+            togglePracticeTypeForm();
+
+            if (ex.type === 'fill_blank') {
+                document.getElementById('input-pr-full-translation').value = ex.translation || '';
+                document.getElementById('input-pr-english-comment').value = ex.comment || '';
+
+                const segContainer = document.getElementById('pr-fill-segments-container');
+                const optContainer = document.getElementById('pr-fill-options-container');
+                segContainer.innerHTML = '';
+                optContainer.innerHTML = '';
+
+                ex.segments.forEach(seg => addFillSegmentRow(seg.text || '', seg.wylie || '', seg.english || '', seg.isBlank, seg.answer || '', false));
+                ex.options.forEach(opt => {
+                    if (typeof opt === 'string') {
+                        addFillOptionRow(opt, '', '');
+                    } else {
+                        addFillOptionRow(opt.text, opt.wylie || '', opt.english || '');
+                    }
+                });
+
+            } else if (ex.type === 'write_tibetan') {
+                document.getElementById('input-pr-wt-english').value = ex.english;
+
+                const targetContainer = document.getElementById('pr-target-words-container');
+                targetContainer.innerHTML = '';
+                
+                let targetList = ex.targetWords;
+                if (!targetList || targetList.length === 0) {
+                    targetList = ex.answer ? ex.answer.split(' ').map(w => ({ text: w, wylie: '', english: '' })) : [];
+                }
+
+                targetList.forEach(t => {
+                    if (typeof t === 'string') {
+                        addTargetWordRow(t, '', '', false);
+                    } else {
+                        addTargetWordRow(t.text, t.wylie || '', t.english || '', false);
+                    }
+                });
+
+                const wordContainer = document.getElementById('pr-write-words-container');
+                wordContainer.innerHTML = '';
+                ex.words.forEach(w => {
+                    if (typeof w === 'string') {
+                        addWriteWordRow(w, '', '');
+                    } else {
+                        addWriteWordRow(w.text, w.wylie || '', w.english || '');
+                    }
+                });
+            }
+
+            document.getElementById('pr-form-title').textContent = `✏️ Edit Practice Exercise #${idx+1}`;
+            document.getElementById('pr-cancel-btn').classList.remove('hidden');
+        }
+
+        function deletePracticeItem(idx) {
+            if (!confirm(`Delete Practice Exercise #${idx+1}?`)) return;
+            practiceExercises.splice(idx, 1);
+            resetPracticeForm();
+            renderEditorLists();
+        }
+
+        function renderPracticeEditorList() {
+            const list = document.getElementById('editor-list-pr');
+            if (!list) return; // Safeguard if Editor is removed
+            list.innerHTML = '';
+
+            if (practiceExercises.length === 0) {
+                list.innerHTML = `<p class="text-xs text-slate-400 text-center py-4">No practice exercises found. Add your first one above!</p>`;
+                return;
+            }
+
+            practiceExercises.forEach((ex, idx) => {
+                const item = document.createElement('div');
+                item.className = "flex items-center justify-between p-3 rounded-2xl border border-slate-200 bg-white shadow-sm pr-editor-row";
+                item.dataset.index = idx;
+                const label = ex.type === 'fill_blank' ? 'Fill in the blank' : 'Write in Tibetan';
+                const summary = ex.type === 'fill_blank' ? ex.segments.map(s => s.text).join('') : ex.english;
+
+                item.innerHTML = `
+                    <div class="flex items-center space-x-3 overflow-hidden pr-2">
+                        <span class="drag-handle text-slate-400 font-bold px-1 select-none" title="Drag to reorder exercise">⋮⋮</span>
+                        <span class="text-xs font-bold bg-amber-100 text-amber-900 px-2 py-1 rounded-lg">#${idx+1}</span>
+                        <div class="truncate">
+                            <p class="text-xs font-bold text-amber-800 uppercase tracking-wider">${label}</p>
+                            <p class="text-sm font-semibold text-slate-900 truncate">${summary}</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-1 flex-shrink-0">
+                        <button onclick="editPracticeItem(${idx})" class="p-1.5 bg-slate-100 hover:bg-amber-100 text-slate-700 hover:text-amber-900 rounded-xl text-xs transition">✏️</button>
+                        <button onclick="deletePracticeItem(${idx})" class="p-1.5 bg-slate-100 hover:bg-rose-100 text-slate-700 hover:text-rose-900 rounded-xl text-xs transition">🗑️</button>
+                    </div>
+                `;
+                makeListRowDraggable(item, 'practice');
+                list.appendChild(item);
+            });
+        }
+
+        function importUpdatedFile(event) {
+            const input = event.target;
+            const file = input.files && input.files[0];
+            if (!file) return;
+
+            const statusEl = document.getElementById('import-status');
+            const showStatus = (msg, ok) => {
+                statusEl.textContent = msg;
+                statusEl.classList.remove('hidden', 'text-emerald-600', 'text-rose-600');
+                statusEl.classList.add(ok ? 'text-emerald-600' : 'text-rose-600');
+            };
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const text = e.target.result;
+
+                    const fpMatch = text.match(/const\s+defaultFrontPage\s*=\s*(\{[\s\S]*?\n\s*\});/);
+                    const fcMatch = text.match(/const\s+defaultFlashcards\s*=\s*(\[[\s\S]*?\n\s*\]);/);
+                    const qzMatch = text.match(/const\s+defaultQuizQuestions\s*=\s*(\[[\s\S]*?\n\s*\]);/);
+                    const scMatch = text.match(/const\s+scenarios\s*=\s*(\[[\s\S]*?\n\s*\]);/);
+                    const prMatch = text.match(/const\s+defaultPracticeExercises\s*=\s*(\[[\s\S]*?\n\s*\]);/);
+
+                    if (!fpMatch || !fcMatch || !qzMatch || !scMatch) {
+                        showStatus("⚠ That doesn't look like a file downloaded from this app — no content found to import.", false);
+                        input.value = '';
+                        return;
+                    }
+
+                    const importedFrontPage = new Function('return ' + fpMatch[1])();
+                    const importedFlashcards = new Function('return ' + fcMatch[1])();
+                    const importedQuizQuestions = new Function('return ' + qzMatch[1])();
+                    const importedScenarios = new Function('return ' + scMatch[1])();
+                    const importedPractice = prMatch ? new Function('return ' + prMatch[1])() : defaultPracticeExercises;
+
+                    frontPage = importedFrontPage;
+                    flashcards = importedFlashcards;
+                    quizQuestions = importedQuizQuestions;
+                    scenariosData = importedScenarios;
+                    practiceExercises = importedPractice;
+
+                    fcIndex = 0;
+                    isFlipped = false;
+                    quizIndex = 0;
+                    quizScore = 0;
+                    scIndex = 0;
+                    scStreak = 0;
+                    scBestStreak = 0;
+                    scCorrectCount = 0;
+                    practiceIndex = 0;
+                    score = 0;
+                    streak = 0;
+
+                    updateHeaderStats();
+                    updateFrontPageUI();
+                    updateFlashcardUI();
+                    renderEditorLists();
+                    loadFrontPageForm();
+                    document.getElementById('quiz-complete').classList.add('hidden');
+                    document.getElementById('quiz-container').classList.remove('hidden');
+                    document.getElementById('sc-complete').classList.add('hidden');
+                    document.getElementById('sc-container').classList.remove('hidden');
+                    document.getElementById('pr-complete').classList.add('hidden');
+                    document.getElementById('practice-container').classList.remove('hidden');
+
+                    showStatus(`✅ Imported successfully — ${flashcards.length} flashcards, ${quizQuestions.length} quiz questions, ${scenariosData.length} scenarios, ${practiceExercises.length} practice exercises loaded.`, true);
+                } catch (err) {
+                    showStatus('⚠ Could not import that file: ' + err.message, false);
+                } finally {
+                    input.value = '';
+                }
+            };
+            reader.onerror = function() {
+                showStatus('⚠ Could not read that file.', false);
+                input.value = '';
+            };
+            reader.readAsText(file);
+        }
+
+        function cleanCloneForExport(cloneDoc) {
+            cloneDoc.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            const learnTab = cloneDoc.querySelector('#tab-content-learn');
+            if (learnTab) learnTab.classList.remove('hidden');
+
+            cloneDoc.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('bg-amber-600', 'text-white', 'shadow-sm');
+                el.classList.add('text-slate-600', 'hover:bg-slate-100');
+            });
+            const learnBtn = cloneDoc.querySelector('#btn-learn');
+            if (learnBtn) {
+                learnBtn.classList.remove('text-slate-600', 'hover:bg-slate-100');
+                learnBtn.classList.add('bg-amber-600', 'text-white', 'shadow-sm');
+            }
+
+            const containersToClear = ['quiz-options', 'sc-options', 'pr-sentence-area', 'pr-word-bank'];
+            containersToClear.forEach(id => {
+                const el = cloneDoc.querySelector('#' + id);
+                if (el) el.innerHTML = '';
+            });
+
+            const elementsToHide = [
+                'quiz-feedback', 'quiz-next-btn', 'quiz-complete',
+                'sc-feedback', 'sc-next-btn', 'sc-complete',
+                'pr-feedback', 'pr-translation-reveal', 'pr-retry-btn', 'pr-next-btn', 'pr-complete'
+            ];
+            elementsToHide.forEach(id => {
+                const el = cloneDoc.querySelector('#' + id);
+                if (el) el.classList.add('hidden');
+            });
+
+            const elementsToShow = ['quiz-container', 'sc-container', 'practice-container', 'pr-check-btn'];
+            elementsToShow.forEach(id => {
+                const el = cloneDoc.querySelector('#' + id);
+                if (el) el.classList.remove('hidden');
+            });
+
+            const hScore = cloneDoc.querySelector('#header-score');
+            if (hScore) hScore.textContent = '0';
+            const hStreak = cloneDoc.querySelector('#header-streak');
+            if (hStreak) hStreak.textContent = '0';
+        }
+
+        function exportUpdatedFile() {
+            const cloneDoc = document.documentElement.cloneNode(true);
+            
+            cleanCloneForExport(cloneDoc);
+
+            const scripts = cloneDoc.querySelectorAll('script');
+
+            for (const s of scripts) {
+                if (s.textContent.includes('const defaultFlashcards')) {
+                    let code = s.textContent;
+
+                    // Robust replace
+                    function replaceConst(code, name, value) {
+                        const startToken = 'const ' + name + ' = ';
+                        const startIdx = code.indexOf(startToken);
+                        if (startIdx === -1) return code;
+                        let i = startIdx + startToken.length;
+                        while (i < code.length && /\s/.test(code[i])) i++;
+                        if (i >= code.length) return code;
+                        const openChar = code[i];
+                        if (openChar !== '{' && openChar !== '[') return code;
+                        const closeChar = openChar === '{' ? '}' : ']';
+                        let depth = 0;
+                        let inString = false;
+                        let stringChar = '';
+                        let escaped = false;
+                        for (; i < code.length; i++) {
+                            const ch = code[i];
+                            if (inString) {
+                                if (escaped) {
+                                    escaped = false;
+                                } else if (ch === '\\') {
+                                    escaped = true;
+                                } else if (ch === stringChar) {
+                                    inString = false;
+                                }
+                            } else {
+                                if (ch === '"' || ch === "'" || ch === '`') {
+                                    inString = true;
+                                    stringChar = ch;
+                                } else if (ch === openChar) {
+                                    depth++;
+                                } else if (ch === closeChar) {
+                                    depth--;
+                                    if (depth === 0) {
+                                        let end = i + 1;
+                                        while (end < code.length && /\s/.test(code[end])) end++;
+                                        if (end < code.length && code[end] === ';') end++;
+                                        const replacement = 'const ' + name + ' = ' + JSON.stringify(value, null, 8) + ';';
+                                        return code.slice(0, startIdx) + replacement + code.slice(end);
+                                    }
+                                }
+                            }
+                        }
+                        return code;
+                    }
+
+                    code = replaceConst(code, 'defaultFrontPage', frontPage);
+                    code = replaceConst(code, 'defaultFlashcards', flashcards);
+                    code = replaceConst(code, 'defaultQuizQuestions', quizQuestions);
+                    code = replaceConst(code, 'scenarios', scenariosData);
+                    code = replaceConst(code, 'defaultPracticeExercises', practiceExercises);
+
+                    s.textContent = code;
+                    break;
+                }
+            }
+
+            const blob = new Blob(['<!DOCTYPE html>\n' + cloneDoc.outerHTML], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'tibetan-possessive-master.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function exportStudentFile() {
+            const cloneDoc = document.documentElement.cloneNode(true);
+            
+            cleanCloneForExport(cloneDoc);
+
+            const scripts = cloneDoc.querySelectorAll('script');
+
+            for (const s of scripts) {
+                if (s.textContent.includes('const defaultFlashcards')) {
+                    let code = s.textContent;
+
+                    function replaceConst(code, name, value) {
+                        const startToken = 'const ' + name + ' = ';
+                        const startIdx = code.indexOf(startToken);
+                        if (startIdx === -1) return code;
+                        let i = startIdx + startToken.length;
+                        while (i < code.length && /\s/.test(code[i])) i++;
+                        if (i >= code.length) return code;
+                        const openChar = code[i];
+                        if (openChar !== '{' && openChar !== '[') return code;
+                        const closeChar = openChar === '{' ? '}' : ']';
+                        let depth = 0;
+                        let inString = false;
+                        let stringChar = '';
+                        let escaped = false;
+                        for (; i < code.length; i++) {
+                            const ch = code[i];
+                            if (inString) {
+                                if (escaped) {
+                                    escaped = false;
+                                } else if (ch === '\\') {
+                                    escaped = true;
+                                } else if (ch === stringChar) {
+                                    inString = false;
+                                }
+                            } else {
+                                if (ch === '"' || ch === "'" || ch === '`') {
+                                    inString = true;
+                                    stringChar = ch;
+                                } else if (ch === openChar) {
+                                    depth++;
+                                } else if (ch === closeChar) {
+                                    depth--;
+                                    if (depth === 0) {
+                                        let end = i + 1;
+                                        while (end < code.length && /\s/.test(code[end])) end++;
+                                        if (end < code.length && code[end] === ';') end++;
+                                        const replacement = 'const ' + name + ' = ' + JSON.stringify(value, null, 8) + ';';
+                                        return code.slice(0, startIdx) + replacement + code.slice(end);
+                                    }
+                                }
+                            }
+                        }
+                        return code;
+                    }
+
+                    code = replaceConst(code, 'defaultFrontPage', frontPage);
+                    code = replaceConst(code, 'defaultFlashcards', flashcards);
+                    code = replaceConst(code, 'defaultQuizQuestions', quizQuestions);
+                    code = replaceConst(code, 'scenarios', scenariosData);
+                    code = replaceConst(code, 'defaultPracticeExercises', practiceExercises);
+
+                    s.textContent = code;
+                    break;
+                }
+            }
+
+            // Remove Editor entirely for the student copy
+            const editorBtn = cloneDoc.querySelector('#btn-editor');
+            if (editorBtn) editorBtn.remove();
+            const editorTab = cloneDoc.querySelector('#tab-content-editor');
+            if (editorTab) editorTab.remove();
+
+            const footer = cloneDoc.querySelector('footer p');
+            if (footer) footer.textContent = 'Tibetan Pronoun + To Have Interactive Learning Game • Student Version';
+
+            const blob = new Blob(['<!DOCTYPE html>\n' + cloneDoc.outerHTML], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'tibetan-possessive-student.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        window.onload = function() {
+            try {
+                // Initialize UI
+                updateHeaderStats();
+                updateFrontPageUI();
+                updateFlashcardUI();
+                
+                // Safe check: Only attempt to reset editor forms if the Editor actually exists in the file
+                if (document.getElementById('edit-pr-index')) {
+                    resetPracticeForm();
+                }
+            } catch (error) {
+                console.error("Silent startup recovery: ", error);
+            } finally {
+                // Guaranteed safety net: Force visible UI to the default 'Learn' tab regardless of background errors
+                switchTab('learn'); 
+                applyVisibilitySettings();
+            }
+        };
+    </script>
+
+</body></html>
