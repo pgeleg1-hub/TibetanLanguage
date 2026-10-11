@@ -356,7 +356,7 @@
     </main>
 
     <footer class="text-center py-6 text-xs text-slate-400 border-t border-slate-100 bg-white/50">
-        <p id="footer-text">Tibetan Pronoun + Verb Interactive Learning Game • Fully Editable &amp; Exportable • Student Version</p>
+        <p id="footer-text">Tibetan Pronoun + Verb + Aux. Verb Interactive Learning Game • Fully Editable &amp; Exportable • Student Version</p>
     </footer>
 
     <script>
@@ -395,7 +395,7 @@
         const defaultFrontPage = {
     "headerMainTitle": "Tibetan Three Tenses",
     "headerSubTitle": "འདས། ད་ལྟ། མ་འོངས།",
-    "footerText": "Tibetan Pronoun + Verb Interactive Learning Game • Fully Editable & Exportable",
+    "footerText": "Tibetan Pronoun + Verb + Aux. Verb Interactive Learning Game • Fully Editable & Exportable",
     "masterFileName": "tibetan-3-tenses-master",
     "studentFileName": "tibetan-3-tenses-student",
     "title": "Understanding the Three Tenses in Tibetan",
@@ -2928,9 +2928,9 @@
             const inputTitle = document.getElementById('input-front-title');
             if (!inputTitle) return;
             
-            document.getElementById('input-header-main-title').value = f.headerMainTitle || "Tibetan Pronoun + To Have";
-            document.getElementById('input-header-sub-title').value = f.headerSubTitle || "ཡོད། མེད། འདུག མི་འདུག ཡོད་རེད། ཡོད་མ་རེད།";
-            document.getElementById('input-footer-text').value = f.footerText || "Tibetan Pronoun + To Have Interactive Learning Game • Fully Editable & Exportable";
+            document.getElementById('input-header-main-title').value = f.headerMainTitle || "Tibetan Pronoun + Verb + Aux. Verb";
+            document.getElementById('input-header-sub-title').value = f.headerSubTitle || "ཡིན། སོང་། ཡོད། འདུག རེད།";
+            document.getElementById('input-footer-text').value = f.footerText || "Tibetan Pronoun + Verb + Aux. Verb Interactive Learning Game • Fully Editable & Exportable";
             document.getElementById('input-export-master-filename').value = f.masterFileName || "tibetan-3-tenses-master";
             document.getElementById('input-export-student-filename').value = f.studentFileName || "tibetan-3-tenses-student";
             
@@ -3036,12 +3036,12 @@
             const f = frontPage;
             
             const headerMain = document.getElementById('header-main-title');
-            if (headerMain) headerMain.textContent = f.headerMainTitle || "Tibetan Pronoun + To Have";
+            if (headerMain) headerMain.textContent = f.headerMainTitle || "Tibetan Pronoun + Verb + Aux. Verb";
             const headerSub = document.getElementById('header-sub-title');
-            if (headerSub) headerSub.textContent = f.headerSubTitle || "ཡོད། མེད། འདུག མི་འདུག ཡོད་རེད། ཡོད་མ་རེད།";
+            if (headerSub) headerSub.textContent = f.headerSubTitle || "ཡིན། སོང་། ཡོད། འདུག རེད།";
 
             const footer = document.getElementById('footer-text');
-            if (footer) footer.textContent = f.footerText || "Tibetan Pronoun + To Have Interactive Learning Game • Fully Editable & Exportable";
+            if (footer) footer.textContent = f.footerText || "Tibetan Pronoun + Verb + Aux. Verb Interactive Learning Game • Fully Editable & Exportable";
 
             const masterInput = document.getElementById('input-export-master-filename');
             if (masterInput) masterInput.value = f.masterFileName || "tibetan-3-tenses-master";
@@ -4143,7 +4143,7 @@
             if (editorTab) editorTab.remove();
 
             const footer = cloneDoc.querySelector('#footer-text');
-            if (footer) footer.textContent = (frontPage.footerText || 'Tibetan Pronoun + To Have Interactive Learning Game') + ' • Student Version';
+            if (footer) footer.textContent = (frontPage.footerText || 'Tibetan Pronoun + Verb + Aux. Verb Interactive Learning Game') + ' • Student Version';
 
             const blob = new Blob(['<!DOCTYPE html>\n' + cloneDoc.outerHTML], { type: 'text/html' });
             const url = URL.createObjectURL(blob);
