@@ -184,7 +184,7 @@
     </div>
     
     <!-- INGREDIENT BUTTONS GRID -->
-    <div id="ingredientsGrid" class="grid grid-cols-3 gap-2 md:gap-3"><button class="p-2.5 rounded-2xl border-2 text-center flex flex-col items-center justify-center transition-all border-amber-300 hover:border-amber-500 active:scale-95 shadow-md hover-wiggle" style="background-color: rgb(244, 164, 241);"><span class="text-[11px] font-bold text-amber-900 truncate w-full mb-0.5">Noun: Tibetan</span><span class="text-xl md:text-2xl font-tibetan font-extrabold text-amber-950 my-1 leading-normal">བོད་པ་</span><span class="text-[11px] font-bold text-amber-700 italic">(boe-pa)</span></button><button class="p-2.5 rounded-2xl border-2 text-center flex flex-col items-center justify-center transition-all border-amber-300 hover:border-amber-500 active:scale-95 shadow-md hover-wiggle" style="background-color: rgb(245, 122, 134);"><span class="text-[11px] font-bold text-amber-900 truncate w-full mb-0.5">Helping Verb: am</span><span class="text-xl md:text-2xl font-tibetan font-extrabold text-amber-950 my-1 leading-normal">ཡིན།</span><span class="text-[11px] font-bold text-amber-700 italic">(yin)</span></button><button class="p-2.5 rounded-2xl border-2 text-center flex flex-col items-center justify-center transition-all border-amber-300 hover:border-amber-500 active:scale-95 shadow-md hover-wiggle" style="background-color: rgb(240, 201, 173);"><span class="text-[11px] font-bold text-amber-900 truncate w-full mb-0.5">Pronoun: I</span><span class="text-xl md:text-2xl font-tibetan font-extrabold text-amber-950 my-1 leading-normal">ང་</span><span class="text-[11px] font-bold text-amber-700 italic">(nga)</span></button></div>
+    <div id="ingredientsGrid" class="grid grid-cols-3 gap-2 md:gap-3"><button class="p-2.5 rounded-2xl border-2 text-center flex flex-col items-center justify-center transition-all border-amber-300 hover:border-amber-500 active:scale-95 shadow-md hover-wiggle" style="background-color: rgb(244, 164, 241);"><span class="text-[11px] font-bold text-amber-900 truncate w-full mb-0.5">Noun: Tibetan</span><span class="text-xl md:text-2xl font-tibetan font-extrabold text-amber-950 my-1 leading-normal">བོད་པ་</span><span class="text-[11px] font-bold text-amber-700 italic">(boe-pa)</span></button><button class="p-2.5 rounded-2xl border-2 text-center flex flex-col items-center justify-center transition-all border-amber-300 hover:border-amber-500 active:scale-95 shadow-md hover-wiggle" style="background-color: rgb(240, 201, 173);"><span class="text-[11px] font-bold text-amber-900 truncate w-full mb-0.5">Pronoun: I</span><span class="text-xl md:text-2xl font-tibetan font-extrabold text-amber-950 my-1 leading-normal">ང་</span><span class="text-[11px] font-bold text-amber-700 italic">(nga)</span></button><button class="p-2.5 rounded-2xl border-2 text-center flex flex-col items-center justify-center transition-all border-amber-300 hover:border-amber-500 active:scale-95 shadow-md hover-wiggle" style="background-color: rgb(245, 122, 134);"><span class="text-[11px] font-bold text-amber-900 truncate w-full mb-0.5">Helping Verb: am</span><span class="text-xl md:text-2xl font-tibetan font-extrabold text-amber-950 my-1 leading-normal">ཡིན།</span><span class="text-[11px] font-bold text-amber-700 italic">(yin)</span></button></div>
   </footer>
 
   <!-- CUSTOM THEMED ALERT MODAL -->
@@ -341,7 +341,7 @@
         </div>
 
         <div class="bg-amber-50 rounded-2xl p-3 border-2 border-amber-200">
-          <h3 id="formTitle" class="font-bold text-amber-900 text-sm mb-2">➕ Add New Sentence</h3>
+          <h3 id="formTitle" class="font-bold text-amber-900 text-sm mb-2">✏️ Edit Sentence #8</h3>
           
           <div class="space-y-3">
             <div>
@@ -396,9 +396,53 @@
         <select class="layer-case col-span-2 text-[10px] p-1 border rounded-lg bg-blue-50 font-bold text-blue-900">
           <option value="pronoun" selected="">🏷️ Pronoun</option><option value="noun">🏷️ Noun</option><option value="adjective">🏷️ Adjective</option><option value="adverb">🏷️ Adverb</option><option value="verb">🏷️ Verb</option><option value="preposition">🏷️ Preposition</option><option value="article">🏷️ Article</option><option value="helping verb">🏷️ Helping Verb</option><option value="auxverb">🏷️ Aux. Verb</option>
         </select>
-        <input type="text" placeholder="Tibetan" value="" class="layer-tibetan font-tibetan col-span-2 text-xs p-1 border rounded-lg">
-        <input type="text" placeholder="Wylie" value="" class="layer-wylie col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Tibetan" value="ང་" class="layer-tibetan font-tibetan col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Wylie" value="nga" class="layer-wylie col-span-2 text-xs p-1 border rounded-lg">
         <input type="text" placeholder="Meaning" value="I" class="layer-english col-span-1 text-xs p-1 border rounded-lg">
+        
+        <div class="col-span-1 flex items-center justify-center space-x-1">
+          <button type="button" onclick="recordWordAudio(this)" class="btn-word-rec bg-red-500 hover:opacity-90 text-white font-bold p-1 rounded-lg text-[10px] shadow" title="Record word audio">
+            🎙️
+          </button>
+          <button type="button" onclick="clearWordAudio(this)" class="btn-word-del hidden bg-gray-400 hover:bg-gray-500 text-white font-bold p-1 rounded-lg text-[10px] shadow" title="Delete word recording">
+            🗑️
+          </button>
+        </div>
+
+        <button type="button" onclick="this.parentElement.remove()" class="col-span-1 text-red-500 font-bold text-center">✕</button>
+      </div><div draggable="true" data-audio-url="" class="layer-row grid grid-cols-12 gap-1 items-center bg-white p-2 rounded-xl border border-gray-200 transition shadow-sm">
+        <span class="drag-handle col-span-1 text-gray-400 font-bold text-center text-sm">⋮⋮</span>
+        <select class="layer-type col-span-2 text-[10px] p-1 border rounded-lg bg-gray-50 font-bold" onchange="onLayerTypeChange(this)">
+          <option value="topBun">🍞 Top Bun</option><option value="tomato">🍅 Tomato</option><option value="cheese">🧀 Cheese</option><option value="patty">🥩 Patty</option><option value="lettuce" selected="">🥬 Lettuce</option><option value="gherkin">🖼️ Gherkin</option><option value="bottomBun">🍞 Bottom Bun</option><option value="onion">🧅 Onion</option><option value="cabbage">🥬 Cabbage</option><option value="salami">🍕 Salami</option><option value="ham">🥓 Ham</option><option value="cucumber">🥒 Cucumber</option>
+        </select>
+        <select class="layer-case col-span-2 text-[10px] p-1 border rounded-lg bg-blue-50 font-bold text-blue-900">
+          <option value="pronoun">🏷️ Pronoun</option><option value="noun" selected="">🏷️ Noun</option><option value="adjective">🏷️ Adjective</option><option value="adverb">🏷️ Adverb</option><option value="verb">🏷️ Verb</option><option value="preposition">🏷️ Preposition</option><option value="article">🏷️ Article</option><option value="helping verb">🏷️ Helping Verb</option><option value="auxverb">🏷️ Aux. Verb</option>
+        </select>
+        <input type="text" placeholder="Tibetan" value="ཕྲུ་གུ་" class="layer-tibetan font-tibetan col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Wylie" value="tru-gu" class="layer-wylie col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Meaning" value="chiild" class="layer-english col-span-1 text-xs p-1 border rounded-lg">
+        
+        <div class="col-span-1 flex items-center justify-center space-x-1">
+          <button type="button" onclick="recordWordAudio(this)" class="btn-word-rec bg-red-500 hover:opacity-90 text-white font-bold p-1 rounded-lg text-[10px] shadow" title="Record word audio">
+            🎙️
+          </button>
+          <button type="button" onclick="clearWordAudio(this)" class="btn-word-del hidden bg-gray-400 hover:bg-gray-500 text-white font-bold p-1 rounded-lg text-[10px] shadow" title="Delete word recording">
+            🗑️
+          </button>
+        </div>
+
+        <button type="button" onclick="this.parentElement.remove()" class="col-span-1 text-red-500 font-bold text-center">✕</button>
+      </div><div draggable="true" data-audio-url="" class="layer-row grid grid-cols-12 gap-1 items-center bg-white p-2 rounded-xl border border-gray-200 transition shadow-sm">
+        <span class="drag-handle col-span-1 text-gray-400 font-bold text-center text-sm">⋮⋮</span>
+        <select class="layer-type col-span-2 text-[10px] p-1 border rounded-lg bg-gray-50 font-bold" onchange="onLayerTypeChange(this)">
+          <option value="topBun">🍞 Top Bun</option><option value="tomato">🍅 Tomato</option><option value="cheese" selected="">🧀 Cheese</option><option value="patty">🥩 Patty</option><option value="lettuce">🥬 Lettuce</option><option value="gherkin">🖼️ Gherkin</option><option value="bottomBun">🍞 Bottom Bun</option><option value="onion">🧅 Onion</option><option value="cabbage">🥬 Cabbage</option><option value="salami">🍕 Salami</option><option value="ham">🥓 Ham</option><option value="cucumber">🥒 Cucumber</option>
+        </select>
+        <select class="layer-case col-span-2 text-[10px] p-1 border rounded-lg bg-blue-50 font-bold text-blue-900">
+          <option value="pronoun">🏷️ Pronoun</option><option value="noun">🏷️ Noun</option><option value="adjective" selected="">🏷️ Adjective</option><option value="adverb">🏷️ Adverb</option><option value="verb">🏷️ Verb</option><option value="preposition">🏷️ Preposition</option><option value="article">🏷️ Article</option><option value="helping verb">🏷️ Helping Verb</option><option value="auxverb">🏷️ Aux. Verb</option>
+        </select>
+        <input type="text" placeholder="Tibetan" value="ཡ་རབས་" class="layer-tibetan font-tibetan col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Wylie" value="ya-rab" class="layer-wylie col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Meaning" value="well-behaved" class="layer-english col-span-1 text-xs p-1 border rounded-lg">
         
         <div class="col-span-1 flex items-center justify-center space-x-1">
           <button type="button" onclick="recordWordAudio(this)" class="btn-word-rec bg-red-500 hover:opacity-90 text-white font-bold p-1 rounded-lg text-[10px] shadow" title="Record word audio">
@@ -416,11 +460,55 @@
           <option value="topBun">🍞 Top Bun</option><option value="tomato" selected="">🍅 Tomato</option><option value="cheese">🧀 Cheese</option><option value="patty">🥩 Patty</option><option value="lettuce">🥬 Lettuce</option><option value="gherkin">🖼️ Gherkin</option><option value="bottomBun">🍞 Bottom Bun</option><option value="onion">🧅 Onion</option><option value="cabbage">🥬 Cabbage</option><option value="salami">🍕 Salami</option><option value="ham">🥓 Ham</option><option value="cucumber">🥒 Cucumber</option>
         </select>
         <select class="layer-case col-span-2 text-[10px] p-1 border rounded-lg bg-blue-50 font-bold text-blue-900">
-          <option value="pronoun">🏷️ Pronoun</option><option value="noun" selected="">🏷️ Noun</option><option value="adjective">🏷️ Adjective</option><option value="adverb">🏷️ Adverb</option><option value="verb">🏷️ Verb</option><option value="preposition">🏷️ Preposition</option><option value="article">🏷️ Article</option><option value="helping verb">🏷️ Helping Verb</option><option value="auxverb">🏷️ Aux. Verb</option>
+          <option value="pronoun">🏷️ Pronoun</option><option value="noun">🏷️ Noun</option><option value="adjective" selected="">🏷️ Adjective</option><option value="adverb">🏷️ Adverb</option><option value="verb">🏷️ Verb</option><option value="preposition">🏷️ Preposition</option><option value="article">🏷️ Article</option><option value="helping verb">🏷️ Helping Verb</option><option value="auxverb">🏷️ Aux. Verb</option>
         </select>
-        <input type="text" placeholder="Tibetan" value="" class="layer-tibetan font-tibetan col-span-2 text-xs p-1 border rounded-lg">
-        <input type="text" placeholder="Wylie" value="" class="layer-wylie col-span-2 text-xs p-1 border rounded-lg">
-        <input type="text" placeholder="Meaning" value="student" class="layer-english col-span-1 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Tibetan" value="སྤྱང་པོ་" class="layer-tibetan font-tibetan col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Wylie" value="tchang-po" class="layer-wylie col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Meaning" value="clever" class="layer-english col-span-1 text-xs p-1 border rounded-lg">
+        
+        <div class="col-span-1 flex items-center justify-center space-x-1">
+          <button type="button" onclick="recordWordAudio(this)" class="btn-word-rec bg-red-500 hover:opacity-90 text-white font-bold p-1 rounded-lg text-[10px] shadow" title="Record word audio">
+            🎙️
+          </button>
+          <button type="button" onclick="clearWordAudio(this)" class="btn-word-del hidden bg-gray-400 hover:bg-gray-500 text-white font-bold p-1 rounded-lg text-[10px] shadow" title="Delete word recording">
+            🗑️
+          </button>
+        </div>
+
+        <button type="button" onclick="this.parentElement.remove()" class="col-span-1 text-red-500 font-bold text-center">✕</button>
+      </div><div draggable="true" data-audio-url="" class="layer-row grid grid-cols-12 gap-1 items-center bg-white p-2 rounded-xl border border-gray-200 transition shadow-sm">
+        <span class="drag-handle col-span-1 text-gray-400 font-bold text-center text-sm">⋮⋮</span>
+        <select class="layer-type col-span-2 text-[10px] p-1 border rounded-lg bg-gray-50 font-bold" onchange="onLayerTypeChange(this)">
+          <option value="topBun">🍞 Top Bun</option><option value="tomato">🍅 Tomato</option><option value="cheese">🧀 Cheese</option><option value="patty">🥩 Patty</option><option value="lettuce">🥬 Lettuce</option><option value="gherkin" selected="">🖼️ Gherkin</option><option value="bottomBun">🍞 Bottom Bun</option><option value="onion">🧅 Onion</option><option value="cabbage">🥬 Cabbage</option><option value="salami">🍕 Salami</option><option value="ham">🥓 Ham</option><option value="cucumber">🥒 Cucumber</option>
+        </select>
+        <select class="layer-case col-span-2 text-[10px] p-1 border rounded-lg bg-blue-50 font-bold text-blue-900">
+          <option value="pronoun">🏷️ Pronoun</option><option value="noun">🏷️ Noun</option><option value="adjective" selected="">🏷️ Adjective</option><option value="adverb">🏷️ Adverb</option><option value="verb">🏷️ Verb</option><option value="preposition">🏷️ Preposition</option><option value="article">🏷️ Article</option><option value="helping verb">🏷️ Helping Verb</option><option value="auxverb">🏷️ Aux. Verb</option>
+        </select>
+        <input type="text" placeholder="Tibetan" value="ཡག་པོ་" class="layer-tibetan font-tibetan col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Wylie" value="yag-po" class="layer-wylie col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Meaning" value="good" class="layer-english col-span-1 text-xs p-1 border rounded-lg">
+        
+        <div class="col-span-1 flex items-center justify-center space-x-1">
+          <button type="button" onclick="recordWordAudio(this)" class="btn-word-rec bg-red-500 hover:opacity-90 text-white font-bold p-1 rounded-lg text-[10px] shadow" title="Record word audio">
+            🎙️
+          </button>
+          <button type="button" onclick="clearWordAudio(this)" class="btn-word-del hidden bg-gray-400 hover:bg-gray-500 text-white font-bold p-1 rounded-lg text-[10px] shadow" title="Delete word recording">
+            🗑️
+          </button>
+        </div>
+
+        <button type="button" onclick="this.parentElement.remove()" class="col-span-1 text-red-500 font-bold text-center">✕</button>
+      </div><div draggable="true" data-audio-url="" class="layer-row grid grid-cols-12 gap-1 items-center bg-white p-2 rounded-xl border border-gray-200 transition shadow-sm">
+        <span class="drag-handle col-span-1 text-gray-400 font-bold text-center text-sm">⋮⋮</span>
+        <select class="layer-type col-span-2 text-[10px] p-1 border rounded-lg bg-gray-50 font-bold" onchange="onLayerTypeChange(this)">
+          <option value="topBun">🍞 Top Bun</option><option value="tomato">🍅 Tomato</option><option value="cheese" selected="">🧀 Cheese</option><option value="patty">🥩 Patty</option><option value="lettuce">🥬 Lettuce</option><option value="gherkin">🖼️ Gherkin</option><option value="bottomBun">🍞 Bottom Bun</option><option value="onion">🧅 Onion</option><option value="cabbage">🥬 Cabbage</option><option value="salami">🍕 Salami</option><option value="ham">🥓 Ham</option><option value="cucumber">🥒 Cucumber</option>
+        </select>
+        <select class="layer-case col-span-2 text-[10px] p-1 border rounded-lg bg-blue-50 font-bold text-blue-900">
+          <option value="pronoun">🏷️ Pronoun</option><option value="noun">🏷️ Noun</option><option value="adjective">🏷️ Adjective</option><option value="adverb">🏷️ Adverb</option><option value="verb">🏷️ Verb</option><option value="preposition">🏷️ Preposition</option><option value="article" selected="">🏷️ Article</option><option value="helping verb">🏷️ Helping Verb</option><option value="auxverb">🏷️ Aux. Verb</option>
+        </select>
+        <input type="text" placeholder="Tibetan" value="ཞིག་" class="layer-tibetan font-tibetan col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Wylie" value="zhig" class="layer-wylie col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Meaning" value="a" class="layer-english col-span-1 text-xs p-1 border rounded-lg">
         
         <div class="col-span-1 flex items-center justify-center space-x-1">
           <button type="button" onclick="recordWordAudio(this)" class="btn-word-rec bg-red-500 hover:opacity-90 text-white font-bold p-1 rounded-lg text-[10px] shadow" title="Record word audio">
@@ -438,10 +526,10 @@
           <option value="topBun">🍞 Top Bun</option><option value="tomato">🍅 Tomato</option><option value="cheese">🧀 Cheese</option><option value="patty">🥩 Patty</option><option value="lettuce">🥬 Lettuce</option><option value="gherkin">🖼️ Gherkin</option><option value="bottomBun" selected="">🍞 Bottom Bun</option><option value="onion">🧅 Onion</option><option value="cabbage">🥬 Cabbage</option><option value="salami">🍕 Salami</option><option value="ham">🥓 Ham</option><option value="cucumber">🥒 Cucumber</option>
         </select>
         <select class="layer-case col-span-2 text-[10px] p-1 border rounded-lg bg-blue-50 font-bold text-blue-900">
-          <option value="pronoun">🏷️ Pronoun</option><option value="noun">🏷️ Noun</option><option value="adjective">🏷️ Adjective</option><option value="adverb">🏷️ Adverb</option><option value="verb">🏷️ Verb</option><option value="preposition">🏷️ Preposition</option><option value="article">🏷️ Article</option><option value="helping verb">🏷️ Helping Verb</option><option value="auxverb" selected="">🏷️ Aux. Verb</option>
+          <option value="pronoun">🏷️ Pronoun</option><option value="noun">🏷️ Noun</option><option value="adjective">🏷️ Adjective</option><option value="adverb">🏷️ Adverb</option><option value="verb">🏷️ Verb</option><option value="preposition">🏷️ Preposition</option><option value="article">🏷️ Article</option><option value="helping verb" selected="">🏷️ Helping Verb</option><option value="auxverb">🏷️ Aux. Verb</option>
         </select>
-        <input type="text" placeholder="Tibetan" value="" class="layer-tibetan font-tibetan col-span-2 text-xs p-1 border rounded-lg">
-        <input type="text" placeholder="Wylie" value="" class="layer-wylie col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Tibetan" value="ཡིན།" class="layer-tibetan font-tibetan col-span-2 text-xs p-1 border rounded-lg">
+        <input type="text" placeholder="Wylie" value="yin" class="layer-wylie col-span-2 text-xs p-1 border rounded-lg">
         <input type="text" placeholder="Meaning" value="am" class="layer-english col-span-1 text-xs p-1 border rounded-lg">
         
         <div class="col-span-1 flex items-center justify-center space-x-1">
@@ -1019,7 +1107,8 @@
         "layerCategory": "Top Bread",
         "tibetan": "མོ་",
         "phonetic": "mo",
-        "english": "She"
+        "english": "She",
+        "audioUrl": null
       },
       {
         "type": "tomato",
@@ -1027,15 +1116,17 @@
         "layerCategory": "Ingredient",
         "tibetan": "ཨ་མ་ལགས་",
         "phonetic": "ama-la",
-        "english": "mother"
+        "english": "mother",
+        "audioUrl": null
       },
       {
         "type": "bottomBun",
         "grammarCase": "helping verb",
         "layerCategory": "Bottom Bread",
         "tibetan": "རེད།",
-        "phonetic": "red",
-        "english": "is/are"
+        "phonetic": "re",
+        "english": "is/are",
+        "audioUrl": null
       }
     ]
   },
