@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="bo" class="h-full bg-amber-50/40">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tibetan Fill-in-the-Blank Exercise (Student)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Serif+Tibetan:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config={theme:{extend:{fontFamily:{sans:['Fredoka','sans-serif'],tibetan:['\"Noto Serif Tibetan\"','\"Microsoft Himalaya\"','\"Jomolhari\"','serif']},colors:{brand:{cream:'#FFFDF9',orange:'#FF8A5B',maroon:'#8B263E',yellow:'#FFD166',mint:'#06D6A0',borderOrange:'#F4A261',borderMaroon:'#9B2226'}}}}};
+</script>
+<style>
+.tibetan-text{font-family:'Noto Serif Tibetan','Microsoft Himalaya','Jomolhari',serif;line-height:1.8!important;padding-top:.25em;padding-bottom:.25em}
+.drop-zone-active{background-color:#FEF3C7!important;border-color:#F59E0B!important;transform:scale(1.03)}
+.confetti-burst-particle{position:absolute;width:8px;height:8px;border-radius:50%;pointer-events:none;animation:particleFly .8s ease-out forwards;z-index:60}
+@keyframes particleFly{0%{transform:translate(0,0) scale(1.2);opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(.2);opacity:0}}
+</style>
+</head>
+<body class="h-full text-slate-800 font-sans flex flex-col justify-between selection:bg-amber-200" onclick="unlockAudioContext()" onkeydown="unlockAudioContext()">
+<header class="bg-amber-100/70 border-b-2 border-amber-200/80 sticky top-0 z-30 backdrop-blur-md px-4 py-3 shadow-sm">
+<div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-brand-orange text-white rounded-2xl flex items-center justify-center text-lg font-bold shadow-md transform -rotate-3">༄</div>
+<div><h1 class="text-xl md:text-2xl font-bold text-amber-950 tracking-wide flex items-center gap-2"><span>བོད་སྐད་ སྦྱོང་བརྡར།།</span><span class="text-xs bg-amber-200 text-amber-900 px-2.5 py-0.5 rounded-full font-semibold">Tibetan Practice</span></h1>
+<p class="text-xs text-amber-800/80 font-medium">Click or drag words to fill in the missing blanks!</p></div></div>
+<div class="flex items-center flex-wrap gap-2">
+<label class="flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-amber-50 border border-amber-300 rounded-xl text-xs font-semibold text-amber-900 cursor-pointer select-none"><input type="checkbox" id="toggleWylieChk" checked onchange="toggleWylieDisplay(this.checked)" class="w-3.5 h-3.5 text-brand-orange rounded border-amber-300" /><span>Wylie</span></label>
+<label class="flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-amber-50 border border-amber-300 rounded-xl text-xs font-semibold text-amber-900 cursor-pointer select-none"><input type="checkbox" id="toggleEnglishChk" checked onchange="toggleEnglishDisplay(this.checked)" class="w-3.5 h-3.5 text-brand-orange rounded border-amber-300" /><span>English</span></label>
+</div></div></header>
+<main class="max-w-6xl mx-auto w-full px-4 py-6 flex-grow">
+<div class="mb-6 bg-gradient-to-r from-amber-100/90 via-orange-50/80 to-amber-100/90 border border-amber-200/90 rounded-2xl p-4 flex items-center gap-4 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-white text-brand-orange flex items-center justify-center text-lg flex-shrink-0 shadow-sm font-bold">💡</div>
+<div class="text-xs md:text-sm text-amber-950 leading-relaxed"><strong>How to play:</strong> Click or drag any Tibetan word chip from the word bank to fill in a blank space. Hover over any word to see its English meaning! Click a placed word inside a blank box to return it to the word bank.</div></div>
+<div class="mb-4 flex justify-between items-center bg-white/80 border border-amber-200/80 rounded-2xl p-3 shadow-xs">
+<button id="prevBtn" onclick="changePage(-1)" class="px-4 py-2 bg-amber-100 hover:bg-amber-200 disabled:opacity-40 text-amber-950 rounded-xl font-bold text-xs transition">⬅️ Previous</button>
+<div id="pageProgressText" class="text-xs md:text-sm font-bold text-amber-950 tracking-wide text-center">Exercise 1 of 1</div>
+<button id="nextBtn" onclick="changePage(1)" class="px-4 py-2 bg-brand-orange hover:bg-orange-600 disabled:opacity-40 text-white rounded-xl font-bold text-xs transition shadow-sm">Next ➡️</button>
+</div><div id="exerciseContainer" class="space-y-6"></div></main>
+<footer class="bg-amber-100/50 border-t border-amber-200/60 py-4 text-center text-xs text-amber-800/80 mt-8">
+<div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-2">
+<span>བོད་སྐད་ སློབ་སྦྱོང་། • Children's Tibetan Language Exercise (Student Version)</span>
+<button onclick="resetAllExercises()" class="text-amber-900 underline font-semibold hover:text-brand-orange">🔄 Reset All Answers</button>
+</div></footer>
+<div id="celebrationModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[60] hidden flex items-center justify-center p-4">
+<div id="celebrationCard" class="bg-brand-cream border-2 border-amber-300 rounded-3xl shadow-2xl max-w-md w-full p-8 text-center relative overflow-hidden transform scale-95 transition-transform duration-300">
+<div class="text-6xl mb-4 animate-bounce">🎉</div>
+<h2 class="text-2xl md:text-3xl font-bold text-amber-950 mb-2">ཡག་པོ་བྱུང་།</h2>
+<p class="text-lg font-semibold text-brand-maroon mb-1">Excellent work!</p>
+<p class="text-sm text-amber-800 mb-6 leading-relaxed">You completed every exercise. Keep practising — you are doing a fantastic job learning Tibetan!</p>
+<button onclick="closeCelebrationModal()" class="px-6 py-2.5 bg-brand-orange hover:bg-orange-600 text-white rounded-xl font-bold text-sm shadow transition">Continue ✨</button>
+</div></div>
+<script>
+const DEFAULT_DATA = [{"id":"pair_1","questions":[{"fullText":"ཁྱེད་རང་ སུ་ ཡིན།","translation":"Who are you?","words":[{"id":"questions_0_0_w1791974037646_1","text":"སུ་","wylie":"su","english":"who","isBlank":true,"audioUrl":null},{"id":"questions_0_0_w1791974036277_0","text":"ཁྱེད་རང་","wylie":"khye-rang","english":"you (s)","isBlank":true,"audioUrl":null},{"id":"questions_0_0_w1791974040582_2","text":"ཡིན།","wylie":"yin","english":"are","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791975600004_2qra2","text":"ཡོད།","wylie":"yoe","english":"has/have"},{"id":"dist_1791975614225_2hgke","text":"འདུག","wylie":"dug","english":"has/have"}]}],"answers":[{"fullText":"ང་ མ་བྱན་ ཡིན།","translation":"I am a cook/chef.","words":[{"id":"answers_0_0_w1791974088871_1","text":"མ་བྱན་","wylie":"ma-jen","english":"cook/chef","isBlank":true,"audioUrl":null},{"id":"answers_0_0_w1791974090991_2","text":"ཡིན།","wylie":"yin","english":"am","isBlank":true,"audioUrl":null},{"id":"answers_0_0_w1791974086071_0","text":"ང་","wylie":"nga","english":"I","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791976601385_8t8ye","text":"འདུག","wylie":"dug","english":"has/have"},{"id":"dist_1791976608899_zzxs2","text":"ཡོད།","wylie":"yoe","english":"has/have"}]},{"fullText":"ང་ ལ་ སྣོད་ཆས་ ཡོད།","translation":"I have a pot.","words":[{"id":"answers_0_1_w1791974138473_1","text":"ལ་","wylie":"la","english":"to","isBlank":true,"audioUrl":null},{"id":"answers_0_1_w1791974137576_0","text":"ང་","wylie":"nga","english":"I","isBlank":true,"audioUrl":null},{"id":"answers_0_1_w1791974204435_3","text":"ཡོད།","wylie":"yoe","english":"have","isBlank":true,"audioUrl":null},{"id":"answers_0_1_w1791974207115_2","text":"སྣོད་ཆས་","wylie":"noe-che","english":"pot","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791976640406_g2n0q","text":"ཡིན།","wylie":"yin","english":"am"},{"id":"dist_1791976641398_nabdf","text":"རེད།","wylie":"re","english":"is"}]}]},{"id":"pair_2","questions":[{"fullText":"ང་ སུ་ ཪེད།","translation":"Who am I?","words":[{"id":"questions_1_0_w1791974402865_2","text":"ཪེད།","wylie":"re","english":"am","isBlank":true,"audioUrl":null},{"id":"questions_1_0_w1791974388320_0","text":"ང་","wylie":"nga","english":"I","isBlank":true,"audioUrl":null},{"id":"questions_1_0_w1791974402865_1","text":"སུ་","wylie":"su","english":"who","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791976673128_rm9zm","text":"འདུག","wylie":"dug","english":"has/have"},{"id":"dist_1791976673972_f5ls7","text":"ཡོད།","wylie":"yoe","english":"has/have"}]}],"answers":[{"fullText":"ཁྱེད་རང་ བོད་པ་ རེད།","translation":"You are Tibetan.","words":[{"id":"answers_1_0_w1791975001521_1","text":"བོད་པ་","wylie":"boe-pa","english":"Tibetan","isBlank":true,"audioUrl":null},{"id":"answers_1_0_w1791974999161_0","text":"ཁྱེད་རང་","wylie":"khye-rang","english":"you (s)","isBlank":true,"audioUrl":null},{"id":"answers_1_0_w1791975005425_2","text":"རེད།","wylie":"re","english":"are","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791976698069_3qi2v","text":"ཡོད།","wylie":"yoe","english":"has/have"},{"id":"dist_1791976698642_c98q4","text":"འདུག","wylie":"dug","english":"has/have"}]},{"fullText":"ཁྱེད་རང་ ལ་ སྐད་ཡིག་ ཡོད།","translation":"You have a language.","words":[{"id":"answers_1_1_w1791975147294_1","text":"ལ་","wylie":"la","english":"to","isBlank":true,"audioUrl":null},{"id":"answers_1_1_w1791975152502_3","text":"ཡོད།","wylie":"yoe","english":"have","isBlank":true,"audioUrl":null},{"id":"answers_1_1_w1791975149230_2","text":"སྐད་ཡིག་","wylie":"ke-yig","english":"language","isBlank":true,"audioUrl":null},{"id":"answers_1_1_w1791975146294_0","text":"ཁྱེད་རང་","wylie":"khye-rang","english":"you (s)","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791976720397_jddgq","text":"ཡིན།","wylie":"yin","english":"am"},{"id":"dist_1791976720887_n28xq","text":"རེད།","wylie":"re","english":"is"}]}]},{"id":"pair_1791977147491","questions":[{"fullText":"ཁོ་ སུ་ རེད།","translation":"Who is he?","words":[{"id":"questions_2_0_w1791977153727_0","text":"ཁོ་","wylie":"kho","english":"he","isBlank":true,"audioUrl":null},{"id":"questions_2_0_w1791977157592_2","text":"རེད།","wylie":"re","english":"is","isBlank":true,"audioUrl":null},{"id":"questions_2_0_w1791977155593_1","text":"སུ་","wylie":"su","english":"who","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791977187950_6gtm8","text":"འདུག","wylie":"dug","english":"has/have"},{"id":"dist_1791977189968_nhdrs","text":"ཡོད།","wylie":"yoe","english":"has/have"}]}],"answers":[{"fullText":"ཁོ་ རྒན་ལགས་ རེད།","translation":"He is a teacher.","words":[{"id":"answers_2_0_w1791977216233_0","text":"ཁོ་","wylie":"kho","english":"he","isBlank":true,"audioUrl":null},{"id":"answers_2_0_w1791977226738_2","text":"རེད།","wylie":"re","english":"is","isBlank":true,"audioUrl":null},{"id":"answers_2_0_w1791977222953_1","text":"རྒན་ལགས་","wylie":"gen-la","english":"teacher","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791977255579_x497c","text":"འདུག","wylie":"dug","english":"has/have"},{"id":"dist_1791977256097_xrhd0","text":"ཡོད།","wylie":"yoe","english":"has/have"}]},{"fullText":"ཁོ་ ལ་ གློག་ཀླད་ ཡོད།","translation":"He has a computer.","words":[{"id":"answers_2_1_w1791977323165_0","text":"ཁོ་","wylie":"kho","english":"he","isBlank":true,"audioUrl":null},{"id":"answers_2_1_w1791977376534_3","text":"ཡོད།","wylie":"yoe","english":"have","isBlank":true,"audioUrl":null},{"id":"answers_2_1_w1791977373766_2","text":"གློག་ཀླད་","wylie":"log-le","english":"computer","isBlank":true,"audioUrl":null},{"id":"answers_2_1_w1791977323965_1","text":"ལ་","wylie":"la","english":"to","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791977422412_0ge7r","text":"རེད།","wylie":"re","english":"is"},{"id":"dist_1791977422816_m2mam","text":"ཡིན།","wylie":"yin","english":"am"}]}]},{"id":"pair_1791977555804","questions":[{"fullText":"མོ་ སུ་ རེད།","translation":"Who is she?","words":[{"id":"questions_3_0_w1791977563476_0","text":"མོ་","wylie":"mo","english":"she","isBlank":true,"audioUrl":null},{"id":"questions_3_0_w1791977566373_2","text":"རེད།","wylie":"re","english":"is","isBlank":true,"audioUrl":null},{"id":"questions_3_0_w1791977564348_1","text":"སུ་","wylie":"su","english":"who","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791977596235_bz79t","text":"འདུག","wylie":"dug","english":"has/have"},{"id":"dist_1791977597549_25pzv","text":"ཡོད།","wylie":"yoe","english":"has/have"}]}],"answers":[{"fullText":"མོ་ སློབ་ཕྲུག་ རེད།","translation":"She is a student.","words":[{"id":"answers_3_0_w1791977621321_1","text":"སློབ་ཕྲུག་","wylie":"lob-trug","english":"student","isBlank":true,"audioUrl":null},{"id":"answers_3_0_w1791977623374_2","text":"རེད།","wylie":"re","english":"is","isBlank":true,"audioUrl":null},{"id":"answers_3_0_w1791977617334_0","text":"མོ་","wylie":"mo","english":"she","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791977659254_3r91l","text":"ཡོད།","wylie":"yoe","english":"has/have"},{"id":"dist_1791977659964_u2y5u","text":"འདུག","wylie":"dug","english":"has/have"}]},{"fullText":"མོ་ ལ་ ཀློག་དེབ་ ཡོད།","translation":"She has a reading book.","words":[{"id":"answers_3_1_w1791977732538_2","text":"ཀློག་དེབ་","wylie":"log-deb","english":"reading book","isBlank":true,"audioUrl":null},{"id":"answers_3_1_w1791977714177_0","text":"མོ་","wylie":"mo","english":"she","isBlank":true,"audioUrl":null},{"id":"answers_3_1_w1791977727306_3","text":"ཡོད།","wylie":"yoe","english":"have","isBlank":true,"audioUrl":null},{"id":"answers_3_1_w1791977715641_1","text":"ལ་","wylie":"la","english":"to","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791977774980_w0t7a","text":"རེད།","wylie":"re","english":"is"},{"id":"dist_1791977775496_zd9gi","text":"ཡིན།","wylie":"yin","english":"am"}]}]},{"id":"pair_1791977687961","questions":[{"fullText":"ང་ཚོ་ སུ་ རེད།","translation":"Who are we?","words":[{"id":"questions_4_0_w1791977841989_1","text":"སུ་","wylie":"su","english":"who","isBlank":true,"audioUrl":null},{"id":"questions_4_0_w1791977838701_0","text":"ང་ཚོ་","wylie":"nga-tso","english":"we","isBlank":true,"audioUrl":null},{"id":"questions_4_0_w1791977844021_2","text":"རེད།","wylie":"re","english":"are","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791977871208_017z9","text":"ཡོད།","wylie":"yoe","english":"has/have"},{"id":"dist_1791977871744_49o7r","text":"འདུག","wylie":"dug","english":"has/have"}]}],"answers":[{"fullText":"ཁྱེད་རང་ཚོ་ ཕྲུ་གུ་ རེད།","translation":"You are children.","words":[{"id":"answers_4_0_w1791977907271_0","text":"ཁྱེད་རང་ཚོ་","wylie":"khye-rang-tso","english":"you (p)","isBlank":true,"audioUrl":null},{"id":"answers_4_0_w1791977927464_2","text":"རེད།","wylie":"re","english":"are","isBlank":true,"audioUrl":null},{"id":"answers_4_0_w1791977946585_1","text":"ཕྲུ་གུ་","wylie":"tru-gu","english":"children","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791977982559_ru13w","text":"འདུག","wylie":"dug","english":"has/have"},{"id":"dist_1791977983000_9m1ee","text":"ཡོད།","wylie":"yoe","english":"has/have"}]},{"fullText":"ཁྱེད་རང་ཚོ་ ལ་ རྩེད་ཆས་ ཡོད།","translation":"You (p) have toys.","words":[{"id":"answers_4_1_w1791978180255_2","text":"རྩེད་ཆས་","wylie":"tse-che","english":"toys","isBlank":true,"audioUrl":null},{"id":"answers_4_1_w1791978173231_0","text":"ཁྱེད་རང་ཚོ་","wylie":"khye-rang-tso","english":"you (p)","isBlank":true,"audioUrl":null},{"id":"answers_4_1_w1791978182343_3","text":"ཡོད།","wylie":"yoe","english":"have","isBlank":true,"audioUrl":null},{"id":"answers_4_1_w1791978173848_1","text":"ལ་","wylie":"la","english":"to","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791978217445_91idd","text":"ཡིན།","wylie":"yin","english":"am"},{"id":"dist_1791978218048_uukvx","text":"རེད།","wylie":"re","english":"is"}]}]},{"id":"pair_1791978269117","questions":[{"fullText":"ཁོང་ཚོ་ སུ་ རེད།","translation":"Who are they?","words":[{"id":"questions_5_0_w1791978362741_1","text":"སུ་","wylie":"su","english":"who","isBlank":true,"audioUrl":null},{"id":"questions_5_0_w1791978364821_2","text":"རེད།","wylie":"re","english":"are","isBlank":true,"audioUrl":null},{"id":"questions_5_0_w1791978361461_0","text":"ཁོང་ཚོ་","wylie":"khong-tso","english":"they","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791978387504_1bwnj","text":"འདུག","wylie":"dug","english":"has/have"},{"id":"dist_1791978388240_chboj","text":"ཡོད།","wylie":"yoe","english":"has/have"}]}],"answers":[{"fullText":"ཁོང་ཚོ་ སྦྲག་པ་ རེད།","translation":"They are postmen.","words":[{"id":"answers_5_0_w1791978423855_0","text":"ཁོང་ཚོ་","wylie":"khong-tso","english":"they","isBlank":true,"audioUrl":null},{"id":"answers_5_0_w1791978460080_2","text":"རེད།","wylie":"re","english":"are","isBlank":true,"audioUrl":null},{"id":"answers_5_0_w1791978457824_1","text":"སྦྲག་པ་","wylie":"drag-pa","english":"postmen/man","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791978501580_tjhyu","text":"ཡོད།","wylie":"yoe","english":"has/have"},{"id":"dist_1791978502782_625ge","text":"འདུག","wylie":"dug","english":"has/have"}]},{"fullText":"ཁོང་ཚོ་ ལ་ ཡི་གེ་ ཡོད།","translation":"They have letters.","words":[{"id":"answers_5_1_w1791978706585_1","text":"ལ་","wylie":"la","english":"to","isBlank":true,"audioUrl":null},{"id":"answers_5_1_w1791978705711_0","text":"ཁོང་ཚོ་","wylie":"khong-tso","english":"they","isBlank":true,"audioUrl":null},{"id":"answers_5_1_w1791978710460_3","text":"ཡོད།","wylie":"yoe","english":"have","isBlank":true,"audioUrl":null},{"id":"answers_5_1_w1791978708376_2","text":"ཡི་གེ་","wylie":"yi-ge","english":"letters","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791978741324_96lqh","text":"ཡིན།","wylie":"yin","english":"am"},{"id":"dist_1791978741768_kv7z4","text":"རེད།","wylie":"re","english":"is"}]}]},{"id":"pair_1791978859542","questions":[{"fullText":"ཁྱེད་རང་ཚོ་ སུ་ ཡིན།","translation":"Who are you (p)?","words":[{"id":"questions_6_0_w1791978878933_2","text":"ཡིན།","wylie":"yin","english":"are","isBlank":true,"audioUrl":null},{"id":"questions_6_0_w1791978877074_1","text":"སུ་","wylie":"su","english":"who","isBlank":true,"audioUrl":null},{"id":"questions_6_0_w1791978875856_0","text":"ཁྱེད་རང་ཚོ་","wylie":"khye-rang-tso","english":"you (p)","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791978909563_lyhgh","text":"འདུག","wylie":"dug","english":"has/have"},{"id":"dist_1791978910163_8zaqb","text":"ཡོད།","wylie":"yoe","english":"has/have"}]}],"answers":[{"fullText":"ང་ཚོ་ འབྲོག་པ་ ཡིན།","translation":"We are nomads.","words":[{"id":"answers_6_0_w1791978962267_0","text":"ང་ཚོ་","wylie":"nga-tso","english":"we","isBlank":true,"audioUrl":null},{"id":"answers_6_0_w1791978989974_2","text":"ཡིན།","wylie":"yin","english":"are","isBlank":true,"audioUrl":null},{"id":"answers_6_0_w1791978988160_1","text":"འབྲོག་པ་","wylie":"drog-pa","english":"nomad","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791979017401_k7kw8","text":"ཡོད།","wylie":"yoe","english":"has/have"},{"id":"dist_1791979017859_kq2mj","text":"འདུག","wylie":"dug","english":"has/have"}]},{"fullText":"ང་ཚོ་ ལ་ གཡག་ ཡོད།","translation":"We have a Yak.","words":[{"id":"answers_6_1_w1791979287361_1","text":"ལ་","wylie":"la","english":"to","isBlank":true,"audioUrl":null},{"id":"answers_6_1_w1791979285037_0","text":"ང་ཚོ་","wylie":"nga-tso","english":"we","isBlank":true,"audioUrl":null},{"id":"answers_6_1_w1791979291377_3","text":"ཡོད།","wylie":"yoe","english":"have","isBlank":true,"audioUrl":null},{"id":"answers_6_1_w1791979289541_2","text":"གཡག་","wylie":"yak","english":"Yak","isBlank":true,"audioUrl":null}],"distractors":[{"id":"dist_1791979349017_mgsv4","text":"ཡིན།","wylie":"yin","english":"am"},{"id":"dist_1791979349669_8e88c","text":"རེད།","wylie":"re","english":"is"}]}]}];
+
+let appData = JSON.parse(JSON.stringify(DEFAULT_DATA));
+let currentPageIndex = 0, showWylie = true, showEnglish = true;
+let userAnswers = {}, sentenceSuccessStates = {}, pendingConfettiSectionId = null, audioCtx = null;
+
+function unlockAudioContext() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+}
+function playSuccessChime() {
+  try {
+    unlockAudioContext();
+    const now = audioCtx.currentTime;
+    [523.25, 659.25, 783.99].forEach((freq, idx) => {
+      const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, now + idx * 0.1);
+      gain.gain.setValueAtTime(0.25, now + idx * 0.1);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.1 + 0.35);
+      osc.connect(gain); gain.connect(audioCtx.destination);
+      osc.start(now + idx * 0.1); osc.stop(now + idx * 0.1 + 0.35);
+    });
+  } catch (e) {}
+}
+function playErrorSound() {
+  try {
+    unlockAudioContext();
+    const now = audioCtx.currentTime;
+    const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(220, now);
+    osc.frequency.exponentialRampToValueAtTime(130, now + 0.25);
+    gain.gain.setValueAtTime(0.18, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+    osc.connect(gain); gain.connect(audioCtx.destination);
+    osc.start(now); osc.stop(now + 0.25);
+  } catch (e) {}
+}
+function triggerCardConfetti(sectionId) {
+  setTimeout(() => {
+    const cardEl = document.getElementById('card_' + sectionId);
+    if (!cardEl) return;
+    const colors = ['#06D6A0', '#FF8A5B', '#FFD166', '#4EA8DE', '#8B263E', '#22C55E'];
+    for (let i = 0; i < 35; i++) {
+      const p = document.createElement('div');
+      p.className = 'confetti-burst-particle';
+      p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      p.style.left = '50%'; p.style.top = '40%';
+      const angle = Math.random() * Math.PI * 2, velocity = 45 + Math.random() * 85;
+      p.style.setProperty('--tx', (Math.cos(angle) * velocity) + 'px');
+      p.style.setProperty('--ty', (Math.sin(angle) * velocity) + 'px');
+      cardEl.appendChild(p);
+      setTimeout(() => p.remove(), 800);
+    }
+  }, 50);
+}
+function normalizeTokens(str) { return (str || '').trim().split(/\s+/).filter(Boolean); }
+function shuffleArray(arr){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=a[i];a[i]=a[j];a[j]=t}return a}
+function getWordsInFullTextOrder(sentenceData) {
+  const tokens = normalizeTokens(sentenceData.fullText || '');
+  const available = (sentenceData.words || []).slice();
+  const ordered = [];
+  tokens.forEach(token => {
+    const idx = available.findIndex(w => w.text === token);
+    if (idx !== -1) { ordered.push(available[idx]); available.splice(idx, 1); }
+    else ordered.push({ id: 'auto_' + token, text: token, wylie: '', english: '', isBlank: false, audioUrl: null });
+  });
+  available.forEach(w => ordered.push(w));
+  return ordered;
+}
+function isCurrentExerciseComplete() {
+  if (!appData || !appData[currentPageIndex]) return true;
+  const pair = appData[currentPageIndex];
+  const qs = pair.questions || [];
+  const as_ = pair.answers || [];
+  if (qs.length === 0 && as_.length === 0) return true;
+  return qs.every((_, i) => sentenceSuccessStates[pair.id + '_question_' + i] === true) &&
+         as_.every((_, i) => sentenceSuccessStates[pair.id + '_answer_' + i] === true);
+}
+function changePage(direction) {
+  const newIndex = currentPageIndex + direction;
+  if (newIndex >= 0 && newIndex < appData.length) {
+    if (direction > 0 && !isCurrentExerciseComplete()) return;
+    currentPageIndex = newIndex;
+    renderExercises();
+  }
+}
+function toggleWylieDisplay(c) { showWylie = c; renderExercises(); }
+function toggleEnglishDisplay(c) { showEnglish = c; renderExercises(); }
+function renderExercises() {
+  const container = document.getElementById('exerciseContainer');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const pageProgressText = document.getElementById('pageProgressText');
+  if (!container) return;
+  container.innerHTML = '';
+  if (!appData || appData.length === 0) {
+    pageProgressText.innerText = 'Total: 0 Exercises';
+    prevBtn.disabled = true; nextBtn.disabled = true;
+    container.innerHTML = '<div class="text-center py-12 bg-white rounded-3xl border-2 border-dashed border-amber-200"><p class="text-amber-900 font-bold">No exercises available.</p></div>';
+    return;
+  }
+  if (currentPageIndex < 0) currentPageIndex = 0;
+  if (currentPageIndex >= appData.length) currentPageIndex = appData.length - 1;
+  prevBtn.disabled = (currentPageIndex === 0);
+  const atLast = currentPageIndex === appData.length - 1;
+  const done = isCurrentExerciseComplete();
+  nextBtn.disabled = atLast || !done;
+  nextBtn.title = (!atLast && !done) ? 'Complete both the Question and Answer correctly to continue' : '';
+  pageProgressText.innerText = 'Exercise ' + (currentPageIndex + 1) + ' of ' + appData.length + ' (Total: ' + appData.length + ')';
+  const pair = appData[currentPageIndex];
+  const pairCard = document.createElement('div');
+  pairCard.className = 'bg-brand-cream border-2 border-amber-200/90 rounded-3xl p-5 md:p-6 shadow-md relative overflow-visible';
+  const qCards = (pair.questions || []).map((q, qi) => renderSentenceCard(pair, 'question', qi, 'border-brand-borderOrange', 'bg-amber-100/50', 'text-amber-900', (pair.questions.length > 1 ? '❓ QUESTION ' + (qi + 1) : '❓ QUESTION'))).join('');
+  const aCards = (pair.answers || []).map((a, ai) => renderSentenceCard(pair, 'answer', ai, 'border-brand-borderMaroon', 'bg-rose-100/50', 'text-rose-900', (pair.answers.length > 1 ? '💬 ANSWER ' + (ai + 1) : '💬 ANSWER'))).join('');
+  pairCard.innerHTML = '<div class="flex items-center justify-between mb-4 pb-2 border-b border-amber-200/60"><span class="text-xs font-bold text-amber-800 tracking-wider uppercase">💬 DIALOGUE PAIR #' + (currentPageIndex + 1) + '</span></div><div class="grid grid-cols-1 lg:grid-cols-2 gap-6"><div class="space-y-4">' + qCards + '</div><div class="space-y-4">' + aCards + '</div></div>';
+  container.appendChild(pairCard);
+  if (pendingConfettiSectionId) {
+    const id = pendingConfettiSectionId;
+    pendingConfettiSectionId = null;
+    setTimeout(() => triggerCardConfetti(id), 30);
+  }
+}
+function renderSentenceCard(pair, type, index, borderColorClass, badgeBgClass, badgeTextClass, label) {
+  const list = type === 'question' ? (pair.questions || []) : (pair.answers || []);
+  const sentenceData = list[index];
+  if (!sentenceData) return '';
+  const sectionId = pair.id + '_' + type + '_' + index;
+  const orderedWords = getWordsInFullTextOrder(sentenceData);
+  const blankWords = (sentenceData.words || []).filter(w => w.isBlank);
+  const isCorrect = sentenceSuccessStates[sectionId] === true;
+  const allFilled = blankWords.length > 0 && blankWords.every(w => !!userAnswers['dz_' + sectionId + '_' + w.id]);
+  const isIncorrect = allFilled && !isCorrect;
+  let html = '<div id="card_' + sectionId + '" class="bg-white/90 border-l-8 ' + borderColorClass + ' border-t-2 border-r-2 border-b-2 border-amber-200/70 rounded-2xl p-4 md:p-5 shadow-sm flex flex-col justify-between space-y-4 relative overflow-visible">';
+  html += '<div><div class="flex justify-between items-start gap-2 mb-3">';
+  html += '<span class="inline-flex items-center gap-1.5 ' + badgeBgClass + ' ' + badgeTextClass + ' text-xs font-bold px-3 py-1 rounded-full border border-black/5 shadow-xs">' + label + '</span>';
+  if (showEnglish) html += '<span class="text-xs md:text-sm text-slate-500 italic font-medium text-right">&quot;' + (sentenceData.translation || '') + '&quot;</span>';
+  html += '</div><div class="flex flex-wrap items-center gap-2 py-3 px-3 bg-amber-50/40 rounded-xl border border-amber-100/80 min-h-[70px] relative">';
+  orderedWords.forEach(word => {
+    const zoneId = 'dz_' + sectionId + '_' + word.id;
+    if (word.isBlank) {
+      const placed = userAnswers[zoneId];
+      html += '<div id="' + zoneId + '" data-zone-id="' + zoneId + '" data-section-id="' + sectionId + '" onclick="handleDropZoneClick(\'' + zoneId + '\',\'' + sectionId + '\')" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event,\'' + sectionId + '\')" class="drop-zone inline-flex flex-col items-center justify-center min-w-[110px] min-h-[58px] border-2 border-dashed border-amber-400 bg-amber-50/80 rounded-2xl px-3 py-1 transition-all cursor-pointer relative hover:border-amber-500">';
+      html += placed ? renderPlacedChip(placed) : '<span class="text-xs text-amber-400 font-medium italic select-none">drop / tap</span>';
+      html += '</div>';
+    } else {
+      html += '<div class="inline-flex flex-col items-center justify-center px-1.5 py-1 group relative">';
+      html += '<span class="tibetan-text text-xl md:text-2xl font-bold text-slate-800 leading-normal">' + word.text + '</span>';
+      if (showWylie) html += '<span class="text-[11px] text-amber-800/70 font-mono -mt-1">' + (word.wylie || '') + '</span>';
+      if (showEnglish && word.english) html += '<div class="absolute bottom-full mb-1.5 hidden group-hover:block bg-slate-800 text-white text-[11px] px-2 py-0.5 rounded-md shadow-md whitespace-nowrap z-30 pointer-events-none">' + word.english + '</div>';
+      html += '</div>';
+    }
+  });
+  if (isCorrect) html += '<div class="ml-auto flex items-center justify-center w-9 h-9 bg-emerald-500 text-white rounded-full text-lg font-extrabold shadow-md border-2 border-emerald-600 flex-shrink-0">✓</div>';
+  else if (isIncorrect) html += '<div class="ml-auto flex items-center justify-center w-9 h-9 bg-rose-500 text-white rounded-full text-lg font-extrabold shadow-md border-2 border-rose-600 flex-shrink-0">✕</div>';
+  html += '</div></div>';
+  html += '<div class="bg-amber-100/40 border border-amber-200/80 rounded-2xl p-3"><div class="text-[11px] font-bold text-amber-800 uppercase tracking-wider mb-2 flex items-center justify-between"><span>📦 Word Bank</span><span class="text-[10px] text-amber-700/70 font-normal">Click or drag word to place</span></div><div class="flex flex-wrap items-center gap-2.5 min-h-[50px]">';
+  shuffleArray([...blankWords, ...(sentenceData.distractors || [])]).forEach(word => {
+    if (Object.values(userAnswers).some(a => a && a.id === word.id)) return;
+    html += renderDraggableChip(word, sectionId);
+  });
+  html += '</div></div></div>';
+  return html;
+}
+function renderDraggableChip(word, sectionId) {
+  let h = '<div id="chip_' + word.id + '" draggable="true" ondragstart="handleDragStart(event,\'' + word.id + '\',\'' + sectionId + '\')" onclick="handleWordBankTap(\'' + word.id + '\',\'' + sectionId + '\')" class="word-chip bg-white hover:bg-amber-50 border-2 border-amber-300 hover:border-brand-orange rounded-2xl px-3.5 py-1.5 shadow-sm hover:shadow cursor-pointer transition-all transform hover:-translate-y-0.5 flex flex-col items-center select-none group relative">';
+  h += '<div class="flex items-center gap-1.5"><span class="tibetan-text text-lg md:text-xl font-bold text-brand-maroon group-hover:text-amber-900 leading-snug">' + word.text + '</span></div>';
+  if (showWylie && word.wylie) h += '<span class="text-[11px] text-amber-800/80 font-mono -mt-1">' + word.wylie + '</span>';
+  if (showEnglish && word.english) h += '<div class="absolute bottom-full mb-1.5 hidden group-hover:block bg-slate-800 text-white text-[11px] px-2 py-0.5 rounded-md shadow-md whitespace-nowrap z-30 pointer-events-none">' + word.english + '</div>';
+  h += '</div>';
+  return h;
+}
+function renderPlacedChip(word) {
+  let h = '<div class="flex flex-col items-center justify-center w-full h-full cursor-pointer group relative">';
+  h += '<span class="tibetan-text text-lg md:text-xl font-bold text-brand-maroon leading-snug">' + word.text + '</span>';
+  if (showWylie && word.wylie) h += '<span class="text-[10px] text-amber-800 font-mono -mt-1">' + word.wylie + '</span>';
+  h += '</div>';
+  return h;
+}
+function handleWordBankTap(wordId, sectionId) {
+  unlockAudioContext();
+  const wordObj = findWordById(wordId);
+  if (!wordObj) return;
+  const emptyZones = document.querySelectorAll('.drop-zone[data-section-id="' + sectionId + '"]');
+  for (let zone of emptyZones) {
+    const zoneId = zone.dataset.zoneId;
+    if (!userAnswers[zoneId]) {
+      userAnswers[zoneId] = wordObj;
+      checkSentenceCompletion(sectionId);
+      renderExercises();
+      break;
+    }
+  }
+}
+function handleDropZoneClick(zoneId, sectionId) {
+  unlockAudioContext();
+  if (userAnswers[zoneId]) {
+    delete userAnswers[zoneId];
+    sentenceSuccessStates[sectionId] = false;
+    renderExercises();
+  }
+}
+function handleDragStart(event, wordId, sectionId) {
+  unlockAudioContext();
+  const wordObj = findWordById(wordId);
+  if (!wordObj) return;
+  event.dataTransfer.setData('text/plain', JSON.stringify({ word: wordObj, sectionId: sectionId }));
+}
+function handleDragOver(e) { e.preventDefault(); e.currentTarget.classList.add('drop-zone-active'); }
+function handleDragLeave(e) { e.currentTarget.classList.remove('drop-zone-active'); }
+function handleDrop(event, sectionId) {
+  event.preventDefault();
+  const dropZone = event.currentTarget;
+  dropZone.classList.remove('drop-zone-active');
+  const raw = event.dataTransfer.getData('text/plain');
+  if (!raw) return;
+  try {
+    const parsed = JSON.parse(raw);
+    userAnswers[dropZone.dataset.zoneId] = parsed.word;
+    checkSentenceCompletion(sectionId);
+    renderExercises();
+  } catch (e) {}
+}
+function checkSentenceCompletion(sectionId) {
+  let pairId, type, index;
+  const qMarker = '_question_', aMarker = '_answer_';
+  let markerPos = sectionId.lastIndexOf(qMarker);
+  if (markerPos !== -1) {
+    pairId = sectionId.slice(0, markerPos); type = 'question';
+    index = parseInt(sectionId.slice(markerPos + qMarker.length), 10);
+  } else {
+    markerPos = sectionId.lastIndexOf(aMarker);
+    if (markerPos === -1) return;
+    pairId = sectionId.slice(0, markerPos); type = 'answer';
+    index = parseInt(sectionId.slice(markerPos + aMarker.length), 10);
+  }
+  if (isNaN(index)) return;
+  const pair = appData.find(p => p.id === pairId);
+  if (!pair) return;
+  const list = type === 'question' ? (pair.questions || []) : (pair.answers || []);
+  const sentence = list[index];
+  if (!sentence) return;
+  const words = sentence.words || [];
+  const blankWords = words.filter(w => w.isBlank);
+  if (blankWords.length === 0) return;
+  const expected = normalizeTokens(sentence.fullText);
+  const orderedWords = getWordsInFullTextOrder(sentence);
+  let allFilled = true;
+  const actual = orderedWords.map(w => {
+    if (!w.isBlank) return w.text;
+    const zoneId = 'dz_' + sectionId + '_' + w.id;
+    const placed = userAnswers[zoneId];
+    if (!placed) { allFilled = false; return null; }
+    return placed.text;
+  });
+  blankWords.forEach(w => { if (!userAnswers['dz_' + sectionId + '_' + w.id]) allFilled = false; });
+  const allCorrect = allFilled && actual.length === expected.length && actual.every((t, i) => t === expected[i]);
+  const wasAlready = sentenceSuccessStates[sectionId] === true;
+  sentenceSuccessStates[sectionId] = allCorrect;
+  if (allFilled) {
+    if (allCorrect) {
+      if (!wasAlready) {
+        playSuccessChime();
+        pendingConfettiSectionId = sectionId;
+        setTimeout(() => checkAndCelebrateAllComplete(), 400);
+      }
+    } else playErrorSound();
+  }
+}
+function areAllExercisesComplete() {
+  if (!appData || appData.length === 0) return false;
+  return appData.every(pair => {
+    const qs = pair.questions || [];
+    const as_ = pair.answers || [];
+    if (qs.length === 0 && as_.length === 0) return false;
+    return qs.every((_, i) => sentenceSuccessStates[pair.id + '_question_' + i] === true) &&
+           as_.every((_, i) => sentenceSuccessStates[pair.id + '_answer_' + i] === true);
+  });
+}
+let celebrationShown = false;
+function checkAndCelebrateAllComplete() {
+  if (celebrationShown) return;
+  if (!areAllExercisesComplete()) return;
+  celebrationShown = true;
+  showCelebrationModal();
+}
+function showCelebrationModal() {
+  const modal = document.getElementById('celebrationModal');
+  const card = document.getElementById('celebrationCard');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+  requestAnimationFrame(() => { if (card) card.style.transform = 'scale(1)'; });
+  playSuccessChime();
+  setTimeout(() => {
+    if (!card) return;
+    const colors = ['#06D6A0', '#FF8A5B', '#FFD166', '#4EA8DE', '#8B263E', '#22C55E', '#F59E0B'];
+    for (let i = 0; i < 50; i++) {
+      const p = document.createElement('div');
+      p.className = 'confetti-burst-particle';
+      p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      p.style.left = '50%'; p.style.top = '30%';
+      const angle = Math.random() * Math.PI * 2, velocity = 60 + Math.random() * 120;
+      p.style.setProperty('--tx', (Math.cos(angle) * velocity) + 'px');
+      p.style.setProperty('--ty', (Math.sin(angle) * velocity) + 'px');
+      card.appendChild(p);
+      setTimeout(() => p.remove(), 900);
+    }
+  }, 80);
+}
+function closeCelebrationModal() {
+  const modal = document.getElementById('celebrationModal');
+  const card = document.getElementById('celebrationCard');
+  if (card) card.style.transform = 'scale(0.95)';
+  if (modal) modal.classList.add('hidden');
+}
+function findWordById(wordId) {
+  for (let pair of appData) {
+    for (const list of [pair.questions || [], pair.answers || []]) {
+      for (const sent of list) {
+        if (sent.words) for (let w of sent.words) if (w.id === wordId) return w;
+        if (sent.distractors) for (let w of sent.distractors) if (w.id === wordId) return w;
+      }
+    }
+  }
+  return null;
+}
+function resetAllExercises() { userAnswers = {}; sentenceSuccessStates = {}; celebrationShown = false; renderExercises(); }
+function initApp() { if (currentPageIndex >= appData.length) currentPageIndex = 0; renderExercises(); }
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initApp);
+else initApp();
+
+</script>
+</body></html>
