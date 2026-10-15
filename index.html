@@ -45,12 +45,15 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       border-color: #cbd5e1;
     }
+    .card-folder {
+      border-left: 4px solid #2563eb;
+    }
     .title {
       font-weight: 600;
       font-size: 1.05rem;
       text-transform: capitalize;
     }
-    .path-tag {
+    .type-tag {
       font-size: 0.75rem;
       color: #64748b;
       font-weight: normal;
@@ -65,6 +68,10 @@
       border-radius: 9999px;
       font-weight: 500;
     }
+    .badge-folder {
+      background: #f1f5f9;
+      color: #475569;
+    }
     .loading {
       color: #94a3b8;
       font-style: italic;
@@ -74,78 +81,79 @@
 <body>
 
   <h1>Tibetan Language Exercises</h1>
-  <p>Select an interactive exercise to begin:</p>
+  <p>Select a category folder or individual exercise to begin:</p>
 
   <div id="exercise-list" class="exercise-list">
-    <div class="loading">Loading exercises...</div>
+    <div class="loading">Loading contents...</div>
   </div>
 
   <script>
     const username = 'pgeleg1-hub';
     const repo = 'TibetanLanguage';
 
-    // Helper function to scan folders recursively
-    async function fetchFilesFromPath(path = '') {
-      const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/${path}`);
-      const items = await response.json();
-      let htmlFiles = [];
-
-      for (const item of items) {
-        if (item.type === 'file' && item.name.endsWith('.html') && item.name.toLowerCase() !== 'index.html') {
-          htmlFiles.push(item);
-        } else if (item.type === 'dir') {
-          // Recursively scan inside subfolders
-          const subFiles = await fetchFilesFromPath(item.path);
-          htmlFiles = htmlFiles.concat(subFiles);
-        }
-      }
-      return htmlFiles;
-    }
-
-    async function loadExercises() {
+    async function loadContents() {
       const listContainer = document.getElementById('exercise-list');
       
       try {
-        const htmlFiles = await fetchFilesFromPath('');
+        // Fetch only root items (does NOT recursively scan inside folders)
+        const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/`);
+        const items = await response.json();
 
         listContainer.innerHTML = '';
 
-        if (htmlFiles.length === 0) {
-          listContainer.innerHTML = '<div>No exercises found.</div>';
+        // Separate folders and standalone HTML files
+        const folders = items.filter(item => item.type === 'dir');
+        const rootHtmlFiles = items.filter(item => 
+          item.type === 'file' && item.name.endsWith('.html') && item.name.toLowerCase() !== 'index.html'
+        );
+
+        if (folders.length === 0 && rootHtmlFiles.length === 0) {
+          listContainer.innerHTML = '<div>No folders or exercises found.</div>';
           return;
         }
 
-        htmlFiles.forEach(file => {
-          // Extract filename and folder path for display
-          const cleanTitle = file.name
-            .replace('.html', '')
-            .replace(/[-_]/g, ' ');
-
-          // Display folder location if inside a subfolder
-          const folderPath = file.path.includes('/') 
-            ? file.path.substring(0, file.path.lastIndexOf('/')) 
-            : '';
+        // 1. Render Folder Cards
+        folders.forEach(folder => {
+          const cleanName = folder.name.replace(/[-_]/g, ' ');
 
           const card = document.createElement('a');
-          card.href = file.path; // Relative link to file inside folder
+          // Clicking the folder link navigates directly into the folder's index page
+          card.href = `./${folder.name}/`;
+          card.className = 'card card-folder';
+          card.innerHTML = `
+            <div>
+              <span class="title">📁 ${cleanName}</span>
+              <span class="type-tag">Folder</span>
+            </div>
+            <span class="badge badge-folder">Open Folder</span>
+          `;
+          listContainer.appendChild(card);
+        });
+
+        // 2. Render Root File Cards (if any exist outside folders)
+        rootHtmlFiles.forEach(file => {
+          const cleanTitle = file.name.replace('.html', '').replace(/[-_]/g, ' ');
+
+          const card = document.createElement('a');
+          card.href = file.name;
           card.className = 'card';
           card.innerHTML = `
             <div>
               <span class="title">${cleanTitle}</span>
-              ${folderPath ? `<span class="path-tag">Folder: ${folderPath}</span>` : ''}
+              <span class="type-tag">Exercise File</span>
             </div>
-            <span class="badge">Open</span>
+            <span class="badge">Start</span>
           `;
           listContainer.appendChild(card);
         });
 
       } catch (error) {
         console.error('Error fetching repo contents:', error);
-        listContainer.innerHTML = '<div>Failed to load exercises. Please try refreshing.</div>';
+        listContainer.innerHTML = '<div>Failed to load contents. Please try refreshing.</div>';
       }
     }
 
-    loadExercises();
+    loadContents();
   </script>
 
 </body>
