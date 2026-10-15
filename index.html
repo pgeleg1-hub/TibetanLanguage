@@ -50,6 +50,13 @@
       font-size: 1.05rem;
       text-transform: capitalize;
     }
+    .path-tag {
+      font-size: 0.75rem;
+      color: #64748b;
+      font-weight: normal;
+      display: block;
+      margin-top: 2px;
+    }
     .badge {
       font-size: 0.85rem;
       background: #eff6ff;
@@ -74,43 +81,59 @@
   </div>
 
   <script>
-    // GitHub Repository details
     const username = 'pgeleg1-hub';
     const repo = 'TibetanLanguage';
+
+    // Helper function to scan folders recursively
+    async function fetchFilesFromPath(path = '') {
+      const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/${path}`);
+      const items = await response.json();
+      let htmlFiles = [];
+
+      for (const item of items) {
+        if (item.type === 'file' && item.name.endsWith('.html') && item.name.toLowerCase() !== 'index.html') {
+          htmlFiles.push(item);
+        } else if (item.type === 'dir') {
+          // Recursively scan inside subfolders
+          const subFiles = await fetchFilesFromPath(item.path);
+          htmlFiles = htmlFiles.concat(subFiles);
+        }
+      }
+      return htmlFiles;
+    }
 
     async function loadExercises() {
       const listContainer = document.getElementById('exercise-list');
       
       try {
-        // Fetch repo contents via GitHub API
-        const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/`);
-        const files = await response.json();
+        const htmlFiles = await fetchFilesFromPath('');
 
-        // Clear loading message
         listContainer.innerHTML = '';
-
-        // Filter out index.html and keep only .html files
-        const htmlFiles = files.filter(file => 
-          file.name.endsWith('.html') && file.name.toLowerCase() !== 'index.html'
-        );
 
         if (htmlFiles.length === 0) {
           listContainer.innerHTML = '<div>No exercises found.</div>';
           return;
         }
 
-        // Generate card links dynamically
         htmlFiles.forEach(file => {
-          // Format filename for display (e.g., "exercise-1.html" -> "Exercise 1")
+          // Extract filename and folder path for display
           const cleanTitle = file.name
             .replace('.html', '')
             .replace(/[-_]/g, ' ');
 
+          // Display folder location if inside a subfolder
+          const folderPath = file.path.includes('/') 
+            ? file.path.substring(0, file.path.lastIndexOf('/')) 
+            : '';
+
           const card = document.createElement('a');
-          card.href = file.name;
+          card.href = file.path; // Relative link to file inside folder
           card.className = 'card';
           card.innerHTML = `
-            <span class="title">${cleanTitle}</span>
+            <div>
+              <span class="title">${cleanTitle}</span>
+              ${folderPath ? `<span class="path-tag">Folder: ${folderPath}</span>` : ''}
+            </div>
             <span class="badge">Open</span>
           `;
           listContainer.appendChild(card);
@@ -122,7 +145,6 @@
       }
     }
 
-    // Run when page loads
     loadExercises();
   </script>
 
