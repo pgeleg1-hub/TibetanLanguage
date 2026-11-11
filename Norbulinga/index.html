@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Norbulinga Exercises</title>
+  <title>Class Exercises</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #f8fafc; color: #1e293b; max-width: 680px; margin: 40px auto; padding: 0 20px; }
     .back-btn { display: inline-block; margin-bottom: 20px; color: #2563eb; text-decoration: none; font-weight: 500; }
@@ -16,28 +16,71 @@
     .title { font-weight: 600; font-size: 1.05rem; }
     .type-tag { font-size: 0.75rem; color: #64748b; display: block; margin-top: 2px; }
     .badge { font-size: 0.85rem; background: #eff6ff; color: #2563eb; padding: 4px 10px; border-radius: 9999px; font-weight: 500; }
+    .loading { color: #64748b; font-style: italic; }
   </style>
 </head>
 <body>
   <a href="../" class="back-btn">← Back to Main Menu</a>
-  <h1>Norbulinga Exercises</h1>
+  <h1 id="folder-title">Exercises</h1>
   <p>Select an exercise to begin:</p>
-  <div class="exercise-list">
-    <a href="#" class="card">
-      <div>
-        <span class="title">Tibetan Pronouns Student Game (12)</span>
-        <span class="type-tag">Interactive Exercise</span>
-      </div>
-      <span class="badge">Start</span>
-    </a>
-    
-    <a href="#" class="card">
-      <div>
-        <span class="title">Tibetan Sentence Sandwich To Be</span>
-        <span class="type-tag">Interactive Exercise</span>
-      </div>
-      <span class="badge">Start</span>
-    </a>
+  
+  <div class="exercise-list" id="exercise-list">
+    <div class="loading">Loading exercises...</div>
   </div>
+
+  <script>
+    // Config: GitHub repository details
+    const REPO_OWNER = 'pgeleg1-hub';
+    const REPO_NAME = 'TibetanLanguage';
+
+    // Get current subfolder name from URL path
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const folderName = pathParts[pathParts.length - 1] || '';
+
+    document.getElementById('folder-title').textContent = decodeURIComponent(folderName.replace(/_/g, ' ')) + ' Exercises';
+
+    async function loadFolderFiles() {
+      const container = document.getElementById('exercise-list');
+      const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${folderName}`;
+
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error('Failed to fetch files');
+        const files = await response.json();
+
+        container.innerHTML = ''; // Clear loading text
+
+        // Filter out index.html and non-HTML files
+        const htmlFiles = files.filter(file => file.name.endsWith('.html') && file.name.toLowerCase() !== 'index.html');
+
+        if (htmlFiles.length === 0) {
+          container.innerHTML = '<p>No exercises uploaded yet.</p>';
+          return;
+        }
+
+        htmlFiles.forEach(file => {
+          // Format filename for display title (e.g. "Tibetan_Pronouns_Game.html" -> "Tibetan Pronouns Game")
+          const cleanTitle = file.name.replace(/\.html$/i, '').replace(/_/g, ' ');
+
+          const card = document.createElement('a');
+          card.href = `./${file.name}`;
+          card.className = 'card';
+          card.innerHTML = `
+            <div>
+              <span class="title">${cleanTitle}</span>
+              <span class="type-tag">Interactive Exercise</span>
+            </div>
+            <span class="badge">Start</span>
+          `;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        container.innerHTML = '<p style="color: #ef4444;">Error loading exercises. Please refresh.</p>';
+        console.error(err);
+      }
+    }
+
+    loadFolderFiles();
+  </script>
 </body>
 </html>
