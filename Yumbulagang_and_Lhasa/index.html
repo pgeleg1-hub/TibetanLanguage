@@ -29,11 +29,9 @@
   </div>
 
   <script>
-    // Config: GitHub repository details
     const REPO_OWNER = 'pgeleg1-hub';
     const REPO_NAME = 'TibetanLanguage';
 
-    // Get current subfolder name from URL path
     const pathParts = window.location.pathname.split('/').filter(Boolean);
     const folderName = pathParts[pathParts.length - 1] || '';
 
@@ -48,9 +46,8 @@
         if (!response.ok) throw new Error('Failed to fetch files');
         const files = await response.json();
 
-        container.innerHTML = ''; // Clear loading text
+        container.innerHTML = '';
 
-        // Filter out index.html and non-HTML files
         const htmlFiles = files.filter(file => file.name.endsWith('.html') && file.name.toLowerCase() !== 'index.html');
 
         if (htmlFiles.length === 0) {
@@ -59,11 +56,13 @@
         }
 
         htmlFiles.forEach(file => {
-          // Format filename for display title (e.g. "Tibetan_Pronouns_Game.html" -> "Tibetan Pronouns Game")
           const cleanTitle = file.name.replace(/\.html$/i, '').replace(/_/g, ' ');
 
           const card = document.createElement('a');
           card.href = `./${file.name}`;
+          // Opens link in a new tab securely
+          card.target = '_blank';
+          card.rel = 'noopener noreferrer';
           card.className = 'card';
           card.innerHTML = `
             <div>
